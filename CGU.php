@@ -1,5 +1,4 @@
-<?php
-require('decide-lang.php');?>
+<?php require('decide-lang.php'); ?>
 <!DOCTYPE html>
 <html>
 
