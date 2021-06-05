@@ -14,11 +14,11 @@
 
 
   	 if(isset($_COOKIE['lang'])) {
-	     $lang = "fr";
+	     $lang = "en";
   	 } else {
  	     // si aucune langue n'est déclarée on tente de reconnaitre la langue par défaut du navigateur
      //$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2);
-     $lang = "fr";
+     $lang = "en";
 
   }
  	 //script d'origine

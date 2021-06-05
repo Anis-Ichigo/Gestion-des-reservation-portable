@@ -99,7 +99,7 @@ define('TXT_REPONSE3_C', "sur l'emprunt dont vous souhaitez prolonger le contrat
 define('TXT_QUESTION4', 'Que faire en cas de dysfonctionnement de mon matériel?');
 define('TXT_REPONSE4_A', 'Lorsque le matériel ne fonctionne plus, ou présente un défaut de fonctionnement, il vous faut');
 define('TXT_REPONSE4_B', 'déclarer un problème');
-define('TXT_REPONSE4_C', "dans votre profil. Dans ce cas, une personne s'occupera de votre question. En effet, si la question peut être résolue à distance, la personne vous accompagnera dans la résolution jusqu'à aboutissement. Dans le cas contraire, la personne vous invitera à prendre un rendez-vous avec le / la secrétaire afin de vous remettre un nouvel exemplaire du matériel.");
+define('TXT_REPONSE4_C', "dans Mes reservations . Dans ce cas, une personne s'occupera de votre question. En effet, si la question peut être résolue à distance, la personne vous accompagnera dans la résolution jusqu'à aboutissement. Dans le cas contraire, la personne vous invitera à prendre un rendez-vous avec le / la secrétaire afin de vous remettre un nouvel exemplaire du matériel.");
 define('TXT_QUESTION5', "Relire l'avis de confidentialité des données");
 define('TXT_REPONSE5_A', "Veuillez trouver l'Avis de Confidentialité");
 define('TXT_REPONSE5_B', 'ici');

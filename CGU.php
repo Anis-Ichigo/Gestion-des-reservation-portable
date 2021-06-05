@@ -1,6 +1,5 @@
 <?php
-require('decide-lang.php');
- ?>
+require('decide-lang.php');?>
 <!DOCTYPE html>
 <html>
 
@@ -17,18 +16,18 @@ require('decide-lang.php');
 
 <body>
   <main>
-  <center><h1> <?php echo TXT_ACCUEIL_CGU;?> </h1></center>
-    <h2><?php echo CGU;?> </h2>
-      <b> <?php echo CGU1;?> </b> <?php echo CGU2;?></br>
+  <center>  <h1> <?php echo TXT_ACCUEIL_CGU;?> </h1></center>
+    <h2> <?php echo CGU;?> </h2>
+      <b> <?php echo CGU1;?> </b> <?php echo CGU2;?> </br>
       <b> <?php echo CGU3;?> </b> <?php echo CGU4;?> </br>
       <b> <?php echo CGU5;?> </b>  <?php echo CGU6;?></br>
       <b> <?php echo CGU7;?> </b>  <?php echo CGU8;?></br>
       <b> <?php echo CGU9;?> </b> <?php echo CGU10;?> </br>
-<?php echo CGU11;?>
+        <?php echo CGU11;?>
 
     <form>
       <center>
-        <input type = "button" value = "<?php echo TXT_RETOUR;?"  onclick = "history.go(-1)">
+        <input type = "button" value = "<?php echo TXT_RETOUR;?>"  onclick = "history.go(-1)">
       </center>
     </form>
   </main>
