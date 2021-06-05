@@ -1,0 +1,49 @@
+body {
+  background-color: white;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+.img_logo {
+  width: 100%;
+  margin-top: 2%;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 800%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#inscription{
+  font-size: 250%;
+}
+
+.formulaire{
+  border-collapse : separate;
+  border-spacing : 10px;
+}
+
+.legals_flex{
+  font-size: 250%;
+}
+
+#Boutons{
+  font-size: 250%;
+}
+
+input[type=checkbox]
+{
+  -ms-transform: scale(4);
+  -moz-transform: scale(4);
+  -webkit-transform: scale(4);
+  -o-transform: scale(4);
+  transform: scale(4);
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
