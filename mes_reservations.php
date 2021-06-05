@@ -70,7 +70,6 @@ require('decide-lang.php');
         $Prenom = $row['PrenomPe'];
 
         $Nom = $row['NomPe'];
-
     }
 
 
@@ -78,24 +77,21 @@ require('decide-lang.php');
     ?>
 
 
-<div class="mycharts-heading">
+    <div style="float: right; display:inline">
+        <div class="element-head">
 
-<div class="element-head" > <?php echo $row['PrenomPe']; ?> <?php echo $row['NomPe']; ?><button type="button" id="b1" class="btn btn-default btn-sm" ><i class="fi-rr-sign-out"></i></button></div>
+            <?php echo $row['PrenomPe']; ?> <?php echo $row['NomPe']; ?>
+            <a href="deconnexion.php" type="button" class="btn btn-default"><i class="fi-rr-sign-out"></i></a>
+        </div>
+    </div>
 
-</div>
-
-
-    <br><br>
-
-
-
-    <h2 class="text-center"><?php echo TXT_ACCUEIL_RESERVATION; ?></h2>
+    <div class="text-center">
+        <h2 style="display: inline;"><?php echo TXT_ACCUEIL_RESERVATION; ?></h2>
+    </div>
 
     <br>
 
     <Table class="table text-center">
-
-
 
         <TR>
 
@@ -189,13 +185,13 @@ require('decide-lang.php');
 
                     <td>
 
-                        <input type="submit" class="btn btn-primary" name="prolonger" value="<?php echo TXT_PROLONGER;?>">
+                        <input type="submit" class="btn btn-primary" name="prolonger" value="<?php echo TXT_PROLONGER; ?>">
 
                     </td>
 
                     <td colspan="2">
 
-                        <input type="submit" class="btn btn-primary" name="probleme" value="<?php echo TXT_PROBLEME;?>">
+                        <input type="submit" class="btn btn-primary" name="probleme" value="<?php echo TXT_PROBLEME; ?>">
 
                     </td>
 
@@ -273,7 +269,7 @@ require('decide-lang.php');
 
                                     <td>
 
-                                        <label><?php echo TXT_DATERS;?> : </label>
+                                        <label><?php echo TXT_DATERS; ?> : </label>
 
                                     </td>
 
@@ -293,9 +289,9 @@ require('decide-lang.php');
 
                             <div class="col text-center">
 
-                                <input type="submit" class="btn btn-primary" name="confirmer_prolongation" value="<?php echo TXT_CONFIRMER;?>">
+                                <input type="submit" class="btn btn-primary" name="confirmer_prolongation" value="<?php echo TXT_CONFIRMER; ?>">
 
-                                <input type="button" class="btn btn-secondary" onclick = "history.go(-1)" value="<?php echo TXT_ANNULER;?>">
+                                <input type="button" class="btn btn-secondary" onclick="history.go(-1)" value="<?php echo TXT_ANNULER; ?>">
                             </div>
 
                         </div>
@@ -317,7 +313,6 @@ require('decide-lang.php');
         });
 
     </script>";
-
     }
 
         ?>
@@ -374,7 +369,7 @@ require('decide-lang.php');
 
                                     <div>
 
-                                        <?php echo TXT_ALERTE_SUCCES_PROLONGATION;?>
+                                        <?php echo TXT_ALERTE_SUCCES_PROLONGATION; ?>
                                     </div>
 
                                 </div>
@@ -385,7 +380,7 @@ require('decide-lang.php');
 
                                 <div class="col text-center">
 
-                                    <input type="button" class="btn btn-primary" onclick = "history.go(-1)" value="<?php echo TXT_OK;?>">
+                                    <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?>">
 
                                 </div>
 
@@ -408,7 +403,6 @@ require('decide-lang.php');
         });
 
     </script>";
-
             } else {
 
             ?>
@@ -431,7 +425,7 @@ require('decide-lang.php');
 
                                     <div>
 
-                                        <?php echo TXT_ERREUR_DATE;?>
+                                        <?php echo TXT_ERREUR_DATE; ?>
 
                                     </div>
 
@@ -443,7 +437,7 @@ require('decide-lang.php');
 
                                 <div class="col text-center">
 
-                                    <input type="button" class="btn btn-primary" onclick = "history.go(-1)" value="<?php echo TXT_OK;?>">
+                                    <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?>">
                                 </div>
 
                             </div>
@@ -467,9 +461,7 @@ require('decide-lang.php');
         });
 
     </script>";
-
             }
-
         }
 
         ?>
@@ -504,7 +496,7 @@ require('decide-lang.php');
 
                                     <input type="text" class="form-control" id="floatingInput" name="titre" autocomplete="off" placeholder=" " required>
 
-                                    <label for="floatingInput"><?php echo TXT_TITRE;?></label>
+                                    <label for="floatingInput"><?php echo TXT_TITRE; ?></label>
 
                                 </div>
 
@@ -512,7 +504,7 @@ require('decide-lang.php');
 
                                     <textarea class="form-control" id="floatingTextarea" style="height: 200px" name="description" cols="60" rows="10" autocomplete="off" placeholder=" " required></textarea>
 
-                                    <label for="floatingTextarea"><?php echo TXT_DESCRIPTION;?></label>
+                                    <label for="floatingTextarea"><?php echo TXT_DESCRIPTION; ?></label>
 
                                 </div>
 
@@ -522,9 +514,9 @@ require('decide-lang.php');
 
                                 <div class="col text-center">
 
-                                    <input type="submit" class="btn btn-primary" name="confirmer_probleme" value="<?php echo TXT_ENVOYER;?>">
+                                    <input type="submit" class="btn btn-primary" name="confirmer_probleme" value="<?php echo TXT_ENVOYER; ?>">
 
-                                    <input type="button" class="btn btn-secondary" onclick = "history.go(-1)" value="<?php echo TXT_ANNULER;?>">
+                                    <input type="button" class="btn btn-secondary" onclick="history.go(-1)" value="<?php echo TXT_ANNULER; ?>">
                                 </div>
 
                             </div>
@@ -546,7 +538,6 @@ require('decide-lang.php');
         });
 
     </script>";
-
         }
 
 
@@ -605,7 +596,7 @@ require('decide-lang.php');
 
                                     <div>
 
-                                        <?php echo TXT_ALERTE_SUCCES_DEMANDE;?>
+                                        <?php echo TXT_ALERTE_SUCCES_DEMANDE; ?>
                                     </div>
 
                                 </div>
@@ -616,7 +607,7 @@ require('decide-lang.php');
 
                                 <div class="col text-center">
 
-                                    <input type="button" class="btn btn-primary" onclick = "history.go(-1)" value="<?php echo TXT_OK;?>">
+                                    <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?>">
                                 </div>
 
                             </div>
@@ -638,7 +629,6 @@ require('decide-lang.php');
         });
 
     </script>";
-
         }
 
 
@@ -675,41 +665,41 @@ require('decide-lang.php');
 
                                             <TH>
 
-                                                <?php echo TXT_LUNDI;?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("monday"));
+                                                <?php echo TXT_LUNDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("monday"));
 
-                                                            echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_lundi' value='$premierJour'>"; ?>
-
-                                            </TH>
-
-                                            <TH>
-
-                                                <?php echo TXT_MARDI;?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("tuesday"));
-
-                                                            echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_mardi' value='$premierJour'>"; ?>
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_lundi' value='$premierJour'>"; ?>
 
                                             </TH>
 
                                             <TH>
 
-                                                <?php echo TXT_MERCREDI;?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("wednesday"));
+                                                <?php echo TXT_MARDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("tuesday"));
 
-                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_mercredi' value='$premierJour'>"; ?>
-
-                                            </TH>
-
-                                            <TH>
-
-                                                <?php echo TXT_JEUDI;?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("thursday"));
-
-                                                            echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_jeudi' value='$premierJour'>"; ?>
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_mardi' value='$premierJour'>"; ?>
 
                                             </TH>
 
                                             <TH>
 
-                                              <?php echo TXT_VENDREDI;?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("friday"));
+                                                <?php echo TXT_MERCREDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("wednesday"));
 
-                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_vendredi' value='$premierJour'>"; ?>
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_mercredi' value='$premierJour'>"; ?>
+
+                                            </TH>
+
+                                            <TH>
+
+                                                <?php echo TXT_JEUDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("thursday"));
+
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_jeudi' value='$premierJour'>"; ?>
+
+                                            </TH>
+
+                                            <TH>
+
+                                                <?php echo TXT_VENDREDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("friday"));
+
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_vendredi' value='$premierJour'>"; ?>
 
                                             </TH>
 
@@ -730,7 +720,6 @@ require('decide-lang.php');
 
 
                                                 echo "<Table class='table table-hover text-center' style='border-bottom:white;'> <TR> <TD style='padding: 0px;'><input type='submit' class='btn btn-primary btn-lg' name='horaire_lundi' value='$horaire'> </td></TR> </table>";
-
                                             }
 
                                             ?>
@@ -750,7 +739,6 @@ require('decide-lang.php');
                                                 $horaire = $tab["HoraireCal"];
 
                                                 echo "<Table class='table table-hover text-center' style='border-bottom:white;'> <TR> <TD style='padding: 0px;'><input type='submit' class='btn btn-primary btn-lg' name='horaire_mardi' value='$horaire'> </td></TR> </table>";
-
                                             }
 
                                             ?>
@@ -768,7 +756,6 @@ require('decide-lang.php');
                                                 $horaire = $tab["HoraireCal"];
 
                                                 echo "<Table class='table table-hover text-center' style='border-bottom:white;'> <TR> <TD style='padding: 0px;'><input type='submit' class='btn btn-primary btn-lg' name='horaire_mercredi' value='$horaire'> </td></TR> </table>";
-
                                             }
 
                                             ?>
@@ -786,7 +773,6 @@ require('decide-lang.php');
                                                 $horaire = $tab["HoraireCal"];
 
                                                 echo "<Table class='table table-hover text-center' style='border-bottom:white;'> <TR> <TD style='padding: 0px;'><input type='submit' class='btn btn-primary btn-lg' name='horaire_jeudi' value='$horaire'> </td></TR> </table>";
-
                                             }
 
                                             ?>
@@ -804,7 +790,6 @@ require('decide-lang.php');
                                                 $horaire = $tab["HoraireCal"];
 
                                                 echo "<Table class='table table-hover text-center' style='border-bottom:white;'> <TR'> <TD style='padding: 0px;'><input type='submit' class='btn btn-primary btn-lg' name='horaire_vendredi' value='$horaire'> </td></TR> </table>";
-
                                             }
 
                                             ?>
@@ -815,7 +800,7 @@ require('decide-lang.php');
 
                                     <div class="col text-center">
 
-                                        <input type="button" class="btn btn-secondary text-center" onclick = "history.go(-1)" value="<?php echo TXT_RETOUR;?>">
+                                        <input type="button" class="btn btn-secondary text-center" onclick="history.go(-1)" value="<?php echo TXT_RETOUR; ?>">
                                     </div>
 
                                 </div>
@@ -837,7 +822,6 @@ require('decide-lang.php');
         });
 
     </script>";
-
             }
 
                 ?>
@@ -876,7 +860,7 @@ require('decide-lang.php');
 
                                     <div class="modal-header">
 
-                                        <h5 class="modal-title"><?php echo TXT_CONFIRMATION_RDV;?></h5>
+                                        <h5 class="modal-title"><?php echo TXT_CONFIRMATION_RDV; ?></h5>
 
                                     </div>
 
@@ -888,7 +872,7 @@ require('decide-lang.php');
 
                                             <div class="mb-2">
 
-                                                <?php echo TXT_TYPE;?> : <?php echo $_POST['CategorieM']; ?>
+                                                <?php echo TXT_TYPE; ?> : <?php echo $_POST['CategorieM']; ?>
 
                                             </div>
 
@@ -898,7 +882,7 @@ require('decide-lang.php');
 
                                                 <div class="form-group row">
 
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE;?> : </label>
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE; ?> : </label>
 
                                                     <div class="col-sm-4">
 
@@ -906,7 +890,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"> <?php echo TXT_HEURE;?>: </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"> <?php echo TXT_HEURE; ?>: </label>
 
                                                     <div class="col-sm-4">
 
@@ -914,7 +898,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU;?> : </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU; ?> : </label>
 
                                                 </div>
 
@@ -928,7 +912,7 @@ require('decide-lang.php');
 
                                                 <div class="form-group row">
 
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE;?> : </label>
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE; ?> : </label>
 
                                                     <div class="col-sm-4">
 
@@ -936,7 +920,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_HEURE;?>: </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_HEURE; ?>: </label>
 
                                                     <div class="col-sm-4">
 
@@ -944,7 +928,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU;?> : </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU; ?> : </label>
 
                                                 </div>
 
@@ -958,7 +942,7 @@ require('decide-lang.php');
 
                                                 <div class="form-group row">
 
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE;?> : </label>
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE; ?> : </label>
 
                                                     <div class="col-sm-4">
 
@@ -966,7 +950,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_HEURE;?>: </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_HEURE; ?>: </label>
 
                                                     <div class="col-sm-4">
 
@@ -974,7 +958,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU;?> : </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU; ?> : </label>
 
                                                 </div>
 
@@ -988,7 +972,7 @@ require('decide-lang.php');
 
                                                 <div class="form-group row">
 
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE;?> : </label>
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE; ?> : </label>
 
                                                     <div class="col-sm-4">
 
@@ -996,7 +980,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_HEURE;?> : </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_HEURE; ?> : </label>
 
                                                     <div class="col-sm-4">
 
@@ -1004,7 +988,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU;?> : </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU; ?> : </label>
 
                                                 </div>
 
@@ -1018,7 +1002,7 @@ require('decide-lang.php');
 
                                                 <div class="form-group row">
 
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE;?> : </label>
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_DATE; ?> : </label>
 
                                                     <div class="col-sm-4">
 
@@ -1026,7 +1010,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_HEURE;?> : </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_HEURE; ?> : </label>
 
                                                     <div class="col-sm-4">
 
@@ -1034,7 +1018,7 @@ require('decide-lang.php');
 
                                                     </div>
 
-                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU;?> : </label>
+                                                    <br><label for="staticEmail" class="col-sm-2 col-form-label"><?php echo TXT_BUREAU; ?> : </label>
 
                                                 </div>
 
@@ -1056,9 +1040,9 @@ require('decide-lang.php');
 
                                         <div class="col text-center">
 
-                                            <input type="submit" class="btn btn-success" name="confirmer_restitution" value="<?php echo TXT_CONFIRMER_RDV;?>">
+                                            <input type="submit" class="btn btn-success" name="confirmer_restitution" value="<?php echo TXT_CONFIRMER_RDV; ?>">
 
-                                            <input onclick = "history.go(-1)" class="btn btn-danger" value="<?php echo TXT_ANNULER;?>">
+                                            <input onclick="history.go(-1)" class="btn btn-danger" value="<?php echo TXT_ANNULER; ?>">
                                         </div>
 
                                     </div>
@@ -1130,7 +1114,6 @@ require('decide-lang.php');
                     foreach ($result_creneau as $row) {
 
                         $IdentifiantCal = $row['IdentifiantCal'];
-
                     }
 
 
@@ -1165,7 +1148,7 @@ require('decide-lang.php');
 
                                         <div>
 
-                                            <?php echo TXT_ALERTE_SUCCES_CRENEAU;?>
+                                            <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
                                         </div>
 
                                     </div>
@@ -1176,7 +1159,7 @@ require('decide-lang.php');
 
                                     <div class="col text-center">
 
-                                        <input type="button" class="btn btn-primary" onclick = "history.go(-1)" value="<?php echo TXT_OK;?> ">
+                                        <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?> ">
                                     </div>
 
                                 </div>
@@ -1198,11 +1181,13 @@ require('decide-lang.php');
         });
 
     </script>";
-
                 }
 
                 ?>
 
+                <div class="text-center">
+                    <a href="menu2.html" type="button" class="btn btn-secondary">Retour</a>
+                </div>
 
 
 </body>
