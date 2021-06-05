@@ -1,11 +1,7 @@
 <?php
-
 session_start();
-
 require('Connexion_BD.php');
-
 mysqli_set_charset($session, "utf8");
-
 include('decide-lang.php');
 ?>
 
@@ -215,4 +211,3 @@ include('decide-lang.php');
 
 
 </html>
-

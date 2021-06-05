@@ -177,7 +177,7 @@ require('decide-lang.php');
                                 <label><?php echo TXT_ANCIENMDP;?>:</label>
                             </TD>
                             <TD>
-                                <input type="text" class="form-control" autocomplete="off" name="modif_Formation" value="">
+                                <input type="text" class="form-control" autocomplete="off" name="mdp_actuel" value="">
                             </TD>
                         </TR>
                         <TR>
@@ -185,7 +185,7 @@ require('decide-lang.php');
                                 <label><?php echo TXT_NOUVEAUMDP;?>:</label>
                             </TD>
                             <TD>
-                                <input type="text" class="form-control" autocomplete="off" name="modif_Formation" value="">
+                                <input type="text" class="form-control" autocomplete="off" name="mdp_nouveau" value="">
                             </TD>
                         </TR>
                         <TR>
@@ -193,7 +193,7 @@ require('decide-lang.php');
                                 <label><?php echo TXT_CONFIRMERMDP;?> :</label>
                             </TD>
                             <TD>
-                                <input type="text" class="form-control" autocomplete="off" name="modif_Formation" value="">
+                                <input type="text" class="form-control" autocomplete="off" name="mdp_confirmer" value="">
                             </TD>
                         </TR>
 
@@ -204,6 +204,43 @@ require('decide-lang.php');
                         <input type="submit" class="btn btn-primary" value="<?php echo TXT_MODIFMDP;?>">
                     </p>
                     </Form>
+                    <?php
+                      $actuel = $_POST['mdp_actuel'];
+                      $mdp = $_POST['mdp_nouveau'];
+                      $confirmer = $_POST['mdp_confirmer'];
+                      $identifiant = $_SESSION['IdentifiantPe'];
+
+                      $query = "UPDATE personne SET Mot_de_passePe = ?";
+                      if(!empty($actuel) && !empty($mdp) && !empty($confirmer)){
+                        $query_pe = "SELECT Mot_de_passePe FROM personne WHERE IdentifiantPe = ?";
+                        $req = mysqli_prepare($session, $query_pe);
+                        mysqli_stmt_bind_param($req, 's', $identifiant);
+                        mysqli_stmt_execute($req);
+                        $result = get_result($req);
+                        $ligne = array_shift($result);
+                        $bd_mdp = $ligne['mot_de_passe'];
+                        $actuel = sha1($actuel);
+                        if($actuel == $bd_mdp){
+                            if($mdp === $confirmer){
+                                if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%])[0-9A-Za-z!@#$%]{6,15}$/',$mdp)){
+
+                                    $mdp = sha1($mdp);
+                                    $req2 = mysqli_prepare($session, $query);
+                                    mysqli_stmt_bind_param($req2, 's', $mdp);
+                                    if(mysqli_stmt_execute($req2)){//modifier avec success
+                                      echo ('<p>Votre mot de passe a été modifié</p>');
+                                    }
+                                }else{ //erreur
+                                    echo('<p>Erreur</p>');
+                              }else{//mot de passe ne sont pas identiques
+                                  echo ('<p>Les mots de passes ne sont pas identiques</p>');
+                            }else{//mot de passe actuel incorrect
+                                echo('<p>Mot de passe incorrect</p>');
+                          }else{//manque un champs
+                              echo ('<p>Veuillez remplir tous les champs</p>');
+                        }
+                      }
+                     ?>
             </div>
         </td>
         </TR>
