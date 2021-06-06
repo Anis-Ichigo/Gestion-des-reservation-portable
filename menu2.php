@@ -13,7 +13,7 @@
 <div class="main">
     
   <div class="menu">
-    <a href="reservation_portable-2.php">
+    <a href="reservation_portable.php">
     <div class="menu__item" id="0-0"> <img class="menu__icon" src="signe-plus-dans-un-cercle-noir.svg"/>
       <div class="menu__content"><span class="menu__span"></span>Nouvelle réservation<span class="menu__span">Nouvelle réservation</span></div></a>
     </div></a>

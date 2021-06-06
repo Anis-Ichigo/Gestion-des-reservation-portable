@@ -111,8 +111,12 @@ require('decide-lang.php');
                     <?php echo TXT_CHOIX_RETOUR; ?> :
                 </td>
                 <td>
-                    <input type="date" class="form-control" name="DateRetour" placeholder="dd-mm-yyyy" required>(*)
+                    <input type="date" class="form-control" name="DateRetour" placeholder="dd-mm-yyyy" required>
                 </td>
+                <td>
+                    (*)
+                </td>
+                </div>
             </tr>
         </table>
         <br>
