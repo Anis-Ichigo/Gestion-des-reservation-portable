@@ -50,6 +50,8 @@ require('decide-lang.php');
                     $query = "INSERT INTO personne (IdentifiantPe, NomPe, PrenomPe, EmailPe, Mot_de_passePe, TelPe, Statut, Formation)
           VALUES ('$email', '$nom', '$prenom', '$email', '$mdp_crypté', '$tel', '$statut', '$formation')";
                     $result = mysqli_query($session, $query);
+
+                    $_SESSION['Identifiant'] = $email;
                 } else echo "Les mots de passe ne sont pas identiques";
             } else echo "Le mot de passe est trop court !";
         } else echo "Veuillez saisir tous les champs !";
@@ -57,8 +59,8 @@ require('decide-lang.php');
     ?>
 
     <?php
-    //$identifiant = $_SESSION['identifiant'];
-    $identifiant = '22508753';
+    $identifiant = $_SESSION['Identifiant'];
+    //$identifiant = '22508753';
 
 
     $utilisateur = "SELECT * FROM personne WHERE IdentifiantPe = '$identifiant'";
@@ -71,24 +73,25 @@ require('decide-lang.php');
     ?>
 
     <!--<div style="float: right">
-        <?php// echo $Prenom . " " . $Nom; ?>
+        <?php // echo $Prenom . " " . $Nom; 
+        ?>
         <a type="button" class="btn btn-sm btn-secondary" href="deconnexion.php">Se déconnecter</a>
     </div>
     <br><br> -->
     <div class="mycharts-heading">
 
-<div class="element-head" > <?php echo $row['PrenomPe']; ?> <?php echo $row['NomPe']; ?><button type="button" id="b1" class="btn btn-default btn-sm" ><i class="fi-rr-sign-out"></i></button></div>
+        <div class="element-head"> <?php echo $Nom; ?> <?php echo $Prenom; ?><button type="button" id="b1" class="btn btn-default btn-sm"><i class="fi-rr-sign-out"></i></button></div>
 
-</div>
+    </div>
     <form method="POST" action="" id='form'>
 
-        <h2 class="text-center"><?php echo TXT_ACCUEIL_NOUVELLER;?></h2>
+        <h2 class="text-center"><?php echo TXT_ACCUEIL_NOUVELLER; ?></h2>
 
         <table>
             <!--Materiel, comment recuperer les donnees dans select-->
             <tr>
                 <td>
-                    <label><?php echo TXT_DEMANDE_CONCERNE;?> :</label>
+                    <label><?php echo TXT_DEMANDE_CONCERNE; ?> :</label>
                 </td>
                 <td>
                     <SELECT name="categorie" size=" 1 " required>
@@ -105,7 +108,7 @@ require('decide-lang.php');
             <!--Date de retour-->
             <tr>
                 <td>
-                    <?php echo TXT_CHOIX_RETOUR;?> :
+                    <?php echo TXT_CHOIX_RETOUR; ?> :
                 </td>
                 <td>
                     <input type="date" class="form-control" name="DateRetour" placeholder="dd-mm-yyyy" required>(*)
@@ -350,7 +353,7 @@ require('decide-lang.php');
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"><?php echo TXT_CONFIRMATION_RDV;?></h5>
+                            <h5 class="modal-title" id="exampleModalLabel"><?php echo TXT_CONFIRMATION_RDV; ?></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -360,31 +363,31 @@ require('decide-lang.php');
 
 
                             <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_MATERIEL;?> : </label>
+                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_MATERIEL; ?> : </label>
                                 <div class="col">
                                     <input type="text" class="form-control-plaintext" name="categorieM" value="<?php echo $categorieM; ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_DATE;?> : </label>
+                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_DATE; ?> : </label>
                                 <div class="col">
                                     <input type="text" class="form-control-plaintext" name="date_emprunt" value="<?php echo $date_emprunt; ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_DATER;?> : </label>
+                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_DATER; ?> : </label>
                                 <div class="col">
                                     <input type="text" class="form-control-plaintext" name="date_retour" value="<?php echo $date_retour; ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_JOUR;?> : </label>
+                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_JOUR; ?> : </label>
                                 <div class="col">
                                     <input type="text" class="form-control-plaintext" name="jour" value="<?php echo $jour; ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CRENEAU;?> : </label>
+                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CRENEAU; ?> : </label>
                                 <div class="col">
                                     <input type="text" class="form-control-plaintext" name="horaire" value="<?php echo $horaire; ?>" readonly>
                                 </div>
@@ -396,13 +399,13 @@ require('decide-lang.php');
                                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
                                 </svg>
                                 <div>
-                                  <?php echo TXT_INFO_RESERVATION;?>
+                                    <?php echo TXT_INFO_RESERVATION; ?>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_RETOUR;?>">
-                            <input type="submit" class="btn btn-primary" name="confirmer" value="<?php echo TXT_CONFIRMER;?>">
+                            <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_RETOUR; ?>">
+                            <input type="submit" class="btn btn-primary" name="confirmer" value="<?php echo TXT_CONFIRMER; ?>">
                         </div>
                     </div>
                 </div>
@@ -456,13 +459,13 @@ require('decide-lang.php');
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                                 </svg>
                                 <div>
-                                    <?php echo TXT_ALERTE_SUCCES_CRENEAU;?>
+                                    <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <div class="col text-center">
-                                <input type="button" class="btn btn-primary"  onclick = "history.go(-1)" value="<?php echo TXT_OK;?> ">
+                                <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?> ">
                             </div>
                         </div>
                     </div>
