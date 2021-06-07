@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
   	<title>Connexion</title>
   	
+	<link href="flag-icon-css-master/css/flag-icon.css" rel="stylesheet">
 	
   	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   	<link rel="stylesheet" href="connexion.css" />
-	
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -18,7 +18,7 @@
   <form method="post" action="connexion.php">
     <div class="form-group" align="center">
 		<h3>authentification</h3>
-		<hr color="#4E00A8"><br>
+		<hr color="#4E00A8">
 		<table >
 			<tr>
 				<td>
@@ -38,11 +38,27 @@
      
 			</tr>
 		</table>
+		
+		  
+    	<input id="FR" type="radio" name="lang" value="fr" checked>
+			<label  for="FR">
+    			&nbsp;&nbsp;
+    			<span class="flag-icon flag-icon-fr"></span>
+    			Français
+  			</label>
+
+		<input id="EN" type="radio"  name="lang" value="en">
+  			<label  for="EN">
+    		&nbsp;&nbsp;
+    		<span class="flag-icon flag-icon-um"></span>
+    		English
+			</label>
+		
     	<button type="submit" class="btn btn-primary">Se connecter</button>
 		<button class="button" type="submit" name="inscrire" onclick="window.open('page_inscription.php')">S'inscrire</button>
 		<br>
 		
-
+		
 	</div>
   </form>
 	

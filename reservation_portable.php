@@ -96,7 +96,7 @@ require('decide-lang.php');
                 <td>
                     <SELECT name="categorie" size=" 1 " required>
                         <?php
-                        $res = mysqli_query($session, "SELECT * FROM materiel WHERE EtatM LIKE 'Dispo' AND StatutM LIKE 'Existant' GROUP BY CategorieM");
+                        $res = mysqli_query($session, "SELECT CategorieM FROM materiel WHERE EtatM LIKE 'Dispo' AND StatutM LIKE 'Existant' GROUP BY CategorieM");
                         while ($tab = mysqli_fetch_assoc($res)) {
                             $cat = addslashes($tab["CategorieM"]);
                             echo "<Option> $cat </Option>";
