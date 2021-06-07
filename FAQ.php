@@ -19,7 +19,7 @@ require('decide-lang.php');
         <h1> <?php echo TXT_ACCUEIL_FAQ;?> </h1>
         <section class="faq">
             <strong><?php echo TXT_QUESTION1;?></strong>
-            <p align="justify"> <?php echo TXT_REPONSE1_A;?> <a href="reservation_portable 2.php"><i>"<?php echo TXT_REPONSE1_B;?>"</i></a><?php echo TXT_REPONSE1_C;?>
+            <p align="justify"> <?php echo TXT_REPONSE1_A;?> <a href="reservation_portable.php"><i>"<?php echo TXT_REPONSE1_B;?>"</i></a><?php echo TXT_REPONSE1_C;?>
             </p>
         </section>
         <section class="faq">
