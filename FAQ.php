@@ -40,11 +40,11 @@ require('decide-lang.php');
         </section>
         <section class="faq">
             <strong><?php echo TXT_QUESTION5;?></strong>
-            <p> <?php echo TXT_REPONSE5_A;?> <a href="AC.html"><?php echo TXT_REPONSE5_B;?></a>. </p>
+            <p> <?php echo TXT_REPONSE5_A;?> <a href="AC.php"><?php echo TXT_REPONSE5_B;?></a>. </p>
         </section>
         <section class="faq">
             <strong><?php echo TXT_QUESTION6;?></strong>
-            <p> <?php echo TXT_REPONSE6;?> <a href="CGU.html"><?php echo TXT_REPONSE5_B;?></a>. </p>
+            <p> <?php echo TXT_REPONSE6;?> <a href="CGU.php"><?php echo TXT_REPONSE5_B;?></a>. </p>
         </section>
         <section class="faq">
             <strong><?php echo TXT_QUESTION7;?></strong>
