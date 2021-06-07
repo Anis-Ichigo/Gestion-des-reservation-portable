@@ -17,10 +17,11 @@ require('decide-lang.php');
     <link href="flag-icon-css-master/css/flag-icon.css" rel="stylesheet">
   </head>
   <body>
+    <h1> <?php echo TXT_ACCUEIL_REGLAGE; ?></h1>
       <div class="main">
         <form action="decide-lang.php" method="post">
           <div class="form-group" align="center">
-            <h3>Choix de la langue</h3>
+            <h3><?php echo CHOIX_LANGUE;?></h3>
             <br>
               <input type="radio" name="lang" value="fr" checked>
               <label for="fr">
@@ -37,7 +38,7 @@ require('decide-lang.php');
               </label>
               <div>
                 <br>
-                <input type="submit" name="" value="Enregistrer">
+                <input type="submit" name="" value="<?php echo ENREGISTRER;?>">
               </div>
           </div>
         </form>

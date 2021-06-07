@@ -46,7 +46,7 @@ require('decide-lang.php');
 
       } else {
 
-        alert("Les deux mots de passe ne sont pas identiques !");
+        alert(ALERTE_MDP);
 
         return false;
 
@@ -79,7 +79,7 @@ require('decide-lang.php');
 
 
 
-  <FORM action='reservation_portable' method="post">
+  <FORM action='reservation_portable.php' method="post">
 
 
 

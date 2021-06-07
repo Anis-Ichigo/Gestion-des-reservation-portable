@@ -22,6 +22,14 @@ define('TXT_NOUVEAUMDP', 'New password');
 define('TXT_CONFIRMERMDP', 'Confirm your new password');
 define('TXT_MODIFMDP', 'Modify the password');
 
+//message password
+define('SUCCES_MDP', 'Your password has been modified');
+define('ERREUR_MDP', 'Error');
+define('MDP_DIFFERENT', "Passwords don't identical");
+define('MDP_INCORRECT', 'Password incorrect');
+define('MDP_INCOMPLET', 'Please complete all fields');
+
+
 //My appointments
 define('TXT_RDV', 'My appointments');
 define('TXT_NUMERO', 'Equipment number');
@@ -63,7 +71,7 @@ define('TXT_CONFIRMER_RDV', 'Confirm appointment');
 define('TXT_ALERTE_SUCCES_CRENEAU', 'Your time slot has been reserved');
 
 
-// reservation_portable 2.php
+// reservation_portable.php
 define('TXT_ACCUEIL_NOUVELLER', 'New reservation');
 define('TXT_DEMANDE_CONCERNE', 'Your demand concerns');
 define('TXT_CHOIX_RETOUR', 'Choose the return date');
@@ -72,6 +80,9 @@ define('TXT_CHOIX_DATE', 'Loan date');
 define('TXT_JOUR', 'Day');
 define('TXT_Creneau', 'Time slot');
 define('TXT_INFO_RESERVATION', 'Please note that you must provide the requested documents (photocopy of front and back identity document and / or photocopy of the student card). Without these , no material can be loaned to you.');
+define('MDP_COURT', 'Password is too short!');
+define('MDP_CHAMPS', 'Please complete all fields!');
+
 
 //Page_inscription.php
 define('TXT_ACCUEIL_INSCRIPTION', 'Sign in');
@@ -80,6 +91,7 @@ define('TXT_CONFIRMER_MDP_INS', 'Confirm your password');
 define('TXT_CONFIDENTIEL', 'I accept the privacy policy');
 define('TXT_CGU', 'I have read and I accept the general conditions of use');
 define('TXT_REINITIALISER', 'RESET');
+define('ALERTE_MDP', 'The two passwords are not identical!');
 
 
 //FAQ.php
@@ -138,7 +150,7 @@ Under Article 6 of Law No. 2004-575 of June 21, 2004 for confidence in the digit
  </p></br></br>
 <h3> 3. Description of services provided. </h3>
   <p align='justify'>The purpose of the site is to provide a service to manage the loans of equipment made available for from the University Toulouse 1, Capitole, to its students and staff. The application strives to be as accurate as possible. However, it cannot be held responsible for any omissions, inaccuracies or shortcomings in the updating, whether they are its own doing or that of third party partners who provide it with this information.
-  All the information indicated on the site is given as an indication and non-exhaustive, and is likely to evolve. They are therefore given subject to modifications having been made since they were put online. 
+  All the information indicated on the site is given as an indication and non-exhaustive, and is likely to evolve. They are therefore given subject to modifications having been made since they were put online.
 </p></br></br>
 <h3> 4. Contractual limitations on technical data </h3>
   <p align='justify'>The website uses JavaScript technology. The website cannot be held responsible for any material damage related to the use of the site. In addition, the user of the site undertakes to access the site using recent equipment, free of viruses and with a browser of the latest generation updated The hosting is done at a provider on the territory of the European Union in accordance with the provisions of the General Regulation on Data Protection (RGPD: No. 2016-679)  </br>
@@ -250,7 +262,7 @@ We will only collect and use your personal data if at least one of the following
   -> We may use personal data to respond to and manage security operations, accidents or similar incidents, including for medical and insurance purposes.
   <li>This is within our legitimate interests or those of a third party, and these are not overridden by your interests or rights. Example: to personalize your experience.</li>
   -> We may use your personal data to better understand your interests, so that we can try to predict which products, services and information would be of most interest to you. This allows us to refine our communications to be as relevant and interesting to you as possible.
-</ul> 
+</ul>
 <h2>5 - Sharing personal data with service providers</h2>
 <p align='justify'>In order to provide you with the products or services you request, we may need to share your personal data with providers of the terms of your communication, including tool managers, problem-solving contractors, university management, ...
 We also work with carefully selected service providers who perform certain functions on our behalf. For example, companies take care of IT services, data storage and compilation.
@@ -294,3 +306,12 @@ Toulouse 1 Capitole University, <br>
 France <br> <br>
 Or by email to XXX@ut-capitole.fr <br> <br>
 We would like to emphasize that we need to verify your identity before processing your request or complaint. We may ask you for more information in order to ensure that you are authorized to make such a request or complaint when you contact us on behalf of another person.<br><br>");
+
+//setting.php
+define('TXT_ACCUEIL_REGLAGE', 'Settings');
+define('CHOIX_LANGUE', 'Choice of language');
+define('ENREGISTRER', 'Record');
+
+//menu2.php
+define('DECONNEXION', 'Logout');
+define('FAQ', 'FAQ');

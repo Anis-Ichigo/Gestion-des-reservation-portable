@@ -52,9 +52,9 @@ require('decide-lang.php');
                     $result = mysqli_query($session, $query);
 
                     $_SESSION['Identifiant'] = $email;
-                } else echo "Les mots de passe ne sont pas identiques";
-            } else echo "Le mot de passe est trop court !";
-        } else echo "Veuillez saisir tous les champs !";
+                } else echo MDP_DIFFERENT;
+            } else echo MDP_COURT;
+        } else echo MDP_CHAMPS;
     }
     ?>
 
@@ -73,7 +73,7 @@ require('decide-lang.php');
     ?>
 
     <!--<div style="float: right">
-        <?php // echo $Prenom . " " . $Nom; 
+        <?php // echo $Prenom . " " . $Nom;
         ?>
         <a type="button" class="btn btn-sm btn-secondary" href="deconnexion.php">Se déconnecter</a>
     </div>

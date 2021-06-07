@@ -22,6 +22,14 @@ define('TXT_NOUVEAUMDP', 'Nouveau mot de passe');
 define('TXT_CONFIRMERMDP', 'Confirmer le nouveau mot de passe');
 define('TXT_MODIFMDP', 'Modifier le mot de passe');
 
+//Message mot_de_passe
+
+define('SUCCES_MDP', 'Votre mot de passe a été modifié');
+define('ERREUR_MDP', 'Erreur');
+define('MDP_DIFFERENT', 'Les mots de passe ne sont pas identiques');
+define('MDP_INCORRECT', 'Mot de passe incorrect');
+define('MDP_INCOMPLET', 'Veuillez remplir tous les champs');
+
 //Mes rendez-Vous
 
 define('TXT_RDV', 'Mes rendez-vous');
@@ -63,7 +71,7 @@ define('TXT_BUREAU', 'Bureau');
 define('TXT_CONFIRMER_RDV', 'Confirmer RDV');
 define('TXT_ALERTE_SUCCES_CRENEAU', 'Votre créneau a bien été réservé');
 
-//reservation_portable 2.php
+//reservation_portable.php
 
 define('TXT_ACCUEIL_NOUVELLER', 'Nouvelle Réservation');
 define('TXT_DEMANDE_CONCERNE', 'Votre demande concerne');
@@ -73,6 +81,8 @@ define('TXT_CHOIX_DATE', "Date d'emprunt");
 define('TXT_JOUR', 'Jour');
 define('TXT_CRENEAU', 'Créneau');
 define('TXT_INFO_RESERVATION', "Attention, vous devez fournir les documents demandés (photocopie de pièce d'identité recto/verso et photocopie de carte étudiante). Sans cela, aucun matériel ne pourra vous être prêté.");
+define('MDP_COURT', 'Le mot de passe est trop court !');
+define('MDP_CHAMPS', 'Veuillez saisir tous les champs !');
 
 //Page_Inscription.php
 
@@ -82,6 +92,7 @@ define('TXT_CONFIRMER_MDP_INS', 'Confirmez le mot de passe');
 define('TXT_CONFIDENTIEL', "J'ai lu et j'accepte la politique de confidentialité");
 define('TXT_CGU', "J'ai lu et j'accepte les conditions générales d'utilisation");
 define('TXT_REINITIALISER', 'Réinitialiser');
+define('ALERTE_MDP', 'Les deux mots de passe ne sont pas identiques !');
 
 //FAQ.php
 
@@ -294,5 +305,17 @@ define('AC', "  <center><h1>Avis de confidentialité sur la protection des donn�
         France <br> <br>
         Ou par courriel électronique à XXX@ut-capitole.fr <br> <br>
         Nous tenons à souligner que nous devons contrôler votre identité avant de traiter votre demande ou plainte. Il se peut que nous vous demandions davantage d’informations en vue de nous assurer que vous êtes autorisé à déposer une telle requête ou plainte lorsque vous nous contactez pour le compte d’une autre personne.<br><br>");
+
+
+//reglage.php
+
+define('TXT_ACCUEIL_REGLAGE', 'Réglages');
+define('CHOIX_LANGUE', 'Choix de la langue');
+define('ENREGISTRER', 'Enregistrer');
+
+//menu2.php
+
+define('DECONNEXION', 'Déconnexion');
+define('FAQ', 'FAQ');
 
  ?>

@@ -309,16 +309,16 @@ require('decide-lang.php');
                                         $req2 = mysqli_prepare($session, $query);
                                         mysqli_stmt_bind_param($req2, 's', $mdp);
                                         if (mysqli_stmt_execute($req2)) { //modifier avec success
-                                            echo ('<p>Votre mot de passe a été modifié</p>');
+                                            echo SUCCES_MDP;
                                         }
                                     } else //erreur
-                                        echo ('<p>Erreur</p>');
+                                        echo ERREUR_MDP;
                                 } else //mot de passe ne sont pas identiques
-                                    echo ('<p>Les mots de passe ne sont pas identiques</p>');
+                                    echo MDP_DIFFERENT;
                             } else //mot de passe actuel incorrect
-                                echo ('<p>Mot de passe incorrect</p>');
+                                echo MDP_INCORRECT;
                         } else  //manque un champs
-                            echo ('<p>Veuillez remplir tous les champs</p>');
+                            echo MDP_INCOMPLET;
 
 
 
