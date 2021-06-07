@@ -314,7 +314,7 @@ require('decide-lang.php');
                                     } else //erreur
                                         echo ('<p>Erreur</p>');
                                 } else //mot de passe ne sont pas identiques
-                                    echo ('<p>Les mots de passes ne sont pas identiques</p>');
+                                    echo ('<p>Les mots de passe ne sont pas identiques</p>');
                             } else //mot de passe actuel incorrect
                                 echo ('<p>Mot de passe incorrect</p>');
                         } else  //manque un champs

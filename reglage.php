@@ -18,7 +18,7 @@ require('decide-lang.php');
   </head>
   <body>
       <div class="main">
-        <form action="" method="post">
+        <form action="decide-lang.php" method="post">
           <div class="form-group" align="center">
             <h3>Choix de la langue</h3>
             <br>
@@ -37,7 +37,7 @@ require('decide-lang.php');
               </label>
               <div>
                 <br>
-                <input type="button" name="" value="Enregistrer">
+                <input type="submit" name="" value="Enregistrer">
               </div>
           </div>
         </form>
