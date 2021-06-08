@@ -111,7 +111,7 @@ require('decide-lang.php');
                     <?php echo TXT_CHOIX_RETOUR; ?> :
                 </td>
                 <td>
-                    <input type="date" class="form-control" name="DateRetour" placeholder="dd-mm-yyyy" required>
+                    <input type="date" class="form-control" name="DateRetour" placeholder="dd-mm-yyyy" pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" required>
                 </td>
                 <td>
                     (*)
@@ -180,7 +180,7 @@ require('decide-lang.php');
                 if ($num > 0) {
                     for ($i = 0; $i < $num; $i++) {
                         $row = mysqli_fetch_array($res);
-                        $horaire = $row['HoraireCal'];
+                        $horaire = date("H:i", strtotime($row['HoraireCal']));
                         if ($i % 3 == 0) echo '<tr>';
                         echo "<td>" . "<input type='submit' class='btn btn-primary' name='Mardi' data-bs-toggle='modal' data-bs-target='#exampleModal' value='$horaire'>" . "</td>";
                     }
@@ -207,7 +207,7 @@ require('decide-lang.php');
                 if ($num > 0) {
                     for ($i = 0; $i < $num; $i++) {
                         $row = mysqli_fetch_array($res);
-                        $horaire = $row['HoraireCal'];
+                        $horaire = date("H:i", strtotime($row['HoraireCal']));
                         if ($i % 3 == 0) echo '<tr>';
                         echo "<td>" . "<input type='submit' class='btn btn-primary' name='Mercredi' data-bs-toggle='modal' data-bs-target='#exampleModal' value='$horaire'>" . "</td>";
                     }
@@ -234,7 +234,7 @@ require('decide-lang.php');
                 if ($num > 0) {
                     for ($i = 0; $i < $num; $i++) {
                         $row = mysqli_fetch_array($res);
-                        $horaire = $row['HoraireCal'];
+                        $horaire = date("H:i", strtotime($row['HoraireCal']));
                         if ($i % 3 == 0) echo '<tr>';
                         echo "<td>" . "<input type='submit' class='btn btn-primary' name='Jeudi' data-bs-toggle='modal' data-bs-target='#exampleModal' value='$horaire'>" . "</td>";
                     }
@@ -270,7 +270,7 @@ require('decide-lang.php');
                 if ($num > 0) {
                     for ($i = 0; $i < $num; $i++) {
                         $row = mysqli_fetch_array($res);
-                        $horaire = $row['HoraireCal'];
+                        $horaire = date("H:i", strtotime($row['HoraireCal']));
                         if ($i % 3 == 0) echo '<tr>';
                         echo "<td>" . "<input type='submit' class='btn btn-primary' name='Vendredi' data-bs-toggle='modal' data-bs-target='#exampleModal' value='$horaire'>" . "</td>";
                     }
