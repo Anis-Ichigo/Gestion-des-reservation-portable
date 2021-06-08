@@ -1,5 +1,4 @@
 <?php
-session_start();
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf8");
 
@@ -46,6 +45,7 @@ mysqli_set_charset($session, "utf8");
                    <a href='index.html'>Merci de recommencer.</a><br>";
             echo "Ou <br><a href='Page_Inscription.php'>Créer un compte.</a>";
         }else{
+            session_start();
             $_SESSION['user']=$gooduser;
             $_SESSION['nom']="$prenom $nom";
             $_SESSION['identifiant']=$identifiant;

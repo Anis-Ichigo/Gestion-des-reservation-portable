@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf8");
 require('decide-lang.php');
