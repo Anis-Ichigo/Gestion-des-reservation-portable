@@ -3,9 +3,7 @@
 session_start();
 
 require('Connexion_BD.php');
-
 mysqli_set_charset($session, "utf-8");
-
 require('decide-lang.php');
 ?>
 
@@ -35,23 +33,14 @@ require('decide-lang.php');
     function validation() {
 
       var mdp = document.getElementById("motPasse").value;
-
       var mdp2 = document.getElementById("motPasse2").value;
 
-
-
       if (mdp == mdp2) {
-
         return (true);
-
       } else {
-
         alert(ALERTE_MDP);
-
         return false;
-
       }
-
     }
   </script>
 
@@ -64,34 +53,22 @@ require('decide-lang.php');
 
 
   <?php
-
   require_once 'Connexion_BD.php';
-
   ?>
 
 
 
   <div class="header">
-
     <img alt="Logo UT1" class="img_logo" src="Bandeau.png">
-
   </div>
 
 
 
   <FORM action='' method="post">
-
-
-
     <DIV id="inscription">
-
       <H1>
-
         <CENTER><B> <?php echo TXT_ACCUEIL_INSCRIPTION; ?> </B></CENTER>
-
       </H1>
-
-      <HR>
 
       <CENTER>
 
@@ -255,13 +232,107 @@ require('decide-lang.php');
       <center>
         <input type="submit" name="inscription" value="<?php echo TXT_ACCUEIL_INSCRIPTION; ?>" onclick="return validation()">
         <input type="reset" value="<?php echo TXT_REINITIALISER; ?>">
-        <a href="idenx.html" type="button" class="btn btn-secondary">Retour</a>
+        <a href="index.html" type="button" class="btn btn-secondary">Retour</a>
       </CENTER><br>
 
     </div>
-
   </FORM>
 
+  <?php
+  if (isset($_POST['inscription'])) {
+    if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['tel']) && !empty($_POST['motPasse']) && !empty($_POST['motPasse2'])) {
+      if (strlen($_POST['motPasse']) >= 4) {
+        if ($_POST['motPasse'] == $_POST['motPasse2']) {
+          // Cryptage mdp
+          $mdp = $_POST['motPasse'];
+          $mdp_crypté = sha1($mdp);
+
+          $nom = $_POST['nom'];
+          $prenom = $_POST['prenom'];
+          $email = $_POST['email'];
+          $tel = $_POST['tel'];
+          $statut = $_POST['statut'];
+          $formation = $_POST['formation'];
+
+          $query = "INSERT INTO personne (IdentifiantPe, NomPe, PrenomPe, EmailPe, Mot_de_passePe, TelPe, Statut, Formation)
+        VALUES ('$email', '$nom', '$prenom', '$email', '$mdp_crypté', '$tel', '$statut', '$formation')";
+          $result = mysqli_query($session, $query);
+
+          $_SESSION['user'] = $email;
+
+  ?>
+          <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </svg>
+                    <div>
+                      Le compte a été créé avec succès !
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="col text-center">
+                    <a type="button" class="btn btn-primary" href="reservation_portable.php">Valider</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php
+          echo "<script>
+                        $(window).load(function() {
+                            $('#alerte').modal('show');
+                        });
+                    </script>";
+        } else {
+        ?>
+          <div style="margin-left: auto; margin-right: auto; width: 15%;">
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+              </svg>
+              <div style="margin-left: auto; margin-right: auto;">
+                Les mots de passes ne correspondent pas. Veuillez recommencer !
+              </div>
+            </div>
+          </div>
+        <?php
+        }
+      } else {
+        ?>
+
+        <div style="margin-left: auto; margin-right: auto; width: 30%;">
+          <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
+            <div style="margin-left: auto; margin-right: auto;">
+              Le mot de passe choisi est trop court !
+            </div>
+          </div>
+        </div>
+      <?php
+      }
+    } else {
+      ?>
+      <div style="margin-left: auto; margin-right: auto; width: 15%;">
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+          </svg>
+          <div style="margin-left: auto; margin-right: auto;">
+            Veuillez remplir tous les champs !
+          </div>
+        </div>
+      </div>
+  <?php
+    }
+  }
+  ?>
 </body>
 
 </html>

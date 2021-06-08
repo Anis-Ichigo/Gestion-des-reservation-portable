@@ -28,34 +28,6 @@ require('decide-lang.php');
 </head>
 
 <body>
-    <?php
-
-    // Lisa inscription
-    if (isset($_POST['inscription'])) {
-        if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['tel']) && !empty($_POST['motPasse']) && !empty($_POST['motPasse2'])) {
-            if (strlen($_POST['motPasse']) >= 4) {
-                if ($_POST['motPasse'] == $_POST['motPasse2']) {
-                    // Cryptage mdp
-                    $mdp = $_POST['motPasse'];
-                    $mdp_crypté = sha1($mdp);
-
-                    $nom = $_POST['nom'];
-                    $prenom = $_POST['prenom'];
-                    $email = $_POST['email'];
-                    $tel = $_POST['tel'];
-                    $statut = $_POST['statut'];
-                    $formation = $_POST['formation'];
-
-                    $query = "INSERT INTO personne (IdentifiantPe, NomPe, PrenomPe, EmailPe, Mot_de_passePe, TelPe, Statut, Formation)
-          VALUES ('$email', '$nom', '$prenom', '$email', '$mdp_crypté', '$tel', '$statut', '$formation')";
-                    $result = mysqli_query($session, $query);
-
-                    $_SESSION['user'] = $email;
-                } else echo MDP_DIFFERENT;
-            } else echo MDP_COURT;
-        } else echo MDP_CHAMPS;
-    }
-    ?>
 
     <?php
     $identifiant = $_SESSION['user'];

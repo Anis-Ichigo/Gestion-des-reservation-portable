@@ -126,7 +126,7 @@ require('decide-lang.php');
                                         <input type="text" readonly class="form-control-plaintext" name="NomPe" value="<?php echo $row['NomPe']; ?>">
                                     </TD>
                                 </TR>
-                                <TR>
+                                <TR>4
                                     <TD>
                                         <label><?php echo TXT_EMAIL; ?>:</label>
                                     </TD>
