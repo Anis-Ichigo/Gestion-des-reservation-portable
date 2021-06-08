@@ -38,11 +38,7 @@ require('decide-lang.php');
               </label>
               <div>
                 <br>
-<<<<<<< Updated upstream
                 <input type="submit" name="enregistrer_parametres" value="<?php echo ENREGISTRER;?>">
-=======
-                <input type="submit" name="button" value="<?php echo ENREGISTRER;?>">
->>>>>>> Stashed changes
               </div>
           </div>
         </form>
