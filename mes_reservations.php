@@ -66,17 +66,12 @@ require('decide-lang.php');
     $result_utilisateur = mysqli_query($session, $utilisateur);
 
     foreach ($result_utilisateur as $row) {
-
         $Prenom = $row['PrenomPe'];
-
         $Nom = $row['NomPe'];
     }
 
 
-
     ?>
-
-
     <div style="float: right; display:inline">
         <div class="element-head">
 
@@ -92,29 +87,21 @@ require('decide-lang.php');
     <br>
 
     <Table class="table text-center">
-
         <TR>
-
             <th class="table-secondary">
-
                 <?php echo TXT_NUMERO; ?>
             </th>
 
             <th class="table-secondary">
-
                 <?php echo TXT_RETRAIT; ?>
-
             </th>
 
             <th class="table-secondary">
-
                 <?php echo TXT_DATER; ?>
             </th>
 
             <th class="table-secondary">
-
                 <?php echo TXT_TYPE; ?>
-
             </th>
 
         </TR>

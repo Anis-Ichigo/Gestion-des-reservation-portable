@@ -164,21 +164,15 @@ require('decide-lang.php');
           <TR>
 
             <TD align=right>
-
               <label for="statut"><?php echo TXT_IDENTITE; ?> : </label>
-
             </TD>
 
             <TD>
 
               <SELECT id="statut" name="statut">
-
                 <OPTION>Etudiant</OPTION>
-
                 <OPTION>Enseignant</OPTION>
-
                 <OPTION>Personnel Administratif</OPTION>
-
               </SELECT>
 
             </TD>
@@ -186,37 +180,23 @@ require('decide-lang.php');
           </TR>
 
           <TR>
-
             <TD align=right>
-
               <label for="formation"><?php echo TXT_FORMATION; ?> : </label>
-
             </TD>
 
             <TD>
 
               <SELECT id="formation" name="formation">
-
                 <OPTION>L3 MIASHS TI</OPTION>
-
                 <OPTION>LICENCE PRO RTAI</OPTION>
-
                 <OPTION>M1 MIAGE IM</OPTION>
-
                 <OPTION>M1 MIAGE 2IS</OPTION>
-
                 <OPTION>M1 MIAGE IDA</OPTION>
-
                 <OPTION>M2 MIAGE IPM</OPTION>
-
                 <OPTION>M2 MIAGE ISIAD</OPTION>
-
                 <OPTION>M2 MIAGE 2IS</OPTION>
-
                 <OPTION>M2 MIAGE IDA</OPTION>
-
                 <OPTION>AUTRE</OPTION>
-
               </SELECT>
 
             </TD>
@@ -262,31 +242,20 @@ require('decide-lang.php');
     </DIV>
 
     <div class="legals_flex">
-
       <CENTER>
-
         <input id="checkbox_newletter" name="checkbox_confidentiality_notice" required type="checkbox">
-
         <label class="checkbox_container"><?php echo TXT_CONFIDENTIEL; ?></label><br>
-
         <input id="checkbox_general_condition" name="checkbox_general_condition" required type="checkbox">
-
         <label class="checkbox_container"><?php echo TXT_CGU; ?></label>
-
     </div>
 
     </center><br>
 
     <DIV id="Boutons">
-
       <center>
-
         <input type="submit" name="inscription" value="<?php echo TXT_ACCUEIL_INSCRIPTION; ?>" onclick="return validation()">
-
         <input type="reset" value="<?php echo TXT_REINITIALISER; ?>">
-
         <input type="button" value="<?php echo TXT_RETOUR; ?>" onclick="history.go(-1)">
-
       </CENTER><br>
 
     </div>
