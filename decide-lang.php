@@ -1,13 +1,13 @@
 <?php
 session_start();
-if (isset($_SESSION['lang'])){
-    if ($_SESSION['lang']=='fr') {           // si la langue est 'fr' (français) on inclut le fichier fr-lang.php
-        include('fr-lang.php');
-    }
-
-    else{      // si la langue est 'en' (anglais) on inclut le fichier en-lang.php
-        include('en-lang.php');
-    }
+if (isset($_SESSION['lang'])) {
+	if ($_SESSION['lang'] == 'fr') {           // si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+		include('fr-lang.php');
+	} else {      // si la langue est 'en' (anglais) on inclut le fichier en-lang.php
+		include('en-lang.php');
+	}
+} else {
+	include('fr-lang.php');
 }
 
 // if (isset($_COOKIE['lang'])) {

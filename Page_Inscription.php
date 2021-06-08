@@ -1,7 +1,4 @@
 <?php
-
-session_start();
-
 require('Connexion_BD.php');
 
 mysqli_set_charset($session, "utf-8");
@@ -32,18 +29,14 @@ require('decide-lang.php');
   <link href="Style_FAQ.css" type="text/css" rel="stylesheet" />
 
   <SCRIPT type="text/javascript">
+
     function validation() {
-
       var mdp = document.getElementById("motPasse").value;
-
       var mdp2 = document.getElementById("motPasse2").value;
 
 
-
       if (mdp == mdp2) {
-
         return (true);
-
       } else {
 
         alert(ALERTE_MDP);
@@ -58,17 +51,11 @@ require('decide-lang.php');
 </head>
 
 
-
 <body>
 
-
-
   <?php
-
   require_once 'Connexion_BD.php';
-
   ?>
-
 
 
   <div class="header">
@@ -86,12 +73,9 @@ require('decide-lang.php');
     <DIV id="inscription">
 
       <H1>
-
         <CENTER><B> <?php echo TXT_ACCUEIL_INSCRIPTION; ?> </B></CENTER>
-
       </H1>
 
-      <HR>
 
       <CENTER>
 
@@ -107,7 +91,7 @@ require('decide-lang.php');
 
             <TD>
 
-              <input type="text" id="nom" name="nom" autocomplete="off" size=50 required>
+              <input type="text" id="nom" name="nom" class="form-control" autocomplete="off" size=50 required>
 
             </TD>
 
@@ -123,7 +107,7 @@ require('decide-lang.php');
 
             <TD>
 
-              <input type="text" id="prenom" name="prenom" autocomplete="off" size=50 required>
+              <input type="text" id="prenom" name="prenom" class="form-control" autocomplete="off" size=50 required>
 
             </TD>
 
@@ -139,7 +123,7 @@ require('decide-lang.php');
 
             <TD>
 
-              <input type="email" id="email" name="email" autocomplete="off" size=50 required>
+              <input type="email" class="form-control" id="email" name="email" autocomplete="off" size=50 required>
 
             </TD>
 
@@ -155,7 +139,7 @@ require('decide-lang.php');
 
             <TD>
 
-              <input type="text" id="tel" name="tel" autocomplete="off" size=50 required>
+              <input type="text" id="tel" name="tel" class="form-control" autocomplete="off" size=50 required>
 
             </TD>
 
@@ -213,7 +197,7 @@ require('decide-lang.php');
 
             <TD>
 
-              <input type="password" id="motPasse" name="motPasse" size=50 required>
+              <input type="password" id="motPasse" class="form-control" name="motPasse" size=50 required>
 
             </TD>
 
@@ -224,12 +208,13 @@ require('decide-lang.php');
             <TD align=right>
 
               <label for="motPasse2"><?php echo TXT_CONFIRMER_MDP_INS; ?> : </label>
+              <span id='message'></span>
 
             </TD>
 
             <TD>
 
-              <input type="password" id="motPasse2" name="motPasse2" size=50 required>
+              <input type="password" class="form-control" id="motPasse2" name="motPasse2" size=50 required>
 
             </TD>
 
@@ -253,9 +238,9 @@ require('decide-lang.php');
 
     <DIV id="Boutons">
       <center>
-        <input type="submit" name="inscription" value="<?php echo TXT_ACCUEIL_INSCRIPTION; ?>" onclick="return validation()">
-        <input type="reset" value="<?php echo TXT_REINITIALISER; ?>">
-        <input type="button" value="<?php echo TXT_RETOUR; ?>" onclick="history.go(-1)">
+        <input type="submit" class="btn btn-primary" id="inscription" name="inscription" value="<?php echo TXT_ACCUEIL_INSCRIPTION; ?>" onclick="return validation()">
+        <input type="reset" class="btn btn-secondary" value="<?php echo TXT_REINITIALISER; ?>">
+        <a href="menu2.php" type="button" class="btn btn-secondary">Retour</a>
       </CENTER><br>
 
     </div>
