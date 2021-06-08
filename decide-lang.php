@@ -14,6 +14,10 @@
 // }								
 
 
+if(isset($_POST['enregistrer_parametres'])){
+	$lang = $_POST['lang'];
+}
+
   	 if(isset($_COOKIE['lang'])) {
 	     $lang = "en";
   	 } else {
@@ -35,7 +39,3 @@
 
  	 //enregistrement du cookie au nom de lang
 	 setcookie('lang', $lang, time() + $expire);
-
-
-
-?>
