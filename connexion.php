@@ -24,16 +24,17 @@ mysqli_set_charset($session, "utf8");
         <?php
         $user=$_POST["user"];
         $psw=$_POST["psw"];
+
         $mdp_hash = sha1($psw);
 
 
         $login="SELECT IdentifiantPe, NomPe, PrenomPe, EmailPe, Mot_de_passePe, TelPe, Statut, Formation 
         FROM personne
-        WHERE IdentifiantPe= ? AND Mot_de_passePe = ?";
+        WHERE EmailPe= ? AND Mot_de_passePe = ?";
         $stmt=mysqli_prepare($session,$login);
-        mysqli_stmt_bind_param($stmt,"is",$user,$mdp_hash);
+        mysqli_stmt_bind_param($stmt,"ss",$user,$mdp_hash);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt,$gooduser,$nom,$prenom,$email,$goodpsw,$tel,$statut, $formation);
+        mysqli_stmt_bind_result($stmt,$identifiant,$nom,$prenom,$gooduser,$goodpsw,$tel,$statut, $formation);
         while (mysqli_stmt_fetch($stmt)){
             echo $gooduser ;
             echo $goodpsw;
@@ -47,7 +48,7 @@ mysqli_set_charset($session, "utf8");
         }else{
             $_SESSION['user']=$gooduser;
             $_SESSION['nom']="$prenom $nom";
-            $_SESSION['mail']=$email;
+            $_SESSION['identi']=$identifiant;
             $_SESSION['psw']=$goodpsw;
             $_SESSION['tel']=$tel;
             $_SESSION['statut']=$statut;
