@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require('Connexion_BD.php');
 
 mysqli_set_charset($session, "utf8");
@@ -22,23 +20,14 @@ require('decide-lang.php');
     <meta charset="utf-8" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-
     <link rel="stylesheet" href="styletest.css" />
-
     <script src="https://kit.fontawesome.com/27e9b6ce5f.js" crossorigin="anonymous"></script>
-
     <link href="uicons-regular-rounded/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 
-
-
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </head>
@@ -53,7 +42,7 @@ require('decide-lang.php');
 
     <?php
 
-    $identifiant = $_SESSION['user'];
+    $identifiant = '22508753';
 
     //$identifiant = '22508753';
 
@@ -228,174 +217,100 @@ require('decide-lang.php');
         <form action="" method="POST">
 
             <input type="hidden" name="IdentifiantE" value="<?php echo $_POST['IdentifiantE']; ?>">
-
             <input type="hidden" name="IdentifiantM" value="<?php echo $_POST['IdentifiantM']; ?>">
-
             <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
-
                 <div class="modal-dialog modal-dialog-centered">
-
                     <div class="modal-content">
-
                         <div class="modal-body">
-
                             <table>
-
-
-
                                 <tr>
-
                                     <td>
-
                                         <label><?php echo TXT_DATERA; ?> : </label>
-
                                     </td>
 
                                     <td>
-
                                         <input type="date" name="DateRetour" value="<?php echo $_POST['DateRetour'] ?>" readonly>
-
                                     </td>
-
                                 </tr>
 
                                 <tr>
-
                                     <td>
-
                                         <label><?php echo TXT_DATERS; ?> : </label>
-
                                     </td>
 
                                     <td>
-
                                         <input type="date" name="DateProlongation">
-
                                     </td>
-
                                 </tr>
-
                             </table>
 
                         </div>
 
                         <div class="modal-footer">
-
                             <div class="col text-center">
-
                                 <input type="submit" class="btn btn-primary" name="confirmer_prolongation" value="<?php echo TXT_CONFIRMER; ?>">
-
                                 <input type="button" class="btn btn-secondary" onclick="history.go(-1)" value="<?php echo TXT_ANNULER; ?>">
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
         <?php
-
         echo "<script>
-
         $(window).load(function() {
-
             $('#alerte').modal('show');
-
         });
-
     </script>";
     }
-
         ?>
 
         </form>
 
-
-
         <?php
 
         if (isset($_POST['confirmer_prolongation'])) {
-
             $identifiantE = $_POST['IdentifiantE'];
-
             $identifiantM = $_POST['IdentifiantM'];
-
             $dateProlongation = $_POST['DateProlongation'];
-
             $dateDuJour = strftime('%Y-%m-%d');
 
-
-
             if ($dateProlongation >= $dateDuJour) {
-
                 $query_demander_prolongation = "UPDATE emprunt SET DateProlongation = '$dateProlongation' WHERE IdentifiantE = '$identifiantE'";
-
                 $result_demande_prolongation = mysqli_query($session, $query_demander_prolongation);
-
                 $query_en_attente = "UPDATE materiel SET EtatM = 'En attente' WHERE IdentifiantM = '$identifiantM'";
-
                 $result_en_attente = mysqli_query($session, $query_en_attente);
-
-
-
-
-
         ?>
 
                 <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
-
                     <div class="modal-dialog modal-dialog-centered">
-
                         <div class="modal-content">
-
                             <div class="modal-body">
-
                                 <div class="alert alert-success d-flex align-items-center" role="alert">
-
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-
                                     </svg>
 
                                     <div>
-
                                         <?php echo TXT_ALERTE_SUCCES_PROLONGATION; ?>
                                     </div>
-
                                 </div>
-
                             </div>
 
                             <div class="modal-footer">
-
                                 <div class="col text-center">
-
                                     <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?>">
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
             <?php
-
                 echo "<script>
-
         $(window).load(function() {
-
             $('#alerte').modal('show');
-
         });
-
     </script>";
             } else {
 
@@ -806,28 +721,17 @@ require('decide-lang.php');
                     </div>
 
                 <?php
-
                 echo "<script>
-
         $(window).load(function() {
-
             $('#alerte').modal('show');
-
         });
-
     </script>";
             }
 
                 ?>
 
-
-
                 <?php
-
                 if (isset($_POST['horaire_lundi']) || isset($_POST['horaire_mardi']) || isset($_POST['horaire_mercredi']) || isset($_POST['horaire_jeudi']) || isset($_POST['horaire_vendredi'])) {
-
-
-
                 ?>
 
 
@@ -1048,24 +952,14 @@ require('decide-lang.php');
                         </div>
 
                         <?php
-
                         echo "<script>
-
         $(window).load(function() {
-
             $('#alerte').modal('show');
-
         });
-
     </script>";
-
-
-
                         ?>
 
                     </form>
-
-
 
 
 

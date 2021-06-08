@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require('Connexion_BD.php');
 
 mysqli_set_charset($session, "utf-8");
@@ -22,13 +20,17 @@ require('decide-lang.php');
     <meta charset="utf-8" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-
     <link rel="stylesheet" href="styletest.css" type="text/css">
-
     <script src="https://kit.fontawesome.com/27e9b6ce5f.js" crossorigin="anonymous"></script>
 
     <link href="uicons-regular-rounded/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -37,10 +39,11 @@ require('decide-lang.php');
 
 <body>
 
-    <div class="mycharts-heading">
-
-        <div class="element-head"> <?php echo $_SESSION['identifiant'] ?><button type="button" id="b1" class="btn btn-default btn-sm"><i class="fi-rr-sign-out"></i></button></div>
-
+    <div style="float: right; display:inline">
+        <div class="element-head">
+            <?php echo $_SESSION['identifiant']; ?>
+            <a href="deconnexion.php" type="button" class="btn btn-default"><i class="fi-rr-sign-out"></i></a>
+        </div>
     </div>
 
 
@@ -102,11 +105,11 @@ require('decide-lang.php');
 
 
                 <div style="width: 30%;float :left;">
-                    <FORM method="POST" action="modifier_profil.php">
+                    <FORM method="POST" action="">
                         <div class="form-group row">
                             <H2><?php echo TXT_INFORMATION; ?></H2>
 
-                            <TABLE NOBOARDER style="width: 45%; display:inline">
+                            <TABLE NOBOARDER style="display:inline">
                                 <TR>
                                     <TD>
                                         <label><?php echo TXT_PRENOM; ?>:</label>
@@ -172,7 +175,7 @@ require('decide-lang.php');
 
                             <br>
                             <p>
-                                <input type="submit" class="btn btn-primary" value="<?php echo TXT_MODIFP; ?>">
+                                <input type="submit" name="modifier_profil" class="btn btn-primary" value="<?php echo TXT_MODIFP; ?>">
                             </p>
                         </div>
                     </FORM>
@@ -197,7 +200,7 @@ require('decide-lang.php');
             if ($nb_lignes > 0) {
             ?>
 
-                <div style="width: 70%;">
+                <div style="width: 70%; float:left; ">
                     <h2><?php echo TXT_RDV; ?></h2>
 
                     <Table class="table table-striped table-hover">
@@ -342,6 +345,74 @@ require('decide-lang.php');
 
             </td>
 
+            <?php
+
+            if (isset($_POST['modifier_profil'])) {
+            ?>
+                <FORM method="POST" action="profil.php">
+                    <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_PrenomPe" value="<?php echo $_POST["PrenomPe"]; ?>" required>
+                                        <label for="floatingInput"><?php echo TXT_PRENOM; ?></label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_NomPe" value="<?php echo $_POST['NomPe']; ?>" required>
+                                        <label for="floatingInput"><?php echo TXT_NOM; ?></label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_EmailPe" value="<?php echo $_POST['EmailPe']; ?>" required>
+                                        <label for="floatingInput"><?php echo TXT_EMAIL; ?></label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_AdressePe" value="<?php echo $_POST['AdressePe']; ?>" required>
+                                        <label for="floatingInput"><?php echo TXT_ADRESSE; ?></label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_TelPe" value="<?php echo $_POST['TelPe']; ?>" required>
+                                        <label for="floatingInput"><?php echo TXT_TEL; ?></label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_Statut" value="<?php echo $_POST['Statut']; ?>" required>
+                                        <label for="floatingInput"><?php echo TXT_IDENTITE; ?></label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_Formation" value="<?php echo $_POST['Formation']; ?>" required>
+                                        <label for="floatingInput"><?php echo TXT_FORMATION; ?></label>
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <div class="col text-center">
+                                        <input type="submit" name="modifier" class="btn btn-primary" value="<?php echo TXT_MODIFIER; ?>">
+                                        <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_ANNULER; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                    echo "<script>
+                    $(window).load(function() {
+                    $('#alerte').modal('show');
+                    });
+                </script>";
+                    ?>
+                </FORM>
+            <?php
+            }
+            ?>
 
             <div class="text-center">
                 <a href="menu2.php" type="button" class="btn btn-light">Retour</a>
