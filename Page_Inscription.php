@@ -3,7 +3,9 @@ session_start();
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
 
-$_SESSION['lang']= $_POST['lang'];
+if (empty($_SESSION['lang'])) {
+  $_SESSION['lang'] = $_POST['lang'];
+}
 require('decide-lang.php');
 ?>
 
@@ -231,6 +233,12 @@ require('decide-lang.php');
           $result = mysqli_query($session, $query);
 
           $_SESSION['user'] = $email;
+          $_SESSION['nom'] = "$prenom $nom";
+          $_SESSION['identifiant'] = $email;
+          $_SESSION['psw'] = $mdp_crypté;
+          $_SESSION['tel'] = $tel;
+          $_SESSION['statut'] = $statut;
+          $_SESSION['formation'] = $formation;
 
   ?>
           <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
