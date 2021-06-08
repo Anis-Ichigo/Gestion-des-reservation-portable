@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require('Connexion_BD.php');
 
 mysqli_set_charset($session, "utf-8");
@@ -104,7 +104,7 @@ require('decide-lang.php');
                 <h1> <?php echo TXT_ACCUEIL_PROFIL; ?></h1>
 
 
-                <div style="width: 30%;float :left;">
+                <div>
                     <FORM method="POST" action="">
                         <div class="form-group row">
                             <H2><?php echo TXT_INFORMATION; ?></H2>

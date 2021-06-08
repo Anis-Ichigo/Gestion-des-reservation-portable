@@ -255,7 +255,7 @@ require('decide-lang.php');
       <center>
         <input type="submit" name="inscription" value="<?php echo TXT_ACCUEIL_INSCRIPTION; ?>" onclick="return validation()">
         <input type="reset" value="<?php echo TXT_REINITIALISER; ?>">
-        <input type="button" value="<?php echo TXT_RETOUR; ?>" onclick="history.go(-1)">
+        <a href="idenx.html" type="button" class="btn btn-secondary">Retour</a>
       </CENTER><br>
 
     </div>
