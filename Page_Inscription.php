@@ -79,7 +79,7 @@ require('decide-lang.php');
 
 
 
-  <FORM action='reservation_portable.php' method="post">
+  <FORM action='' method="post">
 
 
 
