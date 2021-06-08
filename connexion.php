@@ -56,6 +56,13 @@ mysqli_set_charset($session, "utf8");
 
             header("Location: menu2.php");
         }
+
+
+
+        $_SESSION['lang']=$_POST['lang'];
+
+
+
         mysqli_close($session);
         ?>
 

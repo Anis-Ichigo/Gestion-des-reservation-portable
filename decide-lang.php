@@ -1,17 +1,14 @@
 <?php
+session_start();
+if (isset($_SESSION['lang'])){
+    if ($_SESSION['lang']=='fr') {           // si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+        include('fr-lang.php');
+    }
 
-if (isset($_POST["enregistrer_parametres"])){
-if ($_POST['lang']=='fr') {           // si la langue est 'fr' (français) on inclut le fichier fr-lang.php
-include('fr-lang.php');
+    else{      // si la langue est 'en' (anglais) on inclut le fichier en-lang.php
+        include('en-lang.php');
+    }
 }
-
-else if ($_POST['lang']=='en') {      // si la langue est 'en' (anglais) on inclut le fichier en-lang.php
- include('en-lang.php');
-}
-}
-else {                       // si aucune langue n'est déclarée on inclut le fichier fr-lang.php par défaut
-include('fr-lang.php');
-}								
 
 // if (isset($_COOKIE['lang'])) {
 
