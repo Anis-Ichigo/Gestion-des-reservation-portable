@@ -484,6 +484,9 @@ require('decide-lang.php');
         ?>
 
 
+        <div class="text-center">
+            <a href="menu2.php" type="button" class="btn btn-secondary">Retour</a>
+        </div>
 
 </body>
 

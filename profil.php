@@ -262,6 +262,7 @@ require('decide-lang.php');
 
 
             <td>
+            <H2><?php echo TXT_MODIFMDP; ?></H2>
 
                 <div id="modifmdp">
 
@@ -415,7 +416,7 @@ require('decide-lang.php');
             ?>
 
             <div class="text-center">
-                <a href="menu2.php" type="button" class="btn btn-light">Retour</a>
+                <a href="menu2.php" type="button" class="btn btn-secondary">Retour</a>
             </div>
 
         </main>

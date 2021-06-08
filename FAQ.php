@@ -1,6 +1,6 @@
 <?php
 require('decide-lang.php');
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -16,40 +16,46 @@ require('decide-lang.php');
 
 <body>
     <div class="contenu">
-        <h1> <?php echo TXT_ACCUEIL_FAQ;?> </h1>
+        <h1> <?php echo TXT_ACCUEIL_FAQ; ?> </h1>
         <section class="faq">
-            <strong><?php echo TXT_QUESTION1;?></strong>
-            <p align="justify"> <?php echo TXT_REPONSE1_A;?> <a href="reservation_portable.php"><i>"<?php echo TXT_REPONSE1_B;?>"</i></a><?php echo TXT_REPONSE1_C;?>
+            <strong><?php echo TXT_QUESTION1; ?></strong>
+            <p align="justify"> <?php echo TXT_REPONSE1_A; ?> <a href="reservation_portable.php"><i>"<?php echo TXT_REPONSE1_B; ?>"</i></a><?php echo TXT_REPONSE1_C; ?>
             </p>
         </section>
         <section class="faq">
-            <strong><?php echo TXT_QUESTION2;?></strong>
-            <p align="justify"><?php echo TXT_REPONSE2;?> </p>
+            <strong><?php echo TXT_QUESTION2; ?></strong>
+            <p align="justify"><?php echo TXT_REPONSE2; ?> </p>
         </section>
         <section class="faq">
-            <strong><?php echo TXT_QUESTION3;?></strong>
-            <p align="justify"><?php echo TXT_REPONSE3_A;?>
-                <i>"<?php echo TXT_REPONSE3_B;?>"</i> <?php echo TXT_REPONSE3_C;?> </p>
-        </section>
-        <section class="faq">
-            <strong><?php echo TXT_QUESTION4;?></strong>
-            <p> <?php echo TXT_REPONSE4_A;?>
-                <a href="mes_reservations.php"> <i>"<?php echo TXT_REPONSE4_B;?>"</i></a>
-                <?php echo TXT_REPONSE4_C;?>
+            <strong><?php echo TXT_QUESTION3; ?></strong>
+            <p align="justify"><?php echo TXT_REPONSE3_A; ?>
+                <i>"<?php echo TXT_REPONSE3_B; ?>"</i> <?php echo TXT_REPONSE3_C; ?>
             </p>
         </section>
         <section class="faq">
-            <strong><?php echo TXT_QUESTION5;?></strong>
-            <p> <?php echo TXT_REPONSE5_A;?> <a href="AC.php"><?php echo TXT_REPONSE5_B;?></a>. </p>
+            <strong><?php echo TXT_QUESTION4; ?></strong>
+            <p> <?php echo TXT_REPONSE4_A; ?>
+                <a href="mes_reservations.php"> <i>"<?php echo TXT_REPONSE4_B; ?>"</i></a>
+                <?php echo TXT_REPONSE4_C; ?>
+            </p>
         </section>
         <section class="faq">
-            <strong><?php echo TXT_QUESTION6;?></strong>
-            <p> <?php echo TXT_REPONSE6;?> <a href="CGU.php"><?php echo TXT_REPONSE5_B;?></a>. </p>
+            <strong><?php echo TXT_QUESTION5; ?></strong>
+            <p> <?php echo TXT_REPONSE5_A; ?> <a href="AC.php"><?php echo TXT_REPONSE5_B; ?></a>. </p>
         </section>
         <section class="faq">
-            <strong><?php echo TXT_QUESTION7;?></strong>
-            <p> <?php echo TXT_REPONSE7;?><a href="mes_reservations.php"> <?php echo TXT_REPONSE5_B;?></a>.
+            <strong><?php echo TXT_QUESTION6; ?></strong>
+            <p> <?php echo TXT_REPONSE6; ?> <a href="CGU.php"><?php echo TXT_REPONSE5_B; ?></a>. </p>
+        </section>
+        <section class="faq">
+            <strong><?php echo TXT_QUESTION7; ?></strong>
+            <p> <?php echo TXT_REPONSE7; ?><a href="mes_reservations.php"> <?php echo TXT_REPONSE5_B; ?></a>.
             </p>
         </section>
     </div>
+    <div class="text-center">
+        <a href="menu2.php" type="button" class="btn btn-secondary">Retour</a>
+    </div>
 </body>
+
+</html>
