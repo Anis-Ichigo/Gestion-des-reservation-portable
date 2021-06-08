@@ -38,7 +38,7 @@ require('decide-lang.php');
               </label>
               <div>
                 <br>
-                <input type="submit" name="" value="<?php echo ENREGISTRER;?>">
+                <input type="submit" name="enregistrer_parametres" value="<?php echo ENREGISTRER;?>">
               </div>
           </div>
         </form>
