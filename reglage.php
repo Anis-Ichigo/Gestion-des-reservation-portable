@@ -43,7 +43,7 @@ require('decide-lang.php');
           </div>
         </form>
 
-        <a href="menu2.php" class="btn btn-secondary">Retour</a>
+        <a href="menu2.php" class="btn btn-secondary text-center">Retour</a>
 
       </div>
   </body>

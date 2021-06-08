@@ -16,9 +16,6 @@
 	 $lang = $_POST['lang'];
  }
 
- if(isset("button")){
-$lang=$_POST['lang'];
- }
   	 if(isset($_COOKIE['lang'])) {
 	     $lang = "en";
   	 } else {
