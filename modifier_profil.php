@@ -64,74 +64,123 @@ include('decide-lang.php');
                     <TABLE NOBOARDER>
 
                         <TR>
+
                             <TD>
+
                                 <label><?php echo TXT_PRENOM;?> :</label>
+
                             </TD>
 
                             <TD>
+
                                 <input type="text" class="form-control" autocomplete="off" name="modif_PrenomPe" value="<?php echo $_POST["PrenomPe"]; ?>">
+
                             </TD>
+
                         </TR>
 
                         <TR>
+
                             <TD>
+
                                 <label><?php echo TXT_NOM;?> :</label>
+
                             </TD>
 
                             <TD>
+
                                 <input type="text" class="form-control" autocomplete="off" name="modif_NomPe" value="<?php echo $_POST['NomPe']; ?>">
+
                             </TD>
+
                         </TR>
 
                         <TR>
+
                             <TD>
+
                                 <label><?php echo TXT_EMAIL ;?> :</label>
+
                             </TD>
 
                             <TD>
+
                                 <input type="text" class="form-control" autocomplete="off" name="modif_EmailPe" value="<?php echo $_POST['EmailPe']; ?>">
+
                             </TD>
+
                         </TR>
 
                         <TR>
+
                             <TD>
+
                                 <label><?php echo TXT_ADRESSE;?> :</label>
+
                             </TD>
 
                             <TD>
+
                                 <input type="text" class="form-control" autocomplete="off" name="modif_AdressePe" value="<?php echo $_POST['AdressePe']; ?>">
+
                             </TD>
+
                         </TR>
 
+
+
                         <TR>
+
                             <TD>
+
                                 <label><?php echo TXT_TEL;?> :</label>
+
                             </TD>
 
                             <TD>
+
                                 <input type="text" class="form-control" autocomplete="off" name="modif_TelPe" value="<?php echo $_POST['TelPe']; ?>" >
+
                             </TD>
+
                         </TR>
 
+
+
                         <TR>
+
                             <TD>
+
                                 <label><?php echo TXT_IDENTITE;?> :</label>
+
                             </TD>
 
                             <TD>
+
                                 <input type="text" class="form-control" autocomplete="off" name="modif_Statut" value="<?php echo $_POST['Statut']; ?>">
+
                             </TD>
+
                         </TR>
+
+
 
                         <TR>
+
                             <TD>
+
                                 <label><?php echo TXT_FORMATION;?>:</label>
+
                             </TD>
 
                             <TD>
+
                                 <input type="text" class="form-control" autocomplete="off" name="modif_Formation" value="<?php echo $_POST['Formation']; ?>">
+
                             </TD>
+
                         </TR>
+
                     </TABLE>
 
                 </div>

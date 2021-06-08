@@ -104,7 +104,7 @@ require('decide-lang.php');
                 <h1> <?php echo TXT_ACCUEIL_PROFIL; ?></h1>
 
 
-                <div style="width: 40%;float :left;">
+                <div style="width: 30%;float :left;">
                     <FORM method="POST" action="">
                         <div class="form-group row">
                             <H2><?php echo TXT_INFORMATION; ?></H2>
@@ -200,7 +200,7 @@ require('decide-lang.php');
             if ($nb_lignes > 0) {
             ?>
 
-                <div style="width: 60%; float:left; ">
+                <div style="width: 70%; float:left; ">
                     <h2><?php echo TXT_RDV; ?></h2>
 
                     <Table class="table table-striped table-hover">
