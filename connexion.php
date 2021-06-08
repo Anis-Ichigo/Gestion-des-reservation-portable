@@ -48,7 +48,7 @@ mysqli_set_charset($session, "utf8");
         }else{
             $_SESSION['user']=$gooduser;
             $_SESSION['nom']="$prenom $nom";
-            $_SESSION['identi']=$identifiant;
+            $_SESSION['identifiant']=$identifiant;
             $_SESSION['psw']=$goodpsw;
             $_SESSION['tel']=$tel;
             $_SESSION['statut']=$statut;

@@ -51,7 +51,7 @@ require('decide-lang.php');
           VALUES ('$email', '$nom', '$prenom', '$email', '$mdp_crypté', '$tel', '$statut', '$formation')";
                     $result = mysqli_query($session, $query);
 
-                    $_SESSION['Identifiant'] = $email;
+                    $_SESSION['user'] = $email;
                 } else echo MDP_DIFFERENT;
             } else echo MDP_COURT;
         } else echo MDP_CHAMPS;
@@ -59,7 +59,7 @@ require('decide-lang.php');
     ?>
 
     <?php
-    $identifiant = $_SESSION['Identifiant'];
+    $identifiant = $_SESSION['user'];
     //$identifiant = '22508753';
 
 
