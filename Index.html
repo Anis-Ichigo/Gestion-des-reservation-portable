@@ -15,13 +15,14 @@
 
 <body>
     <script>
-        function connecter()  {     
-            document.index.action = "connexion.php";     
-            document.index.submit();     
-        }          
-        function inscrire()  {     
-            document.index.action = "Page_Inscription.php";     
-            document.index.submit();     
+        function connecter() {
+            document.index.action = "connexion.php";
+            document.index.submit();
+        }
+
+        function inscrire() {
+            document.index.action = "Page_Inscription.php";
+            document.index.submit();
         }
     </script>
 
@@ -55,21 +56,26 @@
 
                 <input id="FR" type="radio" name="lang" value="fr" checked>
                 <label for="FR">
-					&nbsp;&nbsp;
-					<span class="flag-icon flag-icon-fr"></span>
-					Français
-				</label>
+                    &nbsp;&nbsp;
+                    <span class="flag-icon flag-icon-fr"></span>
+                    Français
+                </label>
 
                 <input id="EN" type="radio" name="lang" value="en">
                 <label for="EN">
-					&nbsp;&nbsp;
-					<span class="flag-icon flag-icon-um"></span>
-					English
-				</label>
+                    &nbsp;&nbsp;
+                    <span class="flag-icon flag-icon-um"></span>
+                    English
+                </label>
+
+
+
+
                 <!--<button type="submit" class="btn btn-primary">Se connecter</button>
                 <a class="button" type="submit" name="inscrire" href="page_inscription.php">S'inscrire</a>-->
 
-                <button type="submit" class="btn btn-primary" onClick="connecter()" value="se connecter">Se connecter</button>
+                <button type="submit" class="btn btn-primary" onClick="connecter()" value="se connecter">Se
+                    connecter</button>
                 <button type="submit" onClick="inscrire()" value="inscrire">S'inscrire</button>
                 <br>
 
