@@ -5,12 +5,22 @@ session_start();
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
 
-if ($_POST['lang'] == 'fr') {
-  $_SESSION['lang'] = 'fr';
-  include('fr-lang.php');
-} else if ($_POST['lang'] == 'en') {
-  $_SESSION['lang'] = 'en';
-  include('en-lang.php');
+if (!isset($_POST['inscription'])) {
+  if ($_POST['lang'] == 'fr') {
+    $_SESSION['lang'] = 'fr';
+    include('fr-lang.php');
+  } else if ($_POST['lang'] == 'en') {
+    $_SESSION['lang'] = 'en';
+    include('en-lang.php');
+  }
+}
+
+if (isset($_POST['inscription'])) {
+  if ($_SESSION['lang'] == 'fr') {
+    include('fr-lang.php');
+  } else if ($_SESSION['lang'] == 'en') {
+    include('en-lang.php');
+  }
 }
 
 //echo $_SESSION['lang'];
@@ -208,6 +218,8 @@ if ($_POST['lang'] == 'fr') {
     </div>
 
     </center><br>
+
+    <input type="hidden" name="lang" id="" value="<?php $_SESSION['lang']; ?>">
 
     <DIV id="Boutons">
       <center>
