@@ -1,5 +1,9 @@
 <?php
+<<<<<<< Updated upstream
 require('decide-lang.php');
+=======
+session_start();
+>>>>>>> Stashed changes
 require('Connexion_BD.php');
 
 mysqli_set_charset($session, "utf8");
