@@ -43,9 +43,9 @@ mysqli_set_charset($session, "utf-8");
         </div>
       </div>
     </form>
-
+&nbsp;&nbsp;
     <div class="text-center">
-      <a href="menu2.php" class="btn btn-secondary">Retour</a>
+      <a href="menu2.php" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
 
     </div>
 

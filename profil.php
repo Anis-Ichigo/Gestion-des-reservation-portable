@@ -403,7 +403,7 @@ mysqli_set_charset($session, "utf-8");
             ?>
 
             <div class="text-center">
-                <a href="menu2.php" type="button" class="btn btn-secondary">Retour</a>
+                <a href="menu2.php" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
             </div>
 
         </main>

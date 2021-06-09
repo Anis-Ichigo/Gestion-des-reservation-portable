@@ -28,7 +28,7 @@ define('SUCCES_MDP', 'Votre mot de passe a été modifié');
 define('ERREUR_MDP', 'Erreur');
 define('MDP_DIFFERENT', 'Les mots de passe ne sont pas identiques');
 define('MDP_INCORRECT', 'Mot de passe incorrect');
-define('MDP_INCOMPLET', 'Veuillez remplir tous les champs');
+define('MDP_INCOMPLET', 'Veuillez remplir tous les champs !');
 
 //Mes rendez-Vous
 
@@ -93,6 +93,10 @@ define('TXT_CONFIDENTIEL', "J'ai lu et j'accepte la politique de confidentialit�
 define('TXT_CGU', "J'ai lu et j'accepte les conditions générales d'utilisation");
 define('TXT_REINITIALISER', 'Réinitialiser');
 define('ALERTE_MDP', 'Les deux mots de passe ne sont pas identiques !');
+define('ALERTE_SUCCES_COMPTE', 'Le compte a été créé avec succès !');
+define('VALIDER', 'Valider');
+define('ALERTE_ERREUR_MDP', 'Les mots de passes ne correspondent pas. Veuillez recommencer !');
+define('ERREUR_MDP_COURT', 'Le mot de passe choisi est trop court !');
 
 //FAQ.php
 

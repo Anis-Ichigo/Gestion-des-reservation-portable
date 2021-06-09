@@ -92,7 +92,10 @@ define('TXT_CONFIDENTIEL', 'I accept the privacy policy');
 define('TXT_CGU', 'I have read and I accept the general conditions of use');
 define('TXT_REINITIALISER', 'RESET');
 define('ALERTE_MDP', 'The two passwords are not identical!');
-
+define('ALERTE_SUCCES_COMPTE', 'The account has been successfully created').
+define('VALIDER', 'Confirm');
+define('ALERTE_ERREUR_MDP', 'The passwords do not match. Please try again !');
+define('ERREUR_MDP_COURT', 'The password is too short !');
 
 //FAQ.php
 
