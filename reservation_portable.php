@@ -30,7 +30,7 @@ mysqli_set_charset($session, "utf8");
 <body>
 
     <?php
-    $identifiant = $_SESSION['user'];
+    $identifiant = $_SESSION['identifiant'];
     ?>
 
     <!--<div style="float: right">
