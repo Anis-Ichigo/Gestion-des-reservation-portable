@@ -42,7 +42,7 @@ require('decide-lang.php');
 
     <?php
 
-    $identifiant = $_SESSION['identifiant'];
+    $identifiant = $_SESSION['user'];
 
     //$identifiant = '22508753';
 
@@ -118,7 +118,7 @@ require('decide-lang.php');
 
                             AND emprunt.Motif LIKE 'Acquisition'
 
-                            AND emprunt.IdentifiantPe = '$identifiant';");
+                            AND emprunt.IdentifiantPe = '$identifiant'");
 
         $result_reservations = mysqli_query($session, $reservations);
 

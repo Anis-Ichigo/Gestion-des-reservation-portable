@@ -76,7 +76,7 @@ require('decide-lang.php');
                     <?php echo TXT_CHOIX_RETOUR; ?> :
                 </td>
                 <td>
-                    <input type="date" class="form-control" name="DateRetour" placeholder="dd-mm-yyyy" pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" required>
+                    <input type="date" class="form-control" name="DateRetour" placeholder="dd-mm-yyyy" required>
                 </td>
                 <td>
                     (*)
@@ -396,7 +396,8 @@ require('decide-lang.php');
             $horaire = $_POST['horaire'];
             $jour = $_POST['jour'];
             $date_Emprunt = $_POST['date_emprunt'];
-            $dateEmprunt = date('Y-d-m', strtotime($date_Emprunt));
+            $dt = DateTime::createFromFormat('d/m/Y', $date_Emprunt);
+            $dateEmprunt = $dt->format('Y-m-d');
 
             $categorie = $_POST['categorieM'];
             $identifiantM = $_POST['IdentifiantM'];
@@ -428,6 +429,9 @@ require('decide-lang.php');
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                                 </svg>
                                 <div>
+                                    <?php echo $dateEmprunt; ?><br>
+                                    <?php echo $dateRetour; ?>
+
                                     <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
                                 </div>
                             </div>
