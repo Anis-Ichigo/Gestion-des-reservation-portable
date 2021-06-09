@@ -43,7 +43,7 @@ if (isset($_POST['inscription'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/27e9b6ce5f.js" crossorigin="anonymous"></script>
   <link href="uicons-regular-rounded/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
-  <link href="Style_FAQ.css" type="text/css" rel="stylesheet" />
+  <link href="Style_portable.css" type="text/css" rel="stylesheet" />
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
@@ -52,6 +52,7 @@ if (isset($_POST['inscription'])) {
 
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <SCRIPT type="text/javascript">
     function validation() {
@@ -88,7 +89,7 @@ if (isset($_POST['inscription'])) {
 
 
 
-  <FORM action='' method="post" style="width: 30%; margin-right:auto; margin-left:auto;">
+  <FORM action='' method="post" style="width: 70%; margin-right:auto; margin-left:auto;">
     <DIV id="inscription">
       <H1>
         <CENTER><B> <?php echo TXT_ACCUEIL_INSCRIPTION; ?> </B></CENTER>
@@ -212,9 +213,9 @@ if (isset($_POST['inscription'])) {
     <div class="legals_flex">
       <CENTER>
         <input id="checkbox_newletter" name="checkbox_confidentiality_notice" required type="checkbox">
-        <label class="checkbox_container"><?php echo TXT_CONFIDENTIEL; ?></label><br>
+        <label class="checkbox_container" for="checkbox_newletter"><?php echo TXT_CONFIDENTIEL; ?></label><br>
         <input id="checkbox_general_condition" name="checkbox_general_condition" required type="checkbox">
-        <label class="checkbox_container"><?php echo TXT_CGU; ?></label>
+        <label class="checkbox_container" for="checkbox_general_condition"><?php echo TXT_CGU; ?></label>
     </div>
 
     </center><br>
@@ -224,7 +225,7 @@ if (isset($_POST['inscription'])) {
     <DIV id="Boutons">
       <center>
         <input type="submit" name="inscription" value="<?php echo TXT_ACCUEIL_INSCRIPTION; ?>">
-        <input type="reset" value="<?php echo TXT_REINITIALISER; ?>">
+        <input type="reset" value="<?php echo TXT_REINITIALISER; ?>"><br><br>
         <a href="index.html" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
       </CENTER><br>
 
