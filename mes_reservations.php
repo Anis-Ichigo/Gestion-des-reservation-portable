@@ -42,7 +42,7 @@ require('decide-lang.php');
 
     <?php
 
-    $identifiant = '22508753';
+    $identifiant = $_SESSION['identifiant'];
 
     //$identifiant = '22508753';
 
