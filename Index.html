@@ -14,21 +14,10 @@
 </head>
 
 <body>
-
-    <script>
-        function connecter()      {     
-            document.index.action = "connexion.php";     
-            document.index.submit();     
-        }          
-        function inscrire()      {     
-            document.index.action = "Page_Inscription.php";     
-            document.index.submit();     
-        }
-    </script>
     <!-- partial:index.partial.html -->
     <div class="main">
 
-        <form method="post" action="connexion.php" name="index">
+        <form method="post" action="connexion.php">
             <div class="form-group" align="center">
                 <h2>Authentification</h2>
                 <hr color="#4E00A8">
@@ -67,8 +56,8 @@
 					English
 				</label>
 
-                <button type="button" class="btn btn-primary" onClick="connecter()" value="seconnecter">Se connecter</button>
-                <button type="button" onClick="inscrire()" value="inscrire">S'inscrire</button>
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+                <a class="button" type="submit" name="inscrire" href="page_inscription.php">S'inscrire</a>
                 <br>
 
 

@@ -1,44 +1,29 @@
 <?php
 session_start();
 require('Connexion_BD.php');
-
 mysqli_set_charset($session, "utf-8");
-
 require('decide-lang.php');
 ?>
 
 <!DOCTYPE html>
-
 <html>
-
-
-
 <head>
-
     <title><?php echo TXT_ACCUEIL_PROFIL; ?></title>
-
     <meta charset="utf-8" />
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="styletest.css" type="text/css">
     <script src="https://kit.fontawesome.com/27e9b6ce5f.js" crossorigin="anonymous"></script>
-
     <link href="uicons-regular-rounded/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
 </head>
 
 
 
 <body>
-
     <div style="float: right; display:inline">
         <div class="element-head">
             <?php echo $_SESSION['nom']; ?>
@@ -46,10 +31,9 @@ require('decide-lang.php');
         </div>
     </div>
 
-
     <?php
-
-    $identifiant = '22508753';
+$identifiant = $_SESSION['identifiant'];
+ //$identifiant = '22508753';
 
     if (isset($_POST['envoyer_probleme'])) {
         $NomP = addslashes($_POST['NomP']);
@@ -88,13 +72,11 @@ require('decide-lang.php');
         $modif_Formation = $_POST['modif_Formation'];
 
         $modif_profil = ("UPDATE personne SET PrenomPe = '$modif_PrenomPe', NomPe = '$modif_NomPe', EmailPe = '$modif_EmailPe', AdressePe = '$modif_AdressePe', TelPe = '$modif_TelPe', Statut = '$modif_Statut', Formation = '$modif_Formation' WHERE IdentifiantPe = $identifiant");
-
         $result_modif_profil = mysqli_query($session, $modif_profil);
     }
 
     $emprunteur = ("SELECT * FROM personne where IdentifiantPe = '$identifiant'");
     $result_emprunteur = mysqli_query($session, $emprunteur);
-
     foreach ($result_emprunteur as $row) {
     ?>
 
@@ -104,8 +86,8 @@ require('decide-lang.php');
                 <h1> <?php echo TXT_ACCUEIL_PROFIL; ?></h1>
 
 
-                <div>
-                    <FORM method="POST" action="">
+                <div style="width: 30%;float :left;">
+                    <FORM method="POST" action="profil.php">
                         <div class="form-group row">
                             <H2><?php echo TXT_INFORMATION; ?></H2>
 
@@ -126,7 +108,7 @@ require('decide-lang.php');
                                         <input type="text" readonly class="form-control-plaintext" name="NomPe" value="<?php echo $row['NomPe']; ?>">
                                     </TD>
                                 </TR>
-                                <TR>4
+                                <TR>
                                     <TD>
                                         <label><?php echo TXT_EMAIL; ?>:</label>
                                     </TD>
@@ -266,7 +248,7 @@ require('decide-lang.php');
 
                 <div id="modifmdp">
 
-                    <FORM method="POST" action="">
+                    <FORM method="POST" action="profil.php">
 
                         <Table>
                             <TR>
@@ -275,7 +257,7 @@ require('decide-lang.php');
                                 </TD>
 
                                 <TD>
-                                    <input type="text" class="form-control" autocomplete="off" name="mdp_actuel" value="">
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_actuel" value="">
                                 </TD>
                             </TR>
 
@@ -284,7 +266,7 @@ require('decide-lang.php');
                                     <label><?php echo TXT_NOUVEAUMDP; ?>:</label>
                                 </TD>
                                 <TD>
-                                    <input type="text" class="form-control" autocomplete="off" name="mdp_nouveau" value="">
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_nouveau" value="">
                                 </TD>
                             </TR>
 
@@ -293,7 +275,7 @@ require('decide-lang.php');
                                     <label><?php echo TXT_CONFIRMERMDP; ?> :</label>
                                 </TD>
                                 <TD>
-                                    <input type="text" class="form-control" autocomplete="off" name="mdp_confirmer" value="">
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_confirmer" value="">
                                 </TD>
                             </TR>
                         </TABLE>
@@ -301,26 +283,29 @@ require('decide-lang.php');
                         <br>
 
                         <p>
-                            <input type="submit" class="btn btn-primary" value="<?php echo TXT_MODIFMDP; ?>">
+                            <input type="submit" class="btn btn-primary" name="modifier_mdp" value="<?php echo TXT_MODIFMDP; ?>">
                         </p>
 
                     </Form>
 
                     <?php
-                    $actuel = $_POST['mdp_actuel'];
-                    $mdp = $_POST['mdp_nouveau'];
-                    $confirmer = $_POST['mdp_confirmer'];
-                    $identifiant = $_SESSION['IdentifiantPe'];
+                    if(isset($_POST['mdp_actuel'])){
+                      $actuel = $_POST['mdp_actuel'];
+                      $mdp = $_POST['mdp_nouveau'];
+                      $confirmer = $_POST['mdp_confirmer'];
+                      updateMdp($session, $identifiant, $actuel, $mdp, $confirmer);
+                    }
 
-                    $query = "UPDATE personne SET Mot_de_passePe = ?";
-                    if (!empty($actuel) && !empty($mdp) && !empty($confirmer)) {
+                  function updateMdp($session, $identifiant, $actuel, $mdp, $confirmer){
+                    $query = "UPDATE personne SET Mot_de_passePe = ? WHERE IdentifiantPe = $identifiant";
+                      if (!empty($actuel) && !empty($mdp) && !empty($confirmer)) {
                         $query_pe = "SELECT Mot_de_passePe FROM personne WHERE IdentifiantPe = ?";
                         $req = mysqli_prepare($session, $query_pe);
                         mysqli_stmt_bind_param($req, 's', $identifiant);
                         mysqli_stmt_execute($req);
-                        $result = get_result($req);
-                        $ligne = array_shift($result);
-                        $bd_mdp = $ligne['mot_de_passe'];
+                        $result = mysqli_stmt_get_result($req);
+                        $ligne = mysqli_fetch_assoc($result);
+                        $bd_mdp = $ligne['Mot_de_passePe'];
                         $actuel = sha1($actuel);
                         if ($actuel == $bd_mdp) {
                             if ($mdp === $confirmer) {
@@ -341,6 +326,7 @@ require('decide-lang.php');
                     } else {  //manque un champs
                         echo MDP_INCOMPLET;
                     }
+                  }
                     ?>
                 </div>
 
