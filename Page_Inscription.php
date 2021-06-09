@@ -1,15 +1,16 @@
 <?php
 //session_start();
-require('decide-lang.php');
+//require('decide-lang.php');
 
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
 
-
-if (empty($_SESSION['lang'])) {
-  $_SESSION['lang'] = $_POST['lang'];
-} else {
-  $_SESSION['lang'] = $_POST['lang'];
+if ($_POST['lang'] == 'fr') {
+  $_SESSION['lang'] = 'fr';
+  include('fr-lang.php');
+} else if ($_POST['lang'] == 'en') {
+  $_SESSION['lang'] = 'en';
+  include('en-lang.php');
 }
 
 //echo $_SESSION['lang'];
