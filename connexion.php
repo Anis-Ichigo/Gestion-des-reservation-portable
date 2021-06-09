@@ -40,10 +40,16 @@ mysqli_set_charset($session, "utf8");
         }
 
         if($user!=$gooduser or $mdp_hash!=$goodpsw){
+            $lange= $_POST['lang'];
             echo "<h2>Mauvais login </h2><br>
                   <h4>Vérifiez votre identifiant et votre mot de passe.</h4><br>
-                   <a href='index.html'>Merci de recommencer.</a><br>";
-            echo "Ou <br><a href='Page_Inscription.php'>Créer un compte.</a>";
+                  <button><a href='index.html'>Merci de recommencer.</a></button><br>";
+            echo "Ou <br>
+                     <form action='Page_Inscription.php' method='post' >
+                        <input type='hidden' name='lang' value=$lange>
+                        <button type='submit' class='compte'>Créer un compte.</button>
+                     </form>
+                    ";
         }else{
             session_start();
             $_SESSION['user']=$gooduser;
@@ -60,7 +66,7 @@ mysqli_set_charset($session, "utf8");
 
 
         $_SESSION['lang']=$_POST['lang'];
-
+        //echo $_SESSION['lang'];
 
 
         mysqli_close($session);
