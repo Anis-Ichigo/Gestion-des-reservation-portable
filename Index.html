@@ -14,17 +14,16 @@
 </head>
 
 <body>
-	<script> 
-    	function connecter() { 
-    		document.index.action="connexion.php"; 
-    		document.index.submit(); 
-    	} 
-     
-    	function inscrire() { 
-    		document.index.action="Page_Inscription.php"; 
-    		document.index.submit(); 
-    	} 
-	</script> 
+    <script>
+        function connecter()  {     
+            document.index.action = "connexion.php";     
+            document.index.submit();     
+        }          
+        function inscrire()  {     
+            document.index.action = "Page_Inscription.php";     
+            document.index.submit();     
+        }
+    </script>
 
     <!-- partial:index.partial.html -->
     <div class="main">
@@ -67,9 +66,11 @@
 					<span class="flag-icon flag-icon-um"></span>
 					English
 				</label>
+                <!--<button type="submit" class="btn btn-primary">Se connecter</button>
+                <a class="button" type="submit" name="inscrire" href="page_inscription.php">S'inscrire</a>-->
 
-                <button type="button" class="btn btn-primary" onClick="connecter()" value="se connecter">Se connecter</button>
-				<button type="button"  onClick="inscrire()" value="inscrire">S'inscrire</button>
+                <button type="submit" class="btn btn-primary" onClick="connecter()" value="se connecter">Se connecter</button>
+                <button type="submit" onClick="inscrire()" value="inscrire">S'inscrire</button>
                 <br>
 
 

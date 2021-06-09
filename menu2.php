@@ -24,7 +24,7 @@ require('decide-lang.php');
         <div class="menu__item" id="0-0"> <img class="menu__icon" src="signe-plus-dans-un-cercle-noir.svg" />
           <div class="menu__content"><span class="menu__span"></span><?php echo TXT_ACCUEIL_NOUVELLER; ?><span class="menu__span"><?php echo TXT_ACCUEIL_NOUVELLER; ?></span></div>
       </a>
-    </div></a>
+    </div>
     <a href="mes_reservations.php">
       <div class="menu__item" id="1-0"><img class="menu__icon" src="livre.svg" />
         <div class="menu__content"><span class="menu__span"><?php echo TXT_ACCUEIL_RESERVATION; ?></span><span class="menu__span"><?php echo TXT_ACCUEIL_RESERVATION; ?></span></div>
