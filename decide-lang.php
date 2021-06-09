@@ -2,16 +2,36 @@
 
 session_start();
 
-if (isset($_SESSION['lang'])){
-    if ($_SESSION['lang']=='fr') {           // si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+if (isset($_SESSION['lang'])) {
+    if ($_SESSION['lang'] == 'en') {           // si la langue est 'fr' (français) on inclut le fichier fr-lang.php
+        include('en-lang.php');
+    } else {      // si la langue est 'en' (anglais) on inclut le fichier en-lang.php
         include('fr-lang.php');
     }
-    else{      // si la langue est 'en' (anglais) on inclut le fichier en-lang.php
-        include('en-lang.php');
-    }
-}else {
-	include('fr-lang.php');
+
 }
+
+?>
+
+<?php
+if (isset($_POST['enregistrer_parametres'])) {
+    if ($_POST['lang'] == 'fr') {
+        $_SESSION['lang'] = 'fr';
+        include('fr-lang.php');
+    } else if ($_POST['lang'] == 'en') {
+        $_SESSION['lang'] = 'en';
+        include('en-lang.php'); 
+    }
+    ?>
+    <script type="text/javascript">
+        document.location.href = 'profil.php';
+    </script>
+    <?php
+}
+?>
+    
+<?php
+
 
 // if (isset($_COOKIE['lang'])) {
 
