@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require('Connexion_BD.php');
 
 mysqli_set_charset($session, "utf8");
@@ -63,7 +63,7 @@ require('decide-lang.php');
     <div style="float: right; display:inline">
         <div class="element-head">
 
-            <?php echo $row['PrenomPe']; ?> <?php echo $row['NomPe']; ?>
+            <?php echo $_SESSION['nom']; ?>
             <a href="deconnexion.php" type="button" class="btn btn-default"><i class="fi-rr-sign-out"></i></a>
         </div>
     </div>
