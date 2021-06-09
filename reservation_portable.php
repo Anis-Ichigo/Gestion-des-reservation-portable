@@ -434,7 +434,7 @@ require('decide-lang.php');
                         </div>
                         <div class="modal-footer">
                             <div class="col text-center">
-                                <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?> ">
+                                <input type="button" class="btn btn-primary" onclick='document.location.href="menu2.php"' value="<?php echo TXT_OK; ?> ">
                             </div>
                         </div>
                     </div>
