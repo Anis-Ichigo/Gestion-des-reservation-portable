@@ -8,9 +8,9 @@ mysqli_set_charset($session, "utf-8");
 
 if (empty($_SESSION['lang'])) {
   $_SESSION['lang'] = $_POST['lang'];
+} else {
+  $_SESSION['lang'] = $_POST['lang'];
 }
-$_SESSION['lang'] = $_POST['lang'];
-
 
 //echo $_SESSION['lang'];
 ?>
