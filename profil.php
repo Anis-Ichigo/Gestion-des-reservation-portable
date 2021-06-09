@@ -7,6 +7,7 @@ require('decide-lang.php');
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title><?php echo TXT_ACCUEIL_PROFIL; ?></title>
     <meta charset="utf-8" />
@@ -32,8 +33,8 @@ require('decide-lang.php');
     </div>
 
     <?php
-$identifiant = $_SESSION['identifiant'];
- //$identifiant = '22508753';
+    $identifiant = $_SESSION['identifiant'];
+    //$identifiant = '22508753';
 
     if (isset($_POST['envoyer_probleme'])) {
         $NomP = addslashes($_POST['NomP']);
@@ -45,7 +46,7 @@ $identifiant = $_SESSION['identifiant'];
                                WHERE emprunt.IdentifiantM = materiel.identifiantM
                                AND emprunt.identifiantPe = personne.IdentifiantPe
                                AND materiel.CategorieM = '$CategorieM'
-                               AND personne.IdentifiantPe = $identifiant");
+                               AND personne.IdentifiantPe = '$identifiant'");
 
         $result_categorie = mysqli_query($session, $categorie);
 
@@ -71,7 +72,7 @@ $identifiant = $_SESSION['identifiant'];
         $modif_Statut = $_POST['modif_Statut'];
         $modif_Formation = $_POST['modif_Formation'];
 
-        $modif_profil = ("UPDATE personne SET PrenomPe = '$modif_PrenomPe', NomPe = '$modif_NomPe', EmailPe = '$modif_EmailPe', AdressePe = '$modif_AdressePe', TelPe = '$modif_TelPe', Statut = '$modif_Statut', Formation = '$modif_Formation' WHERE IdentifiantPe = $identifiant");
+        $modif_profil = ("UPDATE personne SET PrenomPe = '$modif_PrenomPe', NomPe = '$modif_NomPe', EmailPe = '$modif_EmailPe', AdressePe = '$modif_AdressePe', TelPe = '$modif_TelPe', Statut = '$modif_Statut', Formation = '$modif_Formation' WHERE IdentifiantPe = '$identifiant'");
         $result_modif_profil = mysqli_query($session, $modif_profil);
     }
 
@@ -244,7 +245,7 @@ $identifiant = $_SESSION['identifiant'];
 
 
             <td>
-            <H2><?php echo TXT_MODIFMDP; ?></H2>
+                <H2><?php echo TXT_MODIFMDP; ?></H2>
 
                 <div id="modifmdp">
 
@@ -289,44 +290,45 @@ $identifiant = $_SESSION['identifiant'];
                     </Form>
 
                     <?php
-                    if(isset($_POST['mdp_actuel'])){
-                      $actuel = $_POST['mdp_actuel'];
-                      $mdp = $_POST['mdp_nouveau'];
-                      $confirmer = $_POST['mdp_confirmer'];
-                      updateMdp($session, $identifiant, $actuel, $mdp, $confirmer);
+                    if (isset($_POST['mdp_actuel'])) {
+                        $actuel = $_POST['mdp_actuel'];
+                        $mdp = $_POST['mdp_nouveau'];
+                        $confirmer = $_POST['mdp_confirmer'];
+                        updateMdp($session, $identifiant, $actuel, $mdp, $confirmer);
                     }
 
-                  function updateMdp($session, $identifiant, $actuel, $mdp, $confirmer){
-                    $query = "UPDATE personne SET Mot_de_passePe = ? WHERE IdentifiantPe = $identifiant";
-                      if (!empty($actuel) && !empty($mdp) && !empty($confirmer)) {
-                        $query_pe = "SELECT Mot_de_passePe FROM personne WHERE IdentifiantPe = ?";
-                        $req = mysqli_prepare($session, $query_pe);
-                        mysqli_stmt_bind_param($req, 's', $identifiant);
-                        mysqli_stmt_execute($req);
-                        $result = mysqli_stmt_get_result($req);
-                        $ligne = mysqli_fetch_assoc($result);
-                        $bd_mdp = $ligne['Mot_de_passePe'];
-                        $actuel = sha1($actuel);
-                        if ($actuel == $bd_mdp) {
-                            if ($mdp === $confirmer) {
-                                if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%])[0-9A-Za-z!@#$%]{6,15}$/', $mdp)) {
+                    function updateMdp($session, $identifiant, $actuel, $mdp, $confirmer)
+                    {
+                        $query = "UPDATE personne SET Mot_de_passePe = ? WHERE IdentifiantPe = '$identifiant'";
+                        if (!empty($actuel) && !empty($mdp) && !empty($confirmer)) {
+                            $query_pe = "SELECT Mot_de_passePe FROM personne WHERE IdentifiantPe = ?";
+                            $req = mysqli_prepare($session, $query_pe);
+                            mysqli_stmt_bind_param($req, 's', $identifiant);
+                            mysqli_stmt_execute($req);
+                            $result = mysqli_stmt_get_result($req);
+                            $ligne = mysqli_fetch_assoc($result);
+                            $bd_mdp = $ligne['Mot_de_passePe'];
+                            $actuel = sha1($actuel);
 
+                            if ($actuel == $bd_mdp) {
+                                if ($mdp === $confirmer) {
+                                    //if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%])[0-9A-Za-z!@#$%]{6,15}$/', $mdp)) {
                                     $mdp = sha1($mdp);
                                     $req2 = mysqli_prepare($session, $query);
                                     mysqli_stmt_bind_param($req2, 's', $mdp);
                                     if (mysqli_stmt_execute($req2)) { //modifier avec success
                                         echo SUCCES_MDP;
                                     }
-                                } else //erreur
-                                    echo ERREUR_MDP;
-                            } else //mot de passe ne sont pas identiques
-                                echo MDP_DIFFERENT;
-                        } else //mot de passe actuel incorrect
-                            echo MDP_INCORRECT;
-                    } else {  //manque un champs
-                        echo MDP_INCOMPLET;
+                                    //} else //erreur
+                                    //  echo ERREUR_MDP;
+                                } else //mot de passe ne sont pas identiques
+                                    echo MDP_DIFFERENT;
+                            } else //mot de passe actuel incorrect
+                                echo MDP_INCORRECT;
+                        } else {  //manque un champs
+                            echo MDP_INCOMPLET;
+                        }
                     }
-                  }
                     ?>
                 </div>
 
