@@ -15,41 +15,44 @@ mysqli_set_charset($session, "utf-8");
   <script src="https://kit.fontawesome.com/27e9b6ce5f.js" crossorigin="anonymous"></script>
   <link href="uicons-regular-rounded/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
   <link href="flag-icon-css-master/css/flag-icon.css" rel="stylesheet">
+    <link rel="stylesheet" href="connexion.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <h1> <?php echo TXT_ACCUEIL_REGLAGE; ?></h1>
-  <div class="main">
+<div class="main">
+
+    <h2 align="center"> <?php echo TXT_ACCUEIL_REGLAGE; ?></h2>
     <form action="decide-lang.php" method="post">
-      <div class="form-group" align="center">
-        <h3><?php echo CHOIX_LANGUE; ?></h3>
-        <br>
-        <input type="radio" name="lang" value="fr" checked>
-        <label for="fr">
-          &nbsp;&nbsp;
-          <span class="flag-icon flag-icon-fr"></span>
-          Français
-        </label>
+        <p style="font-size: 1.5em"><?php echo CHOIX_LANGUE.':'; ?></p>
+
+        <div class="form-group" align="center" style="font-size: 1.25em">
+            <input id="fr" type="radio" name="lang" value="fr" checked>
+            <label for="fr">
+                &nbsp;&nbsp;
+                <span class="flag-icon flag-icon-fr"></span>
+                Français
+            </label>
         &nbsp;&nbsp;
-        <input type="radio" name="lang" value="en">
-        <label for="en">
-          &nbsp;&nbsp;
-          <span class="flag-icon flag-icon-um"></span>
-          English
-        </label>
-        <div>
-          <br>
-          <input type="submit" name="enregistrer_parametres" value="<?php echo ENREGISTRER; ?>">
-        </div>
+            <input id="en" type="radio" name="lang" value="en">
+            <label for="en">
+          &nbsp;     &nbsp;
+                <span class="flag-icon flag-icon-um"></span>
+                English
+            </label><br><br>
+
+            <input type="submit" name="enregistrer_parametres" value="<?php echo ENREGISTRER; ?>">
+            
       </div>
     </form>
 &nbsp;&nbsp;
     <div class="text-center">
       <a href="menu2.php" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
 
-    </div>
+
 
   </div>
+</div>
 </body>
 
 </html>
