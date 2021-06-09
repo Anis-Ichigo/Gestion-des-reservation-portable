@@ -3,10 +3,11 @@ session_start();
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
 
-if (empty($_SESSION['lang'])) {
-  $_SESSION['lang'] = $_POST['lang'];
-}
+$_SESSION['lang'] = $_POST['lang'];
+
 require('decide-lang.php');
+
+//echo $_SESSION['lang'];
 ?>
 
 
