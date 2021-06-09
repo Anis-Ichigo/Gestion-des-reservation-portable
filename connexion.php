@@ -47,7 +47,7 @@ mysqli_set_charset($session, "utf8");
             echo "Ou <br>
                      <form action='Page_Inscription.php' method='post' >
                         <input type='hidden' name='lang' value=$lange>
-                        <button type='submit' class='compte'>Créer un compte.</button>
+                        <button type='submit' name='creer_compte' class='compte'>Créer un compte.</button>
                      </form>
                     ";
         }else{

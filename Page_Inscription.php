@@ -1,5 +1,4 @@
 <?php
-//session_start();
 //require('decide-lang.php');
 
 require('Connexion_BD.php');
@@ -238,6 +237,9 @@ if ($_POST['lang'] == 'fr') {
           $query = "INSERT INTO personne (IdentifiantPe, NomPe, PrenomPe, EmailPe, Mot_de_passePe, TelPe, Statut, Formation)
         VALUES ('$email', '$nom', '$prenom', '$email', '$mdp_crypté', '$tel', '$statut', '$formation')";
           $result = mysqli_query($session, $query);
+
+          session_start();
+
 
           $_SESSION['user'] = $email;
           $_SESSION['nom'] = "$prenom $nom";
