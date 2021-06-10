@@ -93,15 +93,16 @@ mysqli_set_charset($session, "utf-8");
 
                             <TABLE NOBOARDER style="display:inline">
                                 <TR>
-                                    <TD>
+                                    
+                                    <TD style="text-align : left">
                                         <?php echo TXT_PRENOM; ?>:
                                     </TD>
-                                    <TD>
+                                    <TD style="text-align : left">
                                         <input type="text" readonly class="form-control-plaintext" name="PrenomPe" value="<?php echo $row['PrenomPe']; ?>">
                                     </TD>
                                 </TR>
                                 <TR>
-                                    <TD>
+                                    <TD style="text-align : left">
                                         <?php echo TXT_NOM; ?>:
                                     </TD>
                                     <TD>
@@ -109,7 +110,7 @@ mysqli_set_charset($session, "utf-8");
                                     </TD>
                                 </TR>
                                 <TR>
-                                    <TD>
+                                    <TD style="text-align : left">
                                         <?php echo TXT_EMAIL; ?>:
                                     </TD>
                                     <TD>
@@ -117,7 +118,7 @@ mysqli_set_charset($session, "utf-8");
                                     </TD>
                                 </TR>
                                 <TR>
-                                    <TD>
+                                    <TD style="text-align : left">
                                        <?php echo TXT_ADRESSE; ?> :
                                     </TD>
                                     <TD>
@@ -126,7 +127,7 @@ mysqli_set_charset($session, "utf-8");
                                 </TR>
 
                                 <TR>
-                                    <TD>
+                                    <TD style="text-align : left">
                                         <?php echo TXT_TEL; ?>:
                                     </TD>
                                     <TD>
@@ -135,7 +136,7 @@ mysqli_set_charset($session, "utf-8");
                                 </TR>
 
                                 <TR>
-                                    <TD>
+                                    <TD style="text-align : left">
                                         <?php echo TXT_IDENTITE; ?>:
                                     </TD>
                                     <TD>
@@ -144,7 +145,7 @@ mysqli_set_charset($session, "utf-8");
                                 </TR>
 
                                 <TR>
-                                    <TD>
+                                    <TD style="text-align : left">
                                         <?php echo TXT_FORMATION; ?>:
                                     </TD>
                                     <TD>
@@ -498,6 +499,9 @@ $('#alerte').modal('show');
                             <TH>
                                 <?php echo  TXT_HEURE; ?>
                             </TH>
+                            <TH>
+                                <?php echo  TXT_BUREAU; ?>
+                            </TH>
 
                         </TR>
 
@@ -523,6 +527,9 @@ $('#alerte').modal('show');
 
                                 <td>
                                     <?php echo $row['HoraireCal'] ?>
+                                </td>
+                                <td>
+                                    
                                 </td>
                             </tr>
 
