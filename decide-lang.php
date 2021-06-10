@@ -16,7 +16,7 @@ if (isset($_POST['enregistrer_parametres'])) {
     }
 ?>
     <script type="text/javascript">
-        document.location.href = 'profil.php';
+        document.location.href = 'reglage.php';
     </script>
 <?php
 }else if (isset($_SESSION['lang'])) {
