@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 05 juin 2021 à 13:44
+-- Généré le : jeu. 10 juin 2021 à 09:29
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -53,7 +53,7 @@ INSERT INTO `calendrier` (`IdentifiantCal`, `JourCal`, `HoraireCal`, `EtatCal`) 
 (10, 'Lundi', '10:15:00', 'Disponible'),
 (11, 'Lundi', '10:30:00', 'Disponible'),
 (12, 'Lundi', '10:45:00', 'Indisponible'),
-(13, 'Lundi', '11:00:00', 'Disponible'),
+(13, 'Lundi', '11:00:00', 'Indisponible'),
 (14, 'Lundi', '11:15:00', 'Disponible'),
 (15, 'Lundi', '11:30:00', 'Indisponible'),
 (16, 'Lundi', '11:45:00', 'Disponible'),
@@ -63,7 +63,7 @@ INSERT INTO `calendrier` (`IdentifiantCal`, `JourCal`, `HoraireCal`, `EtatCal`) 
 (20, 'Lundi', '14:00:00', 'Indisponible'),
 (21, 'Lundi', '14:15:00', 'Disponible'),
 (22, 'Lundi', '14:30:00', 'Disponible'),
-(23, 'Lundi', '14:45:00', 'Disponible'),
+(23, 'Lundi', '14:45:00', 'Indisponible'),
 (24, 'Lundi', '15:00:00', 'Disponible'),
 (25, 'Lundi', '15:15:00', 'Disponible'),
 (26, 'Lundi', '15:30:00', 'Disponible'),
@@ -84,7 +84,7 @@ INSERT INTO `calendrier` (`IdentifiantCal`, `JourCal`, `HoraireCal`, `EtatCal`) 
 (41, 'Mardi', '10:00:00', 'Indisponible'),
 (42, 'Mardi', '10:15:00', 'Disponible'),
 (43, 'Mardi', '10:30:00', 'Disponible'),
-(44, 'Mardi', '10:45:00', 'Disponible'),
+(44, 'Mardi', '10:45:00', 'Indisponible'),
 (45, 'Mardi', '11:00:00', 'Disponible'),
 (46, 'Mardi', '11:15:00', 'Disponible'),
 (47, 'Mardi', '11:30:00', 'Disponible'),
@@ -115,7 +115,7 @@ INSERT INTO `calendrier` (`IdentifiantCal`, `JourCal`, `HoraireCal`, `EtatCal`) 
 (72, 'Mercredi', '09:45:00', 'Disponible'),
 (73, 'Mercredi', '10:00:00', 'Disponible'),
 (74, 'Mercredi', '10:15:00', 'Disponible'),
-(75, 'Mercredi', '10:30:00', 'Disponible'),
+(75, 'Mercredi', '10:30:00', 'Indisponible'),
 (76, 'Mercredi', '10:45:00', 'Disponible'),
 (77, 'Mercredi', '11:00:00', 'Disponible'),
 (78, 'Mercredi', '11:15:00', 'Disponible'),
@@ -138,13 +138,13 @@ INSERT INTO `calendrier` (`IdentifiantCal`, `JourCal`, `HoraireCal`, `EtatCal`) 
 (95, 'Mercredi', '16:45:00', 'Disponible'),
 (96, 'Mercredi', '17:00:00', 'Disponible'),
 (97, 'Jeudi', '08:00:00', 'Disponible'),
-(98, 'Jeudi', '08:15:00', 'Disponible'),
+(98, 'Jeudi', '08:15:00', 'Indisponible'),
 (99, 'Jeudi', '08:30:00', 'Disponible'),
 (100, 'Jeudi', '08:45:00', 'Disponible'),
 (101, 'Jeudi', '09:00:00', 'Indisponible'),
 (102, 'Jeudi', '09:15:00', 'Disponible'),
 (103, 'Jeudi', '09:30:00', 'Disponible'),
-(104, 'Jeudi', '09:45:00', 'Disponible'),
+(104, 'Jeudi', '09:45:00', 'Indisponible'),
 (105, 'Jeudi', '10:00:00', 'Disponible'),
 (106, 'Jeudi', '10:15:00', 'Disponible'),
 (107, 'Jeudi', '10:30:00', 'Disponible'),
@@ -216,35 +216,37 @@ CREATE TABLE IF NOT EXISTS `emprunt` (
   `DateProlongation` date DEFAULT NULL,
   `Motif` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `IdentifiantM` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `IdentifiantPe` int(11) DEFAULT NULL,
+  `IdentifiantPe` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `IdentifiantCal` int(10) NOT NULL,
   PRIMARY KEY (`IdentifiantE`),
   KEY `IdentifiantM` (`IdentifiantM`),
   KEY `IdentifiantPe` (`IdentifiantPe`),
   KEY `IdentifiantCal` (`IdentifiantCal`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `emprunt`
 --
 
 INSERT INTO `emprunt` (`IdentifiantE`, `DateEmprunt`, `DateRetour`, `DateProlongation`, `Motif`, `IdentifiantM`, `IdentifiantPe`, `IdentifiantCal`) VALUES
-(1, '2021-02-12', '2021-05-24', '2021-06-29', 'Acquisition', 'N122342546567', 22508753, 15),
-(2, '2021-11-08', '2021-06-14', NULL, 'Acquisition', 'N635215328745', 45628764, 45),
-(3, '2021-10-05', '2021-07-16', NULL, 'Acquisition', 'N785326914503', 75664889, 30),
-(4, '2021-09-13', '2021-06-24', NULL, 'Acquisition', 'N585214637916', 35741568, 10),
-(5, '2021-05-15', '2021-07-25', NULL, 'Acquisition', 'N230285049374', 85413601, 69),
-(6, '2021-06-02', '2021-06-30', NULL, 'Acquisition', 'N952145236874', 22508753, 57),
-(7, '2021-02-12', '2021-05-24', NULL, '', 'N122342546567', 22508753, 15),
-(8, '2021-02-12', '2021-05-24', NULL, 'Retour', 'N122342546567', 22508753, 101),
-(9, '2021-02-12', '2021-05-24', NULL, 'Retour', 'N122342546567', 22508753, 9),
-(10, '2021-06-04', '2022-10-10', NULL, 'Acquisition', 'N122342546567', 85413601, 36),
-(11, '2021-04-06', '2022-06-05', NULL, 'Acquisition', 'N230285049374', 22508753, 36),
-(12, '2021-07-06', '1970-01-01', NULL, 'Acquisition', 'N963701365874', 22508753, 12),
-(13, '2021-09-06', '1970-01-01', NULL, 'Acquisition', 'N148695207869', 22508753, 71),
-(14, '2021-08-06', '1970-01-01', NULL, 'Acquisition', 'N785326914503', 22508753, 37),
-(15, '2021-06-08', '1970-01-01', NULL, 'Acquisition', 'N585214637916', 22508753, 41),
-(16, '2021-06-07', '2025-06-18', NULL, 'Acquisition', 'N148695207869', 22508753, 20);
+(1, '2021-02-12', '2021-05-24', '2021-06-29', 'Acquisition', 'N122342546567', '22508753', 15),
+(2, '2021-11-08', '2021-06-14', NULL, 'Acquisition', 'N635215328745', '45628764', 45),
+(3, '2021-10-05', '2021-07-16', NULL, 'Acquisition', 'N785326914503', '75664889', 30),
+(4, '2021-09-13', '2021-06-24', NULL, 'Acquisition', 'N585214637916', '35741568', 10),
+(5, '2021-05-15', '2021-07-25', NULL, 'Acquisition', 'N230285049374', '85413601', 69),
+(6, '2021-06-02', '2021-06-30', NULL, 'Acquisition', 'N952145236874', '22508753', 57),
+(7, '2021-02-12', '2021-05-24', NULL, '', 'N122342546567', '22508753', 15),
+(8, '2021-02-12', '2021-05-24', NULL, 'Retour', 'N122342546567', '22508753', 101),
+(9, '2021-02-12', '2021-05-24', NULL, 'Retour', 'N122342546567', '22508753', 9),
+(10, '2021-06-04', '2022-10-10', NULL, 'Acquisition', 'N122342546567', '85413601', 36),
+(11, '2021-04-06', '2022-06-05', NULL, 'Acquisition', 'N230285049374', '22508753', 36),
+(12, '2021-07-06', '1970-01-01', NULL, 'Acquisition', 'N963701365874', '22508753', 12),
+(13, '2021-09-06', '1970-01-01', NULL, 'Acquisition', 'N148695207869', '22508753', 71),
+(14, '2021-08-06', '1970-01-01', NULL, 'Acquisition', 'N785326914503', '22508753', 37),
+(15, '2021-06-08', '1970-01-01', NULL, 'Acquisition', 'N585214637916', '22508753', 41),
+(16, '2021-06-07', '2025-06-18', NULL, 'Acquisition', 'N148695207869', '22508753', 20),
+(17, '2021-06-10', '2025-06-13', NULL, 'Acquisition', 'N952145236874', 'ant@ut-capitole.fr', 104),
+(18, '2021-06-16', '2025-06-14', NULL, 'Acquisition', 'N230285049374', 'ant@ut-capitole.fr', 75);
 
 -- --------------------------------------------------------
 
@@ -268,13 +270,13 @@ CREATE TABLE IF NOT EXISTS `materiel` (
 
 INSERT INTO `materiel` (`IdentifiantM`, `DateAchat`, `EtatM`, `CategorieM`, `StatutM`) VALUES
 ('N122342546567', '2021-02-12', 'Non Dispo', 'Ordinateur', 'Existant'),
-('N952145236874', '2021-01-18', 'Non Dispo', 'Tablette', 'Existant'),
+('N952145236874', '2021-01-18', 'Dispo', 'Tablette', 'Existant'),
 ('N635215328745', '2021-06-02', 'Non Dispo', 'Ordinateur', 'Existant'),
 ('N382596325852', '2021-02-20', 'Dispo', 'Ordinateur', 'Supprimé'),
-('N785326914503', '2021-01-21', 'Non Dispo', 'Tablette', 'Existant'),
+('N785326914503', '2021-01-21', 'Dispo', 'Tablette', 'Existant'),
 ('N230285049374', '2021-04-12', 'Non Dispo', 'Ordinateur', 'Existant'),
-('N963701365874', '2021-03-17', 'Non Dispo', 'Ordinateur', 'Existant'),
-('N585214637916', '2021-09-25', 'Dispo', 'Clé 4G', 'Existant'),
+('N963701365874', '2021-03-17', 'Dispo', 'Ordinateur', 'Existant'),
+('N585214637916', '2021-09-25', 'Non Dispo', 'Clé 4G', 'Existant'),
 ('N148695207869', '2021-11-10', 'Non Dispo', 'Ordinateur', 'Existant');
 
 -- --------------------------------------------------------
@@ -326,7 +328,36 @@ INSERT INTO `personne` (`IdentifiantPe`, `NomPe`, `PrenomPe`, `EmailPe`, `Mot_de
 ('', 'der', 'a', '', '9cf95dacd226dcf43da376cdb6cbba7035218921', NULL, '0123456789', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
 ('a@gmail.com', 'der', 'a', 'a@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921', NULL, '0123456789', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
 ('test@test.com', 'test', 'test', 'test@test.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '0123456789', 'Personnel Administratif', NULL, 'L3 MIASHS TI', NULL),
-('a@a.com', 'Antoine', 'test', 'a@a.com', '5a9cf67e86ca9737d77fe30e613f70ea1ef9e6b2', NULL, '0123456789', 'Etudiant', NULL, 'L3 MIASHS TI', NULL);
+('a@ut-capitole.fr', 'Antoine', 'test', 'a@a.com', '5a9cf67e86ca9737d77fe30e613f70ea1ef9e6b2', NULL, '0123456789', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('antoine@ut-capitole.fr', 'Lavigne', 'Antoin', 'antoine@ut-capitole.fr', '9359a4d812173b65a3a0094cd86363e79731a3c2', 'u', '0633430585', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('azer@ut-capitole.fr', 'a', 'a', 'azer@ut-capitole.fr', '10d58bd87102f18f6f8d2e7fc4600aab5ef5549c', NULL, '0123456789', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('bn@ut-capitole.fr', 'a', 'a', 'bn@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '0987654321', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('test@ut-capitole.fr', 'test', 'test', 'test@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1478523690', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('w@ut-capitole.fr', 'w', 'w', 'w@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236547891', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('x@ut-capitole.fr', 'x', 'x', 'x@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '0352458964', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('aze@ut-capitole.fr', 'aze', 'aze', 'aze@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '0614856946', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('h@ut-capitole.fr', 'h', 'h', 'h@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236547893', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('n@ut-capitole.fr', 'n', 'n', 'n@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '7531598521', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('qs@ut-capitole.fr', 'qs', 'qs', 'qs@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236547895', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('aaa@ut-capitole.fr', 'aaa', 'aaa', 'aaa@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236325874', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('t@ut-capitole.fr', 't', 't', 't@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '8523697415', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('tyu@ut-capitole.fr', 'tyu', 'tyu', 'tyu@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236547895', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('ghj@ut-capitole.fr', 'ghj', 'ghj', 'ghj@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '6541239875', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('wxc@ut-capitole.fr', 'wxc', 'wxc', 'wxc@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '9874563215', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('qsd@ut-capitole.fr', 'qsd', 'qsd', 'qsd@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236547895', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('klm@ut-capitole.fr', 'klm', 'klm', 'klm@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1254789636', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('yui@ut-capitole.fr', 'yui', 'yui', 'yui@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1478523694', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('mlk@ut-capitole.fr', 'mlk', 'mlk', 'mlk@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '7523694127', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('eng@ut-capitole.fr', 'eng', 'eng', 'eng@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '4563218963', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('ant@ut-capitole.fr', 'a', 'a', 'ant@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236547895', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('langue@ut-capitole.fr', 'langue', 'langue', 'langue@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '7896541230', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('antlangue@ut-capitole.fr', 'antlangue', 'antlangue', 'antlangue@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236547895', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('asx@ut-capitole.fr', 'asx', 'asx', 'asx@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1236541236', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('nbv@ut-capitole.fr', 'nbv', 'nbv', 'nbv@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1478523698', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('aqw@ut-capitole.fr', 'aqw', 'aqw', 'aqw@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '7896541258', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('asc@ut-capitole.fr', 'asc', 'asc', 'asc@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1478523697', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('asy@ut-capitole.fr', 'asy', 'asy', 'asy@ut-capitole.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '4569871236', 'Etudiant', NULL, 'L3 MIASHS TI', NULL),
+('aa@aa', 'aa', 'aa', 'aa@aa', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', NULL, '1478523699', 'Etudiant', NULL, 'L3 MIASHS TI', NULL);
 
 -- --------------------------------------------------------
 
@@ -342,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `probleme` (
   `DateResolution` date DEFAULT NULL,
   `Resolution` text COLLATE utf8mb4_unicode_ci,
   `Description` text COLLATE utf8mb4_unicode_ci,
-  `IdentifiantPe` int(11) NOT NULL,
+  `IdentifiantPe` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `IdentifiantM` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`IdentifiantP`),
   KEY `IdentifiantPe` (`IdentifiantPe`),
@@ -354,11 +385,11 @@ CREATE TABLE IF NOT EXISTS `probleme` (
 --
 
 INSERT INTO `probleme` (`IdentifiantP`, `NomP`, `DateProbleme`, `DateResolution`, `Resolution`, `Description`, `IdentifiantPe`, `IdentifiantM`) VALUES
-(1, 'Panne', '2021-05-19', '2021-05-31', 'Problème résolu', 'Ordinateur en panne.', 22508753, 'N122342546567'),
-(2, 'Autre panne', '2021-05-05', '2021-05-28', 'Non résolu', 'panne', 45628764, 'N635215328745'),
-(3, 'Panne', NULL, NULL, '', 'Ordi en panne', 85413601, 'N230285049374'),
-(4, 'Test Ordi N122', '2021-06-01', NULL, 'Non résolu', 'pb sur Ordi N122', 1, 'N122342546567'),
-(5, 'test', '2021-06-01', NULL, 'Non résolu', 'test N122', 22508753, 'N122342546567');
+(1, 'Panne', '2021-05-19', '2021-05-31', 'Problème résolu', 'Ordinateur en panne.', '22508753', 'N122342546567'),
+(2, 'Autre panne', '2021-05-05', '2021-05-28', 'Non résolu', 'panne', '45628764', 'N635215328745'),
+(3, 'Panne', NULL, NULL, '', 'Ordi en panne', '85413601', 'N230285049374'),
+(4, 'Test Ordi N122', '2021-06-01', NULL, 'Non résolu', 'pb sur Ordi N122', '1', 'N122342546567'),
+(5, 'test', '2021-06-01', NULL, 'Non résolu', 'test N122', '22508753', 'N122342546567');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
