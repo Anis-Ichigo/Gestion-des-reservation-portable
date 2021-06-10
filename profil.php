@@ -86,15 +86,15 @@ mysqli_set_charset($session, "utf-8");
                 <h1> <?php echo TXT_ACCUEIL_PROFIL; ?></h1>
 
 
-                <div style="width: 30%;float :left;">
+                <div style="display: block ;text-align :center;">
                     <FORM method="POST" action="profil.php">
-                        <div class="form-group row">
+                        <div style="display: block ;text-align :center;" class="form-group row">
                             <H2><?php echo TXT_INFORMATION; ?></H2>
 
                             <TABLE NOBOARDER style="display:inline">
                                 <TR>
                                     <TD>
-                                        <label><?php echo TXT_PRENOM; ?>:</label>
+                                        <?php echo TXT_PRENOM; ?>:
                                     </TD>
                                     <TD>
                                         <input type="text" readonly class="form-control-plaintext" name="PrenomPe" value="<?php echo $row['PrenomPe']; ?>">
@@ -102,7 +102,7 @@ mysqli_set_charset($session, "utf-8");
                                 </TR>
                                 <TR>
                                     <TD>
-                                        <label><?php echo TXT_NOM; ?>:</label>
+                                        <?php echo TXT_NOM; ?>:
                                     </TD>
                                     <TD>
                                         <input type="text" readonly class="form-control-plaintext" name="NomPe" value="<?php echo $row['NomPe']; ?>">
@@ -110,7 +110,7 @@ mysqli_set_charset($session, "utf-8");
                                 </TR>
                                 <TR>
                                     <TD>
-                                        <label><?php echo TXT_EMAIL; ?>:</label>
+                                        <?php echo TXT_EMAIL; ?>:
                                     </TD>
                                     <TD>
                                         <input type="text" readonly class="form-control-plaintext" name="EmailPe" value="<?php echo $row['EmailPe']; ?>">
@@ -118,7 +118,7 @@ mysqli_set_charset($session, "utf-8");
                                 </TR>
                                 <TR>
                                     <TD>
-                                        <label><?php echo TXT_ADRESSE; ?> :</label>
+                                       <?php echo TXT_ADRESSE; ?> :
                                     </TD>
                                     <TD>
                                         <input type="text" readonly class="form-control-plaintext" name="AdressePe" value="<?php echo $row['AdressePe']; ?>">
@@ -127,7 +127,7 @@ mysqli_set_charset($session, "utf-8");
 
                                 <TR>
                                     <TD>
-                                        <label><?php echo TXT_TEL; ?>:</label>
+                                        <?php echo TXT_TEL; ?>:
                                     </TD>
                                     <TD>
                                         <input type="text" readonly class="form-control-plaintext" name="TelPe" value="<?php echo $row['TelPe']; ?>">
@@ -136,7 +136,7 @@ mysqli_set_charset($session, "utf-8");
 
                                 <TR>
                                     <TD>
-                                        <label><?php echo TXT_IDENTITE; ?>:</label>
+                                        <?php echo TXT_IDENTITE; ?>:
                                     </TD>
                                     <TD>
                                         <input type="text" readonly class="form-control-plaintext" name="Statut" value="<?php echo $row['Statut']; ?>">
@@ -145,7 +145,7 @@ mysqli_set_charset($session, "utf-8");
 
                                 <TR>
                                     <TD>
-                                        <label><?php echo TXT_FORMATION; ?>:</label>
+                                        <?php echo TXT_FORMATION; ?>:
                                     </TD>
                                     <TD>
                                         <input type="text" readonly class="form-control-plaintext" name="Formation" value="<?php echo $row['Formation']; ?>">
@@ -158,6 +158,7 @@ mysqli_set_charset($session, "utf-8");
                             <br>
                             <p>
                                 <input type="submit" name="modifier_profil" class="btn btn-primary" value="<?php echo TXT_MODIFP; ?>">
+                                <input type="submit" class="btn btn-primary" name="modifier_mdp2" value="<?php echo TXT_MODIFMDP; ?>">
                             </p>
                         </div>
                     </FORM>
@@ -166,7 +167,96 @@ mysqli_set_charset($session, "utf-8");
             <?php
         }
             ?>
+<div id="modifmdp">
+                <?php
+                if (isset($_POST['modifier_mdp2'])) {
+            ?>
+                <FORM method="POST" action="profil.php">
+                    <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
 
+                                    <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_actuel" value="" required>
+                                        <label for="floatingInput"><?php echo TXT_ANCIENMDP; ?>:</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_nouveau" value="" required>
+                                        <label for="floatingInput"><?php echo TXT_NOUVEAUMDP; ?>:</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_confirmer" value="" required>
+                                        <label for="floatingInput"><?php echo TXT_CONFIRMERMDP; ?> :</label>
+                                    </div>
+                                    </div>
+
+<div class="modal-footer">
+    <div class="col text-center">
+        <input type="submit" class="btn btn-primary" name="modifier_mdp" value="<?php echo TXT_MODIFMDP; ?>">
+    </div>
+</div>
+</div>
+</div>
+</div>
+<?php
+                    echo "<script>
+                    $(window).load(function() {
+                    $('#alerte').modal('show');
+                    });
+                </script>";
+                    ?>
+                </FORM>
+
+
+            <?php
+            }
+            ?>
+
+                    <?php
+                    if (isset($_POST['mdp_actuel'])) {
+                        $actuel = $_POST['mdp_actuel'];
+                        $mdp = $_POST['mdp_nouveau'];
+                        $confirmer = $_POST['mdp_confirmer'];
+                        updateMdp($session, $identifiant, $actuel, $mdp, $confirmer);
+                    }
+
+                    function updateMdp($session, $identifiant, $actuel, $mdp, $confirmer)
+                    {
+                        $query = "UPDATE personne SET Mot_de_passePe = ? WHERE IdentifiantPe = '$identifiant'";
+                        if (!empty($actuel) && !empty($mdp) && !empty($confirmer)) {
+                            $query_pe = "SELECT Mot_de_passePe FROM personne WHERE IdentifiantPe = ?";
+                            $req = mysqli_prepare($session, $query_pe);
+                            mysqli_stmt_bind_param($req, 's', $identifiant);
+                            mysqli_stmt_execute($req);
+                            $result = mysqli_stmt_get_result($req);
+                            $ligne = mysqli_fetch_assoc($result);
+                            $bd_mdp = $ligne['Mot_de_passePe'];
+                            $actuel = sha1($actuel);
+
+                            if ($actuel == $bd_mdp) {
+                                if ($mdp === $confirmer) {
+                                    //if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%])[0-9A-Za-z!@#$%]{6,15}$/', $mdp)) {
+                                    $mdp = sha1($mdp);
+                                    $req2 = mysqli_prepare($session, $query);
+                                    mysqli_stmt_bind_param($req2, 's', $mdp);
+                                    if (mysqli_stmt_execute($req2)) { ?> //modifier avec success
+                                        <span style="color:red;"> <?php echo SUCCES_MDP; ?> </span> <?php
+                                    }
+                                    //} else //erreur
+                                    //  echo ERREUR_MDP;
+                                } else //mot de passe ne sont pas identiques
+                                   ?> <span style="color:red;"> <?php echo MDP_DIFFERENT; ?> </span> <?php 
+                            } else //mot de passe actuel incorrect
+                            ?> <span style="color:red;"> <?php echo MDP_INCORRECT; ?> </span> <?php 
+                        } else {  //manque un champs
+                            ?> <span style="color:red;"> <?php echo MDP_INCOMPLET; ?> </span> <?php
+                        }
+                    }
+                    ?>
+                </div>
             <?php
 
             $reservations = ("SELECT *
@@ -182,7 +272,7 @@ mysqli_set_charset($session, "utf-8");
             if ($nb_lignes > 0) {
             ?>
 
-                <div style="width: 70%; float:left; ">
+                <div style="display: block ;text-align :center; ">
                     <h2><?php echo TXT_RDV; ?></h2>
 
                     <Table class="table table-striped table-hover">
@@ -242,96 +332,6 @@ mysqli_set_charset($session, "utf-8");
 
             </div>
 
-
-            <td>
-                <H2><?php echo TXT_MODIFMDP; ?></H2>
-
-                <div id="modifmdp">
-
-                    <FORM method="POST" action="profil.php">
-
-                        <Table>
-                            <TR>
-                                <TD>
-                                    <label><?php echo TXT_ANCIENMDP; ?>:</label>
-                                </TD>
-
-                                <TD>
-                                    <input type="password" class="form-control" autocomplete="off" name="mdp_actuel" value="">
-                                </TD>
-                            </TR>
-
-                            <TR>
-                                <TD>
-                                    <label><?php echo TXT_NOUVEAUMDP; ?>:</label>
-                                </TD>
-                                <TD>
-                                    <input type="password" class="form-control" autocomplete="off" name="mdp_nouveau" value="">
-                                </TD>
-                            </TR>
-
-                            <TR>
-                                <TD>
-                                    <label><?php echo TXT_CONFIRMERMDP; ?> :</label>
-                                </TD>
-                                <TD>
-                                    <input type="password" class="form-control" autocomplete="off" name="mdp_confirmer" value="">
-                                </TD>
-                            </TR>
-                        </TABLE>
-
-                        <br>
-
-                        <p>
-                            <input type="submit" class="btn btn-primary" name="modifier_mdp" value="<?php echo TXT_MODIFMDP; ?>">
-                        </p>
-
-                    </Form>
-
-                    <?php
-                    if (isset($_POST['mdp_actuel'])) {
-                        $actuel = $_POST['mdp_actuel'];
-                        $mdp = $_POST['mdp_nouveau'];
-                        $confirmer = $_POST['mdp_confirmer'];
-                        updateMdp($session, $identifiant, $actuel, $mdp, $confirmer);
-                    }
-
-                    function updateMdp($session, $identifiant, $actuel, $mdp, $confirmer)
-                    {
-                        $query = "UPDATE personne SET Mot_de_passePe = ? WHERE IdentifiantPe = '$identifiant'";
-                        if (!empty($actuel) && !empty($mdp) && !empty($confirmer)) {
-                            $query_pe = "SELECT Mot_de_passePe FROM personne WHERE IdentifiantPe = ?";
-                            $req = mysqli_prepare($session, $query_pe);
-                            mysqli_stmt_bind_param($req, 's', $identifiant);
-                            mysqli_stmt_execute($req);
-                            $result = mysqli_stmt_get_result($req);
-                            $ligne = mysqli_fetch_assoc($result);
-                            $bd_mdp = $ligne['Mot_de_passePe'];
-                            $actuel = sha1($actuel);
-
-                            if ($actuel == $bd_mdp) {
-                                if ($mdp === $confirmer) {
-                                    //if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%])[0-9A-Za-z!@#$%]{6,15}$/', $mdp)) {
-                                    $mdp = sha1($mdp);
-                                    $req2 = mysqli_prepare($session, $query);
-                                    mysqli_stmt_bind_param($req2, 's', $mdp);
-                                    if (mysqli_stmt_execute($req2)) { //modifier avec success
-                                        echo SUCCES_MDP;
-                                    }
-                                    //} else //erreur
-                                    //  echo ERREUR_MDP;
-                                } else //mot de passe ne sont pas identiques
-                                    echo MDP_DIFFERENT;
-                            } else //mot de passe actuel incorrect
-                                echo MDP_INCORRECT;
-                        } else {  //manque un champs
-                            echo MDP_INCOMPLET;
-                        }
-                    }
-                    ?>
-                </div>
-
-            </td>
 
             <?php
 

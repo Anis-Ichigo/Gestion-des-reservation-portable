@@ -5,8 +5,8 @@
 
 //My informations
 define('TXT_ACCUEIL_PROFIL', 'My profile');
-define('TXT_INFORMATION', 'My informations');
-define('TXT_PRENOM', 'firstname');
+define('TXT_INFORMATION', 'My Informations');
+define('TXT_PRENOM', 'Firstname');
 define('TXT_NOM', 'Lastname');
 define('TXT_EMAIL', 'Email');
 define('TXT_ADRESSE', 'Adress');
@@ -31,7 +31,7 @@ define('MDP_INCOMPLET', 'Please complete all fields');
 
 
 //My appointments
-define('TXT_RDV', 'My appointments');
+define('TXT_RDV', 'My Appointments');
 define('TXT_NUMERO', 'Equipment number');
 define('TXT_TYPE', 'Equipment type');
 define('TXT_DATE', 'Date');
