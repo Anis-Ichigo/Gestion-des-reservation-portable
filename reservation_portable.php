@@ -2,7 +2,7 @@
 require('decide-lang.php');
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf8");
-
+date_default_timezone_set('Europe/Paris');
 ?>
 
 <!DOCTYPE html>
@@ -95,10 +95,19 @@ mysqli_set_charset($session, "utf8");
         <div class="panel">
             <table class="table">
                 <?php
-                $sql = "SELECT * FROM calendrier WHERE JourCal='Lundi' AND EtatCal = 'Disponible'";
-                $res = mysqli_query($session, $sql);
-                $num = mysqli_num_rows($res);
 
+                if ($premierJour == Date("d/m/Y")){
+                  $HeureActuelle = date('H:i:s', time());
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Lundi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle' ";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
+                }else{
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Lundi' AND EtatCal = 'Disponible'";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
+                }
                 if ($num > 0) {
                     for ($i = 0; $i < $num; $i++) {
                         $row = mysqli_fetch_array($res);
@@ -108,8 +117,10 @@ mysqli_set_charset($session, "utf8");
                     }
                 }
                 mysqli_free_result($res);
+
                 ?>
             </table>
+
         </div>
         <!--
         <div class="panel">
@@ -137,10 +148,19 @@ mysqli_set_charset($session, "utf8");
         <div class="panel">
             <table class="table">
                 <?php
-                $sql = "SELECT * FROM calendrier WHERE JourCal='Mardi' AND EtatCal = 'Disponible'";
-                $res = mysqli_query($session, $sql);
-                $num = mysqli_num_rows($res);
 
+                if ($premierJour == Date("d/m/Y")){
+                  $HeureActuelle = date('H:i:s', time());
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Mardi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle' ";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
+                }else{
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Mardi' AND EtatCal = 'Disponible'";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
+                }
                 if ($num > 0) {
                     for ($i = 0; $i < $num; $i++) {
                         $row = mysqli_fetch_array($res);
@@ -150,6 +170,7 @@ mysqli_set_charset($session, "utf8");
                     }
                 }
                 mysqli_free_result($res);
+
                 ?>
             </table>
         </div>
@@ -164,10 +185,19 @@ mysqli_set_charset($session, "utf8");
             <table class="table">
 
                 <?php
-                $sql = "SELECT * FROM calendrier WHERE JourCal='Mercredi' AND EtatCal = 'Disponible'";
-                $res = mysqli_query($session, $sql);
-                $num = mysqli_num_rows($res);
 
+                if ($premierJour == Date("d/m/Y")){
+                  $HeureActuelle = date('H:i:s', time());
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Mercredi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle' ";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
+                }else{
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Mercredi' AND EtatCal = 'Disponible'";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
+                }
                 if ($num > 0) {
                     for ($i = 0; $i < $num; $i++) {
                         $row = mysqli_fetch_array($res);
@@ -177,6 +207,7 @@ mysqli_set_charset($session, "utf8");
                     }
                 }
                 mysqli_free_result($res);
+
                 ?>
             </table>
         </div>
@@ -191,19 +222,28 @@ mysqli_set_charset($session, "utf8");
             <table class="table">
 
                 <?php
-                $sql = "SELECT * FROM calendrier WHERE JourCal='Jeudi' AND EtatCal = 'Disponible'";
-                $res = mysqli_query($session, $sql);
-                $num = mysqli_num_rows($res);
+                if ($premierJour == Date("d/m/Y")){
+                  $HeureActuelle = date('H:i:s', time());
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Jeudi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle' ";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
 
-                if ($num > 0) {
-                    for ($i = 0; $i < $num; $i++) {
-                        $row = mysqli_fetch_array($res);
-                        $horaire = date("H:i", strtotime($row['HoraireCal']));
-                        if ($i % 3 == 0) echo '<tr>';
-                        echo "<td>" . "<input type='submit' class='btn btn-primary' name='Jeudi' data-bs-toggle='modal' data-bs-target='#exampleModal' value='$horaire'>" . "</td>";
-                    }
+                }else{
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Jeudi' AND EtatCal = 'Disponible'";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
                 }
-                mysqli_free_result($res);
+
+if ($num > 0) {
+    for ($i = 0; $i < $num; $i++) {
+        $row = mysqli_fetch_array($res);
+        $horaire = date("H:i", strtotime($row['HoraireCal']));
+        if ($i % 3 == 0) echo '<tr>';
+        echo "<td>" . "<input type='submit' class='btn btn-primary' name='Jeudi' data-bs-toggle='modal' data-bs-target='#exampleModal' value='$horaire'>" . "</td>";
+    }
+}
+mysqli_free_result($res);
                 ?>
             </table>
         </div>
@@ -227,9 +267,20 @@ mysqli_set_charset($session, "utf8");
             <table class="table">
 
                 <?php
-                $sql = "SELECT * FROM calendrier WHERE JourCal='Vendredi' AND EtatCal = 'Disponible'";
-                $res = mysqli_query($session, $sql);
-                $num = mysqli_num_rows($res);
+                  
+
+                if ($premierJour == Date("d/m/Y")){
+                  $HeureActuelle = date('H:i:s', time());
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Vendredi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle' ";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
+                }else{
+                  $sql = "SELECT * FROM calendrier WHERE JourCal='Vendredi' AND EtatCal = 'Disponible'";
+                  $res = mysqli_query($session, $sql);
+                  $num = mysqli_num_rows($res);
+
+                }
 
                 if ($num > 0) {
                     for ($i = 0; $i < $num; $i++) {
