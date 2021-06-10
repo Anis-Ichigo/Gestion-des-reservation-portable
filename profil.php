@@ -83,7 +83,7 @@ mysqli_set_charset($session, "utf-8");
         <main>
 
             <div class="contenu">
-                <h1> <?php echo TXT_ACCUEIL_PROFIL; ?></h1>
+                <h1 style="display: block ;text-align :center;"> <?php echo TXT_ACCUEIL_PROFIL; ?></h1>
 
 
                 <div style="display: block ;text-align :center;">
