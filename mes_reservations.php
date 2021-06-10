@@ -2,6 +2,7 @@
 require('decide-lang.php');
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf8");
+date_default_timezone_set('Europe/Paris');
 ?>
 
 <!DOCTYPE html>
@@ -273,7 +274,7 @@ mysqli_set_charset($session, "utf8");
             $dateDuJour = strftime('%Y-%m-%d');
 
             if ($dateProlongation >= $dateDuJour) {
-                $query_demander_prolongation = "UPDATE emprunt SET DateProlongation = '$dateProlongation' WHERE IdentifiantE = '$identifiantE'";
+                $query_demander_prolongation = "UPDATE emprunt SET DateProlongation = '$dateProlongation' WHERE IdentifiantE = '$identifiantE' ";
                 $result_demande_prolongation = mysqli_query($session, $query_demander_prolongation);
                 $query_en_attente = "UPDATE materiel SET EtatM = 'En attente' WHERE IdentifiantM = '$identifiantM'";
                 $result_en_attente = mysqli_query($session, $query_en_attente);
@@ -571,41 +572,41 @@ mysqli_set_charset($session, "utf8");
 
                                             <TH>
 
-                                                <?php echo TXT_LUNDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("monday"));
+                                                <?php echo TXT_LUNDI; ?> <br><?php $lundi = strftime("%d/%m/%Y", strtotime("monday"));
 
-                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_lundi' value='$premierJour'>"; ?>
-
-                                            </TH>
-
-                                            <TH>
-
-                                                <?php echo TXT_MARDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("tuesday"));
-
-                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_mardi' value='$premierJour'>"; ?>
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_lundi' value='$lundi'>"; ?>
 
                                             </TH>
 
                                             <TH>
 
-                                                <?php echo TXT_MERCREDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("wednesday"));
+                                                <?php echo TXT_MARDI; ?> <br><?php $mardi = strftime("%d/%m/%Y", strtotime("tuesday"));
 
-                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_mercredi' value='$premierJour'>"; ?>
-
-                                            </TH>
-
-                                            <TH>
-
-                                                <?php echo TXT_JEUDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("thursday"));
-
-                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_jeudi' value='$premierJour'>"; ?>
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_mardi' value='$mardi'>"; ?>
 
                                             </TH>
 
                                             <TH>
 
-                                                <?php echo TXT_VENDREDI; ?> <br><?php $premierJour = strftime("%d/%m/%Y", strtotime("friday"));
+                                                <?php echo TXT_MERCREDI; ?> <br><?php $mercredi= strftime("%d/%m/%Y", strtotime("wednesday"));
 
-                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_vendredi' value='$premierJour'>"; ?>
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_mercredi' value='$mercredi'>"; ?>
+
+                                            </TH>
+
+                                            <TH>
+
+                                                <?php echo TXT_JEUDI; ?> <br><?php $jeudi = strftime("%d/%m/%Y", strtotime("thursday"));
+
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_jeudi' value='$jeudi'>"; ?>
+
+                                            </TH>
+
+                                            <TH>
+
+                                                <?php echo TXT_VENDREDI; ?> <br><?php $vendredi = strftime("%d/%m/%Y", strtotime("friday"));
+
+                                                                                echo "<input type='text' class='form-control-plaintext text-center' readonly name='date_vendredi' value='$vendredi'>"; ?>
 
                                             </TH>
 
@@ -616,9 +617,14 @@ mysqli_set_charset($session, "utf8");
                                         <TD style="border-bottom-width: 0;">
 
                                             <?php
+                                            if ($lundi == Date("d/m/Y")){
+                                              $HeureActuelle = date('H:i:s', time());
+                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Lundi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle'");
+                                          }  else{
+                                              $sql = "SELECT * FROM calendrier WHERE JourCal='Lundi' AND EtatCal = 'Disponible'";
+                                              $res = mysqli_query($session, $sql);
 
-                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Lundi' AND EtatCal = 'Disponible'");
-
+                                            }
                                             while ($tab = mysqli_fetch_assoc($res)) {
 
                                                 $horaire = $tab["HoraireCal"];
@@ -637,9 +643,13 @@ mysqli_set_charset($session, "utf8");
                                         <TD style="border-bottom-width: 0;">
 
                                             <?php
-
-                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Mardi' AND EtatCal = 'Disponible'");
-
+                                            if ($mardi == Date("d/m/Y")){
+                                              $HeureActuelle = date('H:i:s', time());
+                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Mardi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle'");
+                                          }  else{
+                                              $sql = "SELECT * FROM calendrier WHERE JourCal='Mardi' AND EtatCal = 'Disponible'";
+                                              $res = mysqli_query($session, $sql);
+                                            }
                                             while ($tab = mysqli_fetch_assoc($res)) {
 
                                                 $horaire = $tab["HoraireCal"];
@@ -654,16 +664,18 @@ mysqli_set_charset($session, "utf8");
                                         <TD style="border-bottom-width: 0;">
 
                                             <?php
+                                            if ($mercredi == Date("d/m/Y")){
+                                              $HeureActuelle = date('H:i:s', time());
+                                              $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Mercredi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle'");
+                                            }  else{
+                                                $sql = "SELECT * FROM calendrier WHERE JourCal='Mercredi' AND EtatCal = 'Disponible'";
+                                                $res = mysqli_query($session, $sql);
 
-                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Mercredi' AND EtatCal = 'Disponible'");
-
-                                            while ($tab = mysqli_fetch_assoc($res)) {
-
+                                              }
+                                              while ($tab = mysqli_fetch_assoc($res)) {
                                                 $horaire = $tab["HoraireCal"];
-
                                                 echo "<Table class='table table-hover text-center' style='border-bottom:white;'> <TR> <TD style='padding: 0px;'><input type='submit' class='btn btn-primary btn-lg' name='horaire_mercredi' value='$horaire'> </td></TR> </table>";
-                                            }
-
+                                              }
                                             ?>
 
                                         </TD>
@@ -671,9 +683,14 @@ mysqli_set_charset($session, "utf8");
                                         <TD style="border-bottom-width: 0;">
 
                                             <?php
+                                            if ($jeudi == Date("d/m/Y")){
+                                              $HeureActuelle = date('H:i:s', time());
+                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Jeudi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle'");
+                                          }  else{
+                                              $sql = "SELECT * FROM calendrier WHERE JourCal='Jeudi' AND EtatCal = 'Disponible'";
+                                              $res = mysqli_query($session, $sql);
 
-                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Jeudi' AND EtatCal = 'Disponible'");
-
+                                            }
                                             while ($tab = mysqli_fetch_assoc($res)) {
 
                                                 $horaire = $tab["HoraireCal"];
@@ -688,9 +705,14 @@ mysqli_set_charset($session, "utf8");
                                         <TD style="border-bottom-width: 0;">
 
                                             <?php
+                                            if ($vendredi == Date("d/m/Y")){
+                                              $HeureActuelle = date('H:i:s', time());
+                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Vendredi' AND EtatCal = 'Disponible' AND HoraireCal >= '$HeureActuelle'");
+                                          }  else{
+                                              $sql = "SELECT * FROM calendrier WHERE JourCal='Vendredi' AND EtatCal = 'Disponible'";
+                                              $res = mysqli_query($session, $sql);
 
-                                            $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Vendredi' AND EtatCal = 'Disponible'");
-
+                                            }
                                             while ($tab = mysqli_fetch_assoc($res)) {
 
                                                 $horaire = $tab["HoraireCal"];
