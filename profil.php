@@ -242,16 +242,16 @@ mysqli_set_charset($session, "utf-8");
                                     $mdp = sha1($mdp);
                                     $req2 = mysqli_prepare($session, $query);
                                     mysqli_stmt_bind_param($req2, 's', $mdp);
-                                    if (mysqli_stmt_execute($req2)) { ?> //modifier avec success
+                                    if (mysqli_stmt_execute($req2)) {  // modifier avec success?>
                                         <span style="color:red;"> <?php echo SUCCES_MDP; ?> </span> <?php
                                     }
                                     //} else //erreur
                                     //  echo ERREUR_MDP;
-                                } else //mot de passe ne sont pas identiques
+                                } else{ //mot de passe ne sont pas identiques
                                    ?> <span style="color:red;"> <?php echo MDP_DIFFERENT; ?> </span> <?php 
-                            } else //mot de passe actuel incorrect
+                            }} else {//mot de passe actuel incorrect
                             ?> <span style="color:red;"> <?php echo MDP_INCORRECT; ?> </span> <?php 
-                        } else {  //manque un champs
+                        }} else {  //manque un champs
                             ?> <span style="color:red;"> <?php echo MDP_INCOMPLET; ?> </span> <?php
                         }
                     }

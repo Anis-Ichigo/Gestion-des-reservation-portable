@@ -25,8 +25,8 @@ define('TXT_MODIFMDP', 'Modify the password');
 //message password
 define('SUCCES_MDP', 'Your password has been modified');
 define('ERREUR_MDP', 'Error');
-define('MDP_DIFFERENT', "Passwords don't identical");
-define('MDP_INCORRECT', 'Password incorrect');
+define('MDP_DIFFERENT', "Passwords are not identical");
+define('MDP_INCORRECT', 'Incorrect Password');
 define('MDP_INCOMPLET', 'Please complete all fields');
 
 
