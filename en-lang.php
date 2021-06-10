@@ -75,7 +75,7 @@ define('TXT_ALERTE_SUCCES_CRENEAU', 'Your time slot has been reserved');
 define('TXT_ACCUEIL_NOUVELLER', 'New reservation');
 define('TXT_DEMANDE_CONCERNE', 'Your demand concerns');
 define('TXT_CHOIX_RETOUR', 'Choose the return date');
-define('TXT_CHOIX_MATERIEL', 'type of equipment borrowed');
+define('TXT_CHOIX_MATERIEL', 'Type of equipment borrowed');
 define('TXT_CHOIX_DATE', 'Loan date');
 define('TXT_JOUR', 'Day');
 define('TXT_CRENEAU', 'Time slot');
