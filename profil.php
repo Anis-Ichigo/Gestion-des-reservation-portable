@@ -178,17 +178,17 @@ mysqli_set_charset($session, "utf-8");
                                 <div class="modal-body">
 
                                     <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" autocomplete="off" name="mdp_actuel" value="" required>
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_actuel"  placeholder =" " value="" required>
                                         <label for="floatingInput"><?php echo TXT_ANCIENMDP; ?>:</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" autocomplete="off" name="mdp_nouveau" value="" required>
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_nouveau" placeholder =" " value="" required>
                                         <label for="floatingInput"><?php echo TXT_NOUVEAUMDP; ?>:</label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" autocomplete="off" name="mdp_confirmer" value="" required>
+                                    <input type="password" class="form-control" autocomplete="off" name="mdp_confirmer" placeholder =" " value="" required>
                                         <label for="floatingInput"><?php echo TXT_CONFIRMERMDP; ?> :</label>
                                     </div>
                                     </div>
@@ -242,17 +242,222 @@ mysqli_set_charset($session, "utf-8");
                                     $mdp = sha1($mdp);
                                     $req2 = mysqli_prepare($session, $query);
                                     mysqli_stmt_bind_param($req2, 's', $mdp);
-                                    if (mysqli_stmt_execute($req2)) {  // modifier avec success?>
-                                        <span style="color:red;"> <?php echo SUCCES_MDP; ?> </span> <?php
+                                    if (mysqli_stmt_execute($req2)) { 
+                                        
+                                        // modifier avec success?>
+                                        
+                <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="alert alert-success d-flex align-items-center" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+
+                                    <div>
+                                    <?php echo SUCCES_MDP; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="col text-center">
+                                    <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php
+                echo "<script>
+        $(window).load(function() {
+            $('#alerte').modal('show');
+        });
+    </script>";
                                     }
                                     //} else //erreur
                                     //  echo ERREUR_MDP;
-                                } else{ //mot de passe ne sont pas identiques
-                                   ?> <span style="color:red;"> <?php echo MDP_DIFFERENT; ?> </span> <?php 
-                            }} else {//mot de passe actuel incorrect
-                            ?> <span style="color:red;"> <?php echo MDP_INCORRECT; ?> </span> <?php 
+                                } else{
+                                    ?>
+                                    <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+
+                                    <div class="modal-dialog modal-dialog-centered">
+                
+                                        <div class="modal-content">
+                
+                                            <div class="modal-body">
+                
+                                                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                
+                                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                
+                                                    </svg>
+                
+                                                    <div>
+                
+                                                    <?php echo MDP_DIFFERENT; ?>
+                
+                                                    </div>
+                
+                                                </div>
+                
+                                            </div>
+                
+                                            <div class="modal-footer">
+                
+                                                <div class="col text-center">
+                
+                                                    <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+                                                </div>
+                
+                                            </div>
+                
+                                        </div>
+                
+                                    </div>
+                
+                                </div>
+                
+                
+                
+                        <?php
+                
+                                echo "<script>
+                
+                        $(window).load(function() {
+                
+                            $('#alerte').modal('show');
+                
+                        });
+                
+                    </script>";
+                         
+                        //mot de passe ne sont pas identiques?>
+        
+                                    
+                                   <?php 
+                            }} else { ?>
+  <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+        <div class="modal-body">
+
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+
+                </svg>
+
+                <div>
+
+                <?php echo MDP_INCORRECT; ?>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <div class="col text-center">
+
+                <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<?php
+
+echo "<script>
+
+$(window).load(function() {
+
+$('#alerte').modal('show');
+
+});
+
+</script>";
+
+//mot de passe actuel incorrect?>
+
+<?php 
                         }} else {  //manque un champs
-                            ?> <span style="color:red;"> <?php echo MDP_INCOMPLET; ?> </span> <?php
+                            ?> 
+                              <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+        <div class="modal-body">
+
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+
+                </svg>
+
+                <div>
+
+                <?php echo MDP_INCOMPLET; ?>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <div class="col text-center">
+
+                <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<?php
+
+echo "<script>
+
+$(window).load(function() {
+
+$('#alerte').modal('show');
+
+});
+
+</script>";
+
+?>
+<?php
                         }
                     }
                     ?>

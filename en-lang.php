@@ -78,7 +78,7 @@ define('TXT_CHOIX_RETOUR', 'Choose the return date');
 define('TXT_CHOIX_MATERIEL', 'type of equipment borrowed');
 define('TXT_CHOIX_DATE', 'Loan date');
 define('TXT_JOUR', 'Day');
-define('TXT_Creneau', 'Time slot');
+define('TXT_CRENEAU', 'Time slot');
 define('TXT_INFO_RESERVATION', 'Please note that you must provide the requested documents (photocopy of front and back identity document and / or photocopy of the student card). Without these , no material can be loaned to you.');
 define('MDP_COURT', 'Password is too short!');
 define('MDP_CHAMPS', 'Please complete all fields!');
