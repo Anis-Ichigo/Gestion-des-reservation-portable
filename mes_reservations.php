@@ -246,7 +246,7 @@ mysqli_set_charset($session, "utf8");
                         <div class="modal-footer">
                             <div class="col text-center">
                                 <input type="submit" class="btn btn-primary" name="confirmer_prolongation" value="<?php echo TXT_CONFIRMER; ?>">
-                                <input type="button" class="btn btn-secondary" onclick="history.go(-1)" value="<?php echo TXT_ANNULER; ?>">
+                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_ANNULER; ?>">
                             </div>
                         </div>
                     </div>
@@ -296,7 +296,7 @@ mysqli_set_charset($session, "utf8");
 
                             <div class="modal-footer">
                                 <div class="col text-center">
-                                    <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?>">
+                                    <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
                                 </div>
                             </div>
                         </div>
@@ -343,7 +343,7 @@ mysqli_set_charset($session, "utf8");
 
                                 <div class="col text-center">
 
-                                    <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?>">
+                                    <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
                                 </div>
 
                             </div>
@@ -422,7 +422,7 @@ mysqli_set_charset($session, "utf8");
 
                                     <input type="submit" class="btn btn-primary" name="confirmer_probleme" value="<?php echo TXT_ENVOYER; ?>">
 
-                                    <input type="button" class="btn btn-secondary" onclick="history.go(-1)" value="<?php echo TXT_ANNULER; ?>">
+                                    <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_ANNULER; ?>">
                                 </div>
 
                             </div>
@@ -513,7 +513,7 @@ mysqli_set_charset($session, "utf8");
 
                                 <div class="col text-center">
 
-                                    <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?>">
+                                    <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
                                 </div>
 
                             </div>
@@ -706,7 +706,7 @@ mysqli_set_charset($session, "utf8");
 
                                     <div class="col text-center">
 
-                                        <input type="button" class="btn btn-secondary text-center" onclick="history.go(-1)" value="<?php echo TXT_RETOUR; ?>">
+                                        <input type="button" class="btn btn-secondary text-center" data-bs-dismiss="modal" value="<?php echo TXT_RETOUR; ?>">
                                     </div>
 
                                 </div>
@@ -937,7 +937,7 @@ mysqli_set_charset($session, "utf8");
 
                                             <input type="submit" class="btn btn-success" name="confirmer_restitution" value="<?php echo TXT_CONFIRMER_RDV; ?>">
 
-                                            <input onclick="history.go(-1)" class="btn btn-danger" value="<?php echo TXT_ANNULER; ?>">
+                                            <input data-bs-dismiss="modal" class="btn btn-danger" value="<?php echo TXT_ANNULER; ?>">
                                         </div>
 
                                     </div>
@@ -1044,7 +1044,7 @@ mysqli_set_charset($session, "utf8");
 
                                     <div class="col text-center">
 
-                                        <input type="button" class="btn btn-primary" onclick="history.go(-1)" value="<?php echo TXT_OK; ?> ">
+                                        <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?> ">
                                     </div>
 
                                 </div>
