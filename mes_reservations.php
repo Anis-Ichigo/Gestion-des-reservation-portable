@@ -28,6 +28,8 @@ date_default_timezone_set('Europe/Paris');
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 </head>
 
 
@@ -72,6 +74,84 @@ date_default_timezone_set('Europe/Paris');
 
     <br>
 
+
+    <?php
+
+    $reservations = ("SELECT *
+
+                            FROM emprunt, materiel, personne
+
+                            WHERE emprunt.IdentifiantM = materiel.IdentifiantM
+
+                            AND emprunt.IdentifiantPe = personne.IdentifiantPe
+
+                            AND emprunt.Motif LIKE 'Acquisition'
+
+                            AND emprunt.IdentifiantPe = '$identifiant'");
+
+    $result_reservations = mysqli_query($session, $reservations);
+
+    foreach ($result_reservations as $row) {
+
+    ?>
+    <form action="" method="POST">
+
+    <div class="card mb-2" >
+        <div class="card-body">
+            <h5 class="card-title"><?php echo $row['CategorieM'] ?></h5>
+            <p class="card-text">
+            <table>
+                <tr>
+                    <td>
+                        <?php echo TXT_NUMERO; ?>
+                    </td>
+                    <td>
+                        <input type="text" readonly class="form-control-plaintext text-center" name="IdentifiantM" value="<?php echo $row['IdentifiantM'] ?>">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?php echo TXT_RETRAIT; ?>
+                    </td>
+                    <td>
+                        <input type="text" readonly class="form-control-plaintext text-center" name="DateEmprunt" value="<?php echo $row['DateEmprunt'] ?>">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?php echo TXT_DATER; ?>
+                    </td>
+                    <td>
+                        <input type="text" readonly class="form-control-plaintext text-center" name="DateRetour" value="<?php echo $row['DateRetour'] ?>">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <?php echo TXT_TYPE; ?>
+                    </td>
+                    <td>
+                        <input type="text" readonly class="form-control-plaintext text-center" name="CategorieM" value="<?php echo $row['CategorieM'] ?>">
+                    </td>
+                </tr>
+            </table>
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary mb-2" name="prolonger" value="<?php echo TXT_PROLONGER; ?>">
+                <input type="submit" class="btn btn-primary mb-2" name="probleme" value="<?php echo TXT_PROBLEME; ?>">
+                <input type="submit" class="btn btn-primary mb-2" name="restituer" value="<?php echo TXT_RESTITUER; ?>">
+            </div>
+
+
+
+
+        </div>
+    </div>
+    </form>
+
+    <!--
+
     <Table class="table text-center">
 
         <TR>
@@ -102,10 +182,9 @@ date_default_timezone_set('Europe/Paris');
 
 
 
-
-
+/*
         <?php
-
+/*
         $reservations = ("SELECT *
 
                             FROM emprunt, materiel, personne
@@ -122,7 +201,7 @@ date_default_timezone_set('Europe/Paris');
 
         foreach ($result_reservations as $row) {
 
-        ?>
+  */      ?>
 
             <form action="" method="POST">
 
@@ -187,6 +266,7 @@ date_default_timezone_set('Europe/Paris');
 
 
             </form>
+            -->
 
         <?php
 
@@ -1093,7 +1173,7 @@ date_default_timezone_set('Europe/Paris');
                 ?>
 
                 <div class="text-center">
-                    <a href="menu2.php" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
+                    <a href="menu2.php" type="button" class="btn btn-secondary mb-2"><?php echo TXT_RETOUR;?></a>
                 </div>
 
 
