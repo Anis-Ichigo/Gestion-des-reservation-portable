@@ -96,6 +96,8 @@ date_default_timezone_set('Europe/Paris');
     ?>
     <form action="" method="POST">
 
+    <input type="hidden" name="IdentifiantE" value="<?php echo $row['IdentifiantE']; ?>">
+
     <div class="card mb-2" >
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['CategorieM'] ?></h5>
