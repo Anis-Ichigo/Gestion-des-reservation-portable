@@ -752,8 +752,8 @@ $('#alerte').modal('show');
 
 
             $delete_rdv = ("DELETE FROM `emprunt`
-                            WHERE      IdentifiantE = $identifiantE
-                            AND         IdentifiantPe = $identifiant");
+                            WHERE      IdentifiantE = '$identifiantE'
+                            AND         IdentifiantPe = '$identifiant'");
             $result_delete_rdv = mysqli_query($session, $delete_rdv);
 
             ?>
