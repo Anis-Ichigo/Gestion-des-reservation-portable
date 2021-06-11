@@ -529,12 +529,12 @@ $('#alerte').modal('show');
                                     </tr>
 
                                     <tr>
-                                        <td>
+                                        <td style=" width: 60%">
                                             <?php echo TXT_NUMERO; ?>
                                         </td>
                                         <td>
-                                            <input type="hidden" name="identifiantM" value="<?php echo $row['IdentifiantM']; ?>">
-                                            <?php echo $row['IdentifiantM'] ?>
+                                            <input type="hidden" name="identifiantM" value="<?php echo $row['IdentifiantM']."  "; ?>">
+                                            <?php echo "  ".$row['IdentifiantM'] ?>
                                         </td>
                                     </tr>
 
