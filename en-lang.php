@@ -41,6 +41,17 @@ define('TXT_HEURE', 'Hour');
 define('TXT_RETOUR', 'Return');
 define('TXT_MODIFIER', 'Modify');
 define('TXT_ENVOYER', 'Send');
+define('TXT_SUPPRIMER', 'Delete');
+
+//suppression RDV
+define('TXT_CONFIRMATION_SUPPRESSION_RDV', 'Would you like to cancel the appointment?');
+define('TXT_INFO_SUPPRESSION', "Do you confirm the cancellation of your appointment?");
+define('TXT_ALERTE_SUCCES_SUPPRESSION', 'Your appointment has been cancelled');
+
+//Modifiez RDV
+define('TXT_CONFIRMATION_MODIFICATION', 'Would you like to change your appointment?');
+define('TXT_CONFIRMER_MODIFIER', 'Confirm appointment change');
+define('TXT_ALERTE_SUCCES_MODIFIER', 'Your slot has been modified');
 
 //my reservations
 

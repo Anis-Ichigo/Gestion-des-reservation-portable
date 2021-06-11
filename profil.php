@@ -97,7 +97,7 @@ mysqli_set_charset($session, "utf-8");
                             <div class="panel" style=" text-align: center" >
                             <TABLE NOBOARDER style="display:inline; text-align: center">
                                 <TR>
-                                    
+
                                     <TD style="text-align : left">
                                         <?php echo TXT_PRENOM; ?>:
                                     </TD>
@@ -251,10 +251,10 @@ mysqli_set_charset($session, "utf-8");
                                     $mdp = sha1($mdp);
                                     $req2 = mysqli_prepare($session, $query);
                                     mysqli_stmt_bind_param($req2, 's', $mdp);
-                                    if (mysqli_stmt_execute($req2)) { 
-                                        
+                                    if (mysqli_stmt_execute($req2)) {
+
                                         // modifier avec success?>
-                                        
+
                 <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -293,62 +293,62 @@ mysqli_set_charset($session, "utf-8");
                                     <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
 
                                     <div class="modal-dialog modal-dialog-centered">
-                
+
                                         <div class="modal-content">
-                
+
                                             <div class="modal-body">
-                
+
                                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
-                
+
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                
+
                                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                
+
                                                     </svg>
-                
+
                                                     <div>
-                
+
                                                     <?php echo MDP_DIFFERENT; ?>
-                
+
                                                     </div>
-                
+
                                                 </div>
-                
+
                                             </div>
-                
+
                                             <div class="modal-footer">
-                
+
                                                 <div class="col text-center">
-                
+
                                                     <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
                                                 </div>
-                
+
                                             </div>
-                
+
                                         </div>
-                
+
                                     </div>
-                
+
                                 </div>
-                
-                
-                
+
+
+
                         <?php
-                
+
                                 echo "<script>
-                
+
                         $(window).load(function() {
-                
+
                             $('#alerte').modal('show');
-                
+
                         });
-                
+
                     </script>";
-                         
+
                         //mot de passe ne sont pas identiques?>
-        
-                                    
-                                   <?php 
+
+
+                                   <?php
                             }} else { ?>
   <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
 
@@ -407,9 +407,9 @@ $('#alerte').modal('show');
 
 //mot de passe actuel incorrect?>
 
-<?php 
+<?php
                         }} else {  //manque un champs
-                            ?> 
+                            ?>
                               <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
 
 <div class="modal-dialog modal-dialog-centered">
@@ -549,8 +549,8 @@ $('#alerte').modal('show');
 
                                 </table>
                                 </p>
-                                <input type='submit' class='btn btn-primary' name='supprimer_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='Supprimer'>
-                                <input type='submit' class='btn btn-primary' name='modifier_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='Modifier'style="float:right;" >
+                                <input type='submit' class='btn btn-primary' name='supprimer_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_SUPPRIMER;?>'>
+                                <input type='submit' class='btn btn-primary' name='modifier_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_MODIFIER?>'style="float:right;" >
                             </div>
                         </div>
                         <br>
@@ -1041,7 +1041,7 @@ $('#alerte').modal('show');
 
                                     <div class="modal-header">
 
-                                        <h5 class="modal-title"><?php echo TXT_CONFIRMATION_RDV; ?></h5>
+                                        <h5 class="modal-title"><?php echo TXT_CONFIRMATION_MODIFICATION; ?></h5>
 
                                     </div>
 
@@ -1221,7 +1221,7 @@ $('#alerte').modal('show');
 
                                         <div class="col text-center">
 
-                                            <input type="submit" class="btn btn-success" name="confirmer_restitution" value="<?php echo TXT_CONFIRMER_RDV; ?>">
+                                            <input type="submit" class="btn btn-success" name="confirmer_restitution" value="<?php echo TXT_CONFIRMER_MODIFIER; ?>">
 
                                             <input data-bs-dismiss="modal" class="btn btn-danger" value="<?php echo TXT_ANNULER; ?>">
                                         </div>
@@ -1313,18 +1313,8 @@ if (isset($_POST['confirmer_restitution'])) {
                                         </svg>
 
                                         <div>
-                                            <?php echo $date_restitution; ?>
-                                            <br>
 
-                                            <?php echo $jour; ?>
-                                            <br>
-                                            <?php echo $horaire ?> <br>
-                                            <?php echo $identifiantPe; ?>
-                                            <br>
-                                            <?php echo $identifiantM; ?>
-                                            <br>
-                                            <?php echo $identifiantCal; ?>
-                                            <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
+                                            <?php echo TXT_ALERTE_SUCCES_MODIFIER; ?>
                                         </div>
 
                                     </div>

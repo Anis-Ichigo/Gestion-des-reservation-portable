@@ -45,7 +45,17 @@ define('TXT_ENVOYER', 'Envoyer');
 define('TXT_OK', 'OK');
 define('TXT_CONFIRMER', 'Confirmer');
 define('TXT_ANNULER', 'Annuler');
+define('TXT_SUPPRIMER', 'Supprimer');
 
+//suppression RDV
+define('TXT_CONFIRMATION_SUPPRESSION_RDV', 'Souhaitez-vous annuler le rendez-vous ?');
+define('TXT_INFO_SUPPRESSION', "Confirmez-vous l'annulation de votre rendez-vous ?");
+define('TXT_ALERTE_SUCCES_SUPPRESSION', 'Votre rendez-vous a été annulé');
+
+//Modifiez RDV
+define('TXT_CONFIRMATION_MODIFICATION', 'Souhaitez-vous modifier votre rendez-vous ?');
+define('TXT_CONFIRMER_MODIFIER', 'Confirmer modification RDV');
+define('TXT_ALERTE_SUCCES_MODIFIER', 'Votre créneau a bien été modifié');
 //mes_reservations.php
 
 define('TXT_ACCUEIL_RESERVATION', 'Mes Réservations');
