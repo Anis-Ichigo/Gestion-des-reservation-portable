@@ -213,9 +213,9 @@ if (isset($_POST['inscription'])) {
     <div class="legals_flex">
       <CENTER>
         <input id="checkbox_newletter" name="checkbox_confidentiality_notice" required type="checkbox">
-        <a href="AC.php" class="checkbox_container" for="checkbox_newletter"><?php echo TXT_CONFIDENTIEL; ?></a><br>
+        <a name="confidentialite" id="confidentialite" href="" data-toggle="modal" data-target="#alerte" for="checkbox_newletter"><?php echo TXT_CONFIDENTIEL; ?></a><br>
         <input id="checkbox_general_condition" name="checkbox_general_condition" required type="checkbox">
-        <a href="CGU.php" class="checkbox_container" for="checkbox_general_condition"><?php echo TXT_CGU; ?></a>
+        <a name="cgu" id="cgu" href="" class="checkbox_container" data-toggle="modal" data-target="#alerte" for="checkbox_general_condition"><?php echo TXT_CGU; ?></a>
     </div>
 
     </center><br>
@@ -225,14 +225,87 @@ if (isset($_POST['inscription'])) {
     <DIV id="Boutons">
       <center>
         <input type="submit" name="inscription" value="<?php echo TXT_ACCUEIL_INSCRIPTION; ?>">
-        <input type="reset" value="<?php echo TXT_REINITIALISER; ?>"><br><br>
-        <a href="index.html" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
+        <input type="reset" value="<?php echo TXT_REINITIALISER; ?>" for="checkbox_newletter"><br><br>
+
+        <a href="index.html" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR; ?></a>
       </CENTER><br>
 
     </div>
   </FORM>
 
+  <div class="modal" id="infos">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Plus d'informations</h4>
+          <button type="button" class="close closemodal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <?php echo AC; ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary closemodal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script>
+    $(function() {
+      $('#confidentialite').click(function() {
+        $('.modal').modal('show')
+      })
+      $('.closemodal').click(function() {
+        $('.modal').modal('hide')
+      })
+    })
+  </script>
+
+
+  <div class="modal" id="infos">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">
+            <h1> <?php echo TXT_ACCUEIL_CGU; ?> </h1>
+          </h4>
+          <button type="button" class="close closemodal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2> <?php echo CGU; ?> </h2>
+          <b> <?php echo CGU1; ?> </b> <?php echo CGU2; ?> </br>
+          <b> <?php echo CGU3; ?> </b> <?php echo CGU4; ?> </br>
+          <b> <?php echo CGU5; ?> </b> <?php echo CGU6; ?></br>
+          <b> <?php echo CGU7; ?> </b> <?php echo CGU8; ?></br>
+          <b> <?php echo CGU9; ?> </b> <?php echo CGU10; ?> </br>
+          <?php echo CGU11; ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary closemodal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script>
+    $(function() {
+      $('#cgu').click(function() {
+        $('.modal').modal('show')
+      })
+      $('.closemodal').click(function() {
+        $('.modal').modal('hide')
+      })
+    })
+  </script>
+
   <?php
+
   if (isset($_POST['inscription'])) {
     if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['tel']) && !empty($_POST['motPasse']) && !empty($_POST['motPasse2'])) {
       if (strlen($_POST['motPasse']) >= 4) {
@@ -270,13 +343,13 @@ if (isset($_POST['inscription'])) {
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                     </svg>
                     <div>
-                      <?php echo ALERTE_SUCCES_COMPTE;?>
+                      <?php echo ALERTE_SUCCES_COMPTE; ?>
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
                   <div class="col text-center">
-                    <a type="button" class="btn btn-primary" href="reservation_portable.php"><?php echo VALIDER;?></a>
+                    <a type="button" class="btn btn-primary" href="reservation_portable.php"><?php echo VALIDER; ?></a>
                   </div>
                 </div>
               </div>
@@ -296,7 +369,7 @@ if (isset($_POST['inscription'])) {
                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
               </svg>
               <div style="margin-left: auto; margin-right: auto;">
-                <?php echo ALERTE_ERREUR_MDP;?>
+                <?php echo ALERTE_ERREUR_MDP; ?>
               </div>
             </div>
           </div>
@@ -311,7 +384,7 @@ if (isset($_POST['inscription'])) {
               <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
             </svg>
             <div style="margin-left: auto; margin-right: auto;">
-              <?php echo ERREUR_MDP_COURT;?>
+              <?php echo ERREUR_MDP_COURT; ?>
             </div>
           </div>
         </div>
@@ -325,7 +398,7 @@ if (isset($_POST['inscription'])) {
             <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
           </svg>
           <div style="margin-left: auto; margin-right: auto;">
-            <?php echo MDP_INCOMPLET;?>
+            <?php echo MDP_INCOMPLET; ?>
           </div>
         </div>
       </div>

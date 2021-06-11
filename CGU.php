@@ -1,12 +1,4 @@
-<?php 
-$_SESSION['lang'] = 'fr';
-if ($_SESSION['lang'] == 'fr') {           // si la langue est 'fr' (français) on inclut le fichier fr-lang.php
-        include('fr-lang.php');
-    } else {      // si la langue est 'en' (anglais) on inclut le fichier en-lang.php
-        include('en-lang.php');
-    }
-   
-    ?>
+<?php require('decide-lang.php') ?>
 <!DOCTYPE html>
 <html>
 
