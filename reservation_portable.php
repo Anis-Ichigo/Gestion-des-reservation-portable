@@ -486,7 +486,7 @@ mysqli_free_result($res);
                         </div>
                         <div class="modal-footer">
                             <div class="col text-center">
-                                <input type="button" class="btn btn-primary" onclick='document.location.href="menu2.php"' value="<?php echo TXT_OK; ?> ">
+                                <input type="button" class="btn btn-primary" onclick='document.location.href="menu3.php"' value="<?php echo TXT_OK; ?> ">
                             </div>
                         </div>
                     </div>
@@ -503,7 +503,7 @@ mysqli_free_result($res);
 
 
         <div class="text-center">
-            <a href="menu2.php" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
+            <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
         </div>
 
 </body>

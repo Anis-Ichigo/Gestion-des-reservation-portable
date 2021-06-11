@@ -638,7 +638,7 @@ $('#alerte').modal('show');
             ?>
 
             <div class="text-center">
-                <a href="menu2.php" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
+                <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR;?></a>
             </div>
 
             <script>
@@ -683,7 +683,7 @@ $('#alerte').modal('show');
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_IDENTIFIANTM; ?> : </label>
+                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_NUMERO; ?> : </label>
                                     <div class="col">
                                         <input type="text" class="form-control-plaintext" name="identifiantM" value="<?php echo $_POST['identifiantM'] ; ?>" readonly>
                                     </div>
@@ -774,7 +774,7 @@ $('#alerte').modal('show');
                         </div>
                         <div class="modal-footer">
                             <div class="col text-center">
-                                <input type="button" class="btn btn-primary" onclick='document.location.href="menu2.php"' value="<?php echo TXT_OK; ?> ">
+                                <input type="button" class="btn btn-primary" onclick='document.location.href="menu3.php"' value="<?php echo TXT_OK; ?> ">
                             </div>
                         </div>
                     </div>

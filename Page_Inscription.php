@@ -213,9 +213,9 @@ if (isset($_POST['inscription'])) {
     <div class="legals_flex">
       <CENTER>
         <input id="checkbox_newletter" name="checkbox_confidentiality_notice" required type="checkbox">
-        <label class="checkbox_container" for="checkbox_newletter"><?php echo TXT_CONFIDENTIEL; ?></label><br>
+        <a href="AC.php" class="checkbox_container" for="checkbox_newletter"><?php echo TXT_CONFIDENTIEL; ?></a><br>
         <input id="checkbox_general_condition" name="checkbox_general_condition" required type="checkbox">
-        <label class="checkbox_container" for="checkbox_general_condition"><?php echo TXT_CGU; ?></label>
+        <a href="CGU.php" class="checkbox_container" for="checkbox_general_condition"><?php echo TXT_CGU; ?></a>
     </div>
 
     </center><br>

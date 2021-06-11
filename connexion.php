@@ -60,7 +60,7 @@ mysqli_set_charset($session, "utf8");
             $_SESSION['statut']=$statut;
             $_SESSION['formation']=$formation;
 
-            header("Location: menu2.php");
+            header("Location: menu3.php");
         }
 
 

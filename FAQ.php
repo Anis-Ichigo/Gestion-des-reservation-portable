@@ -54,7 +54,7 @@ require('decide-lang.php');
         </section>
     </div>
     <div class="text-center">
-        <a href="menu2.php" type="button" class="btn btn-secondary">Retour</a>
+        <input onclick="history.go(-1)" type="button" class="btn btn-secondary" value="<?php echo TXT_RETOUR; ?>">
     </div>
 </body>
 
