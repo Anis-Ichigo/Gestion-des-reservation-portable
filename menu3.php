@@ -18,6 +18,9 @@ require('decide-lang.php');
 <body>
 
     <div class="main">
+        <div class="header">
+            <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%;
+  margin-top: 1%">
         <Table >
             <tr>
                 <td>
