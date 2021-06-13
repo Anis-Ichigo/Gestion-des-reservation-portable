@@ -126,7 +126,7 @@ if (isset($_POST['inscription'])) {
             <TD align=right>
 
               <div class="form-floating mb-2">
-                <input type="email" class="form-control" id="floatingInput" placeholder="xxx@ut-capitole.fr" pattern="^[a-zA-Z0-9_-\.]+@ut-capitole\.fr$" autocomplete="off" name="email" value="" required>
+                <input type="email" class="form-control" id="floatingInput" pattern="^[a-zA-Z0-9_-\.]+@ut-capitole\.fr$" autocomplete="off" name="email" value="xxx@ut-capitole.fr" required>
                 <label for="floatingInput"><?php echo TXT_EMAIL; ?> : </label>
               </div>
             </TD>

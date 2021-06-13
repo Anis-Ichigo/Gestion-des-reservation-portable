@@ -46,6 +46,8 @@ define('TXT_OK', 'OK');
 define('TXT_CONFIRMER', 'Confirmer');
 define('TXT_ANNULER', 'Annuler');
 define('TXT_SUPPRIMER', 'Supprimer');
+define('TXT_MENU', 'Menu');
+
 
 //suppression RDV
 define('TXT_CONFIRMATION_SUPPRESSION_RDV', 'Souhaitez-vous annuler le rendez-vous ?');

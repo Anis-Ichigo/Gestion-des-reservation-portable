@@ -29,6 +29,12 @@ date_default_timezone_set('Europe/Paris');
 
 <body>
 
+
+    <div class="header">
+        <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%;
+  margin-top: 1%">
+    </div>
+
     <?php
     $identifiant = $_SESSION['identifiant'];
     ?>
@@ -495,7 +501,7 @@ date_default_timezone_set('Europe/Paris');
 
 
         <div class="text-center">
-            <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR; ?></a>
+            <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_MENU; ?></a>
         </div>
 
 </body>
