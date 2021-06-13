@@ -9,7 +9,7 @@ require('decide-lang.php');
     <meta charset="UTF-8">
     <title> Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="menucss.css" />
+    <link rel="stylesheet" href="Menucss.css" />
 
 
 
@@ -20,8 +20,7 @@ require('decide-lang.php');
 
     <div class="main">
         <div class="header">
-            <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%;
-  margin-top: 1%">
+            <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%; margin-top: 1%">
             <Table>
                 <tr>
                     <td>

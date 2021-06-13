@@ -159,3 +159,8 @@ h1 {
 .contenu {
     font-size: 1.5em;
 }
+
+footer {
+    text-align: center;
+    font-size: 2em;
+}

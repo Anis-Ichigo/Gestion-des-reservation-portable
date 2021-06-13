@@ -785,7 +785,7 @@ $('#alerte').modal('show');
                                 </div>
                                 <div class="modal-footer">
                                     <div class="col text-center">
-                                        <input type="button" class="btn btn-primary" onclick='document.location.href="menu3.php"' value="<?php echo TXT_OK; ?> ">
+                                        <input type="button" class="btn btn-primary" onclick='document.location.href="profil.php"' value="<?php echo TXT_OK; ?> ">
                                     </div>
                                 </div>
                             </div>

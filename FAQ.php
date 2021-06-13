@@ -17,9 +17,10 @@ require('decide-lang.php');
 </head>
 
 <body>
-    <div class="header">
-        <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%;
-  margin-top: 1%">
+    <div class="header" >
+        <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%; margin-top: 1%;">
+        
+        </div>
     </div>
     <div class="contenu">
         <h1> <?php echo TXT_ACCUEIL_FAQ; ?> </h1>
@@ -59,9 +60,16 @@ require('decide-lang.php');
             </p>
         </section>
     </div>
+
+
     <div class="text-center">
         <input onclick="history.go(-1)" type="button" class="btn btn-secondary" value="<?php echo TXT_MENU; ?>" style="text-transform: uppercase; font-size: 300%;">
     </div>
+
+    <footer style="text-align: center; font-size: 1.5em; bottom:0; position:absolute; width:100%; background-color: #ffc0cb;">
+        Site réalisé par Marine CABIROL - Haoyang YU - Lisa DE SMET - Anis MANA - Antoine LAVIGNE
+    </footer>
 </body>
+
 
 </html>
