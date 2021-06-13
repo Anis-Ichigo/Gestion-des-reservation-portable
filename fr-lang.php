@@ -93,7 +93,7 @@ define('TXT_CRENEAU', 'Créneau');
 define('TXT_INFO_RESERVATION', "Attention, vous devez fournir les documents demandés (photocopie de pièce d'identité recto/verso et photocopie de carte étudiante). Sans cela, aucun matériel ne pourra vous être prêté.");
 define('MDP_COURT', 'Le mot de passe est trop court !');
 define('MDP_CHAMPS', 'Veuillez saisir tous les champs !');
-
+define('TXT_CHOIX_CRENEAU','Veuillez choisir un créneau pour récuperer le matériel');
 //Page_Inscription.php
 
 define('TXT_ACCUEIL_INSCRIPTION', 'Inscription');

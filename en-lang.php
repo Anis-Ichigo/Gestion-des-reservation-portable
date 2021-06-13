@@ -93,6 +93,7 @@ define('TXT_CRENEAU', 'Time slot');
 define('TXT_INFO_RESERVATION', 'Please note that you must provide the requested documents (photocopy of front and back identity document and / or photocopy of the student card). Without these , no material can be loaned to you.');
 define('MDP_COURT', 'Password is too short!');
 define('MDP_CHAMPS', 'Please complete all fields!');
+define('TXT_CHOIX_CRENEAU','Please select a time slot to gather the equipment');
 
 
 //Page_inscription.php
