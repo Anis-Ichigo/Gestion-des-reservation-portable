@@ -17,10 +17,8 @@ require('decide-lang.php');
 </head>
 
 <body>
-    <div class="header" >
+    <div class="header">
         <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%; margin-top: 1%;">
-        
-        </div>
     </div>
     <div class="contenu">
         <h1> <?php echo TXT_ACCUEIL_FAQ; ?> </h1>
