@@ -411,12 +411,6 @@ date_default_timezone_set('Europe/Paris');
                                 <input type="hidden" name="IdentifiantCal" value="<?php echo $IdentifiantCal; ?>">
                                 <input type="hidden" name="DateRetour" value="<?php echo $_POST['DateRetour']; ?>">
 
-
-                                <?php echo $jour_res; ?>
-
-
-
-
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_MATERIEL; ?> : </label>
                                     <div class="col">
