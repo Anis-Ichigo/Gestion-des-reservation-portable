@@ -15,11 +15,13 @@ td {
 a:link {
     text-decoration: none;
     font-style: none;
+    color: rgba(123, 73, 221, 0.25);
 }
 
 a:hover {
     color: black;
 }
+
 
 .main {
     display: flex;
