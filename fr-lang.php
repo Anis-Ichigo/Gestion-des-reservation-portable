@@ -87,7 +87,7 @@ define('TXT_ALERTE_SUCCES_CRENEAU', 'Votre créneau a bien été réservé');
 
 define('TXT_ACCUEIL_NOUVELLER', 'Nouvelle Réservation');
 define('TXT_DEMANDE_CONCERNE', 'Votre demande concerne');
-define('TXT_CHOIX_RETOUR', 'Choissez la date de retour');
+define('TXT_CHOIX_RETOUR', 'Choisissez la date de retour');
 define('TXT_CHOIX_MATERIEL', 'Type de matériel emprunté');
 define('TXT_CHOIX_DATE', "Date d'emprunt");
 define('TXT_JOUR', 'Jour');
@@ -96,6 +96,8 @@ define('TXT_INFO_RESERVATION', "Attention, vous devez fournir les documents dema
 define('MDP_COURT', 'Le mot de passe est trop court !');
 define('MDP_CHAMPS', 'Veuillez saisir tous les champs !');
 define('TXT_CHOIX_CRENEAU','Veuillez choisir un créneau pour récuperer le matériel');
+define('TXT_ERREUR_JOUR', 'Veuillez choisir une date autre que le samedi ou le dimanche');
+
 //Page_Inscription.php
 
 define('TXT_ACCUEIL_INSCRIPTION', 'Inscription');
@@ -109,6 +111,8 @@ define('ALERTE_SUCCES_COMPTE', 'Le compte a été créé avec succès !');
 define('VALIDER', 'Valider');
 define('ALERTE_ERREUR_MDP', 'Les mots de passes ne correspondent pas. Veuillez recommencer !');
 define('ERREUR_MDP_COURT', 'Le mot de passe choisi est trop court !');
+define('TXT_MAIL_INCORRECT', 'Veuillez saisir votre adresse universitaire');
+
 
 //FAQ.php
 

@@ -325,166 +325,27 @@ date_default_timezone_set('Europe/Paris');
 
     <?php
     if (isset($_POST['Lundi']) || isset($_POST['Mardi']) || isset($_POST['Mercredi']) || isset($_POST['Jeudi']) || isset($_POST['Vendredi'])) {
-        if (isset($_POST['Lundi'])) {
-            $jour = "Lundi";
-            $horaire = $_POST['Lundi'];
-            $date_emprunt = strftime("%d/%m/%Y", strtotime("monday"));
-        } else if (isset($_POST['Mardi'])) {
-            $jour = "Mardi";
-            $horaire = $_POST['Mardi'];
-            $date_emprunt = strftime("%d/%m/%Y", strtotime("tuesday"));
-        } else if (isset($_POST['Mercredi'])) {
-            $jour = "Mercredi";
-            $horaire = $_POST['Mercredi'];
-            $date_emprunt = strftime("%d/%m/%Y", strtotime("wednesday"));
-        } else if (isset($_POST['Jeudi'])) {
-            $jour = "Jeudi";
-            $horaire = $_POST['Jeudi'];
-            $date_emprunt = strftime("%d/%m/%Y", strtotime("thursday"));
-        } else if (isset($_POST['Vendredi'])) {
-            $jour = "Vendredi";
-            $horaire = $_POST['Vendredi'];
-            $date_emprunt = strftime("%d/%m/%Y", strtotime("Friday"));
-        }
-        $date_retour = strftime("%d/%m/%Y", strtotime($_POST['DateRetour']));
-        $categorieM = $_POST['categorie'];
-
-        $id_materiel = ("SELECT * FROM materiel WHERE EtatM LIKE 'Dispo' AND StatutM LIKE 'Existant' AND CategorieM = '$categorieM' LIMIT 1");
-        $result_id_materiel = mysqli_query($session, $id_materiel);
-        foreach ($result_id_materiel as $materiel) {
-            $IdentifiantM = $materiel['IdentifiantM'];
-        }
-
-
-        $id_creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-        $result_id_creneau = mysqli_query($session, $id_creneau);
-        foreach ($result_id_creneau as $creneau) {
-            $IdentifiantCal = $creneau['IdentifiantCal'];
-        }
-
+        $date_res = $_POST['DateRetour'];
+        $jour_res = strftime('%A', strtotime($date_res));
+        if ($jour_res == "Saturday" || $jour_res == "Sunday") {
     ?>
-        <!-- Modal -->
-
-        <form action="" method="POST">
-            <div class="modal fade" id="alerte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"><?php echo TXT_CONFIRMATION_RDV; ?></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="hidden" name="IdentifiantM" value="<?php echo $IdentifiantM; ?>">
-                            <input type="hidden" name="IdentifiantCal" value="<?php echo $IdentifiantCal; ?>">
-                            <input type="hidden" name="DateRetour" value="<?php echo $_POST['DateRetour']; ?>">
-
-
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_MATERIEL; ?> : </label>
-                                <div class="col">
-                                    <input type="text" class="form-control-plaintext" name="categorieM" value="<?php echo $categorieM; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_DATE; ?> : </label>
-                                <div class="col">
-                                    <input type="text" class="form-control-plaintext" name="date_emprunt" value="<?php echo $date_emprunt; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_DATER; ?> : </label>
-                                <div class="col">
-                                    <input type="text" class="form-control-plaintext" name="date_retour" value="<?php echo $date_retour; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_JOUR; ?> : </label>
-                                <div class="col">
-                                    <input type="text" class="form-control-plaintext" name="jour" value="<?php echo $jour; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col col-form-label"><?php echo TXT_CRENEAU; ?> : </label>
-                                <div class="col">
-                                    <input type="text" class="form-control-plaintext" name="horaire" value="<?php echo $horaire; ?>" readonly>
-                                </div>
-                            </div>
-
-
-                            <div class="alert alert-primary d-flex align-items-center" role="alert">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-                                </svg>
-                                <div>
-                                    <?php echo TXT_INFO_RESERVATION; ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_RETOUR; ?>">
-                            <input type="submit" class="btn btn-primary" name="confirmer" value="<?php echo TXT_CONFIRMER; ?>">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php
-        echo "<script>
-        $(window).load(function() {
-            $('#alerte').modal('show');
-        });
-    </script>";
-    }
-        ?>
-        </form>
-
-        <?php
-        if (isset($_POST['confirmer'])) {
-            $dateRetour = $_POST['DateRetour'];
-
-            $horaire = $_POST['horaire'];
-            $jour = $_POST['jour'];
-            $date_Emprunt = $_POST['date_emprunt'];
-            $dt = DateTime::createFromFormat('d/m/Y', $date_Emprunt);
-            $dateEmprunt = $dt->format('Y-m-d');
-
-            $categorie = $_POST['categorieM'];
-            $identifiantM = $_POST['IdentifiantM'];
-            $identifiantCal = $_POST['IdentifiantCal'];
-
-            $identifiantPe = $identifiant;
-
-
-
-            $emprunter = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-            $result_emprunter = mysqli_query($session, $emprunter);
-
-            $etat_materiel = ("UPDATE materiel SET EtatM = 'Non Dispo' WHERE IdentifiantM = '$identifiantM'");
-            $result_etat_materiel = mysqli_query($session, $etat_materiel);
-
-
-            $insert_rdv = ("INSERT INTO `emprunt`(`DateEmprunt`, `DateRetour`, `DateProlongation`, `Motif`, `IdentifiantM`, `IdentifiantPe`, `IdentifiantCal`)
-                    VALUES ('$dateEmprunt', '$dateRetour', NULL, 'Acquisition', '$identifiantM', '$identifiantPe', '$identifiantCal')");
-            $result_insert_rdv = mysqli_query($session, $insert_rdv);
-
-        ?>
-
             <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <div class="alert alert-success d-flex align-items-center" role="alert">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
                                 </svg>
                                 <div>
-
-                                    <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
+                                    <?php echo TXT_ERREUR_JOUR; ?>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <div class="col text-center">
-                                <input type="button" class="btn btn-primary" onclick='document.location.href="menu3.php"' value="<?php echo TXT_OK; ?> ">
+                                <input type="button" class="btn btn-primary" onclick='document.location.href="reservation_portable.php"' value="<?php echo TXT_OK; ?> ">
                             </div>
                         </div>
                     </div>
@@ -492,17 +353,198 @@ date_default_timezone_set('Europe/Paris');
             </div>
         <?php
             echo "<script>
+    $(window).load(function() {
+        $('#alerte').modal('show');
+    });
+</script>";
+        } else {
+            if (isset($_POST['Lundi'])) {
+                $jour = "Lundi";
+                $horaire = $_POST['Lundi'];
+                $date_emprunt = strftime("%d/%m/%Y", strtotime("monday"));
+            } else if (isset($_POST['Mardi'])) {
+                $jour = "Mardi";
+                $horaire = $_POST['Mardi'];
+                $date_emprunt = strftime("%d/%m/%Y", strtotime("tuesday"));
+            } else if (isset($_POST['Mercredi'])) {
+                $jour = "Mercredi";
+                $horaire = $_POST['Mercredi'];
+                $date_emprunt = strftime("%d/%m/%Y", strtotime("wednesday"));
+            } else if (isset($_POST['Jeudi'])) {
+                $jour = "Jeudi";
+                $horaire = $_POST['Jeudi'];
+                $date_emprunt = strftime("%d/%m/%Y", strtotime("thursday"));
+            } else if (isset($_POST['Vendredi'])) {
+                $jour = "Vendredi";
+                $horaire = $_POST['Vendredi'];
+                $date_emprunt = strftime("%d/%m/%Y", strtotime("Friday"));
+            }
+            $date_retour = strftime("%d/%m/%Y", strtotime($_POST['DateRetour']));
+            $categorieM = $_POST['categorie'];
+
+            $id_materiel = ("SELECT * FROM materiel WHERE EtatM LIKE 'Dispo' AND StatutM LIKE 'Existant' AND CategorieM = '$categorieM' LIMIT 1");
+            $result_id_materiel = mysqli_query($session, $id_materiel);
+            foreach ($result_id_materiel as $materiel) {
+                $IdentifiantM = $materiel['IdentifiantM'];
+            }
+
+
+            $id_creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+            $result_id_creneau = mysqli_query($session, $id_creneau);
+            foreach ($result_id_creneau as $creneau) {
+                $IdentifiantCal = $creneau['IdentifiantCal'];
+            }
+
+        ?>
+            <!-- Modal -->
+
+            <form action="" method="POST">
+                <div class="modal fade" id="alerte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"><?php echo TXT_CONFIRMATION_RDV; ?></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" name="IdentifiantM" value="<?php echo $IdentifiantM; ?>">
+                                <input type="hidden" name="IdentifiantCal" value="<?php echo $IdentifiantCal; ?>">
+                                <input type="hidden" name="DateRetour" value="<?php echo $_POST['DateRetour']; ?>">
+
+
+                                <?php echo $jour_res; ?>
+
+
+
+
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_MATERIEL; ?> : </label>
+                                    <div class="col">
+                                        <input type="text" class="form-control-plaintext" name="categorieM" value="<?php echo $categorieM; ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_DATE; ?> : </label>
+                                    <div class="col">
+                                        <input type="text" class="form-control-plaintext" name="date_emprunt" value="<?php echo $date_emprunt; ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_DATER; ?> : </label>
+                                    <div class="col">
+                                        <input type="text" class="form-control-plaintext" name="date_retour" value="<?php echo $date_retour; ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_JOUR; ?> : </label>
+                                    <div class="col">
+                                        <input type="text" class="form-control-plaintext" name="jour" value="<?php echo $jour; ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_CRENEAU; ?> : </label>
+                                    <div class="col">
+                                        <input type="text" class="form-control-plaintext" name="horaire" value="<?php echo $horaire; ?>" readonly>
+                                    </div>
+                                </div>
+
+
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                                    </svg>
+                                    <div>
+                                        <?php echo TXT_INFO_RESERVATION; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_RETOUR; ?>">
+                                <input type="submit" class="btn btn-primary" name="confirmer" value="<?php echo TXT_CONFIRMER; ?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <?php
+            echo "<script>
+            $(window).load(function() {
+                $('#alerte').modal('show');
+            });
+        </script>";
+        }
+    }
+        ?>
+
+
+            </form>
+
+            <?php
+            if (isset($_POST['confirmer'])) {
+
+                $dateRetour = $_POST['DateRetour'];
+
+                $horaire = $_POST['horaire'];
+                $jour = $_POST['jour'];
+                $date_Emprunt = $_POST['date_emprunt'];
+                $dt = DateTime::createFromFormat('d/m/Y', $date_Emprunt);
+                $dateEmprunt = $dt->format('Y-m-d');
+
+                $categorie = $_POST['categorieM'];
+                $identifiantM = $_POST['IdentifiantM'];
+                $identifiantCal = $_POST['IdentifiantCal'];
+
+                $identifiantPe = $identifiant;
+
+
+
+                $emprunter = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+                $result_emprunter = mysqli_query($session, $emprunter);
+
+                $etat_materiel = ("UPDATE materiel SET EtatM = 'Non Dispo' WHERE IdentifiantM = '$identifiantM'");
+                $result_etat_materiel = mysqli_query($session, $etat_materiel);
+
+
+                $insert_rdv = ("INSERT INTO `emprunt`(`DateEmprunt`, `DateRetour`, `DateProlongation`, `Motif`, `IdentifiantM`, `IdentifiantPe`, `IdentifiantCal`)
+                    VALUES ('$dateEmprunt', '$dateRetour', NULL, 'Acquisition', '$identifiantM', '$identifiantPe', '$identifiantCal')");
+                $result_insert_rdv = mysqli_query($session, $insert_rdv);
+
+            ?>
+
+                <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="alert alert-success d-flex align-items-center" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                    <div>
+
+                                        <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="col text-center">
+                                    <input type="button" class="btn btn-primary" onclick='document.location.href="menu3.php"' value="<?php echo TXT_OK; ?> ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php
+                echo "<script>
         $(window).load(function() {
             $('#alerte').modal('show');
         });
     </script>";
-        }
-        ?>
+            }
+            ?>
 
 
-        <div class="text-center">
-            <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_MENU; ?></a>
-        </div>
+            <div class="text-center">
+                <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_MENU; ?></a>
+            </div>
 
 </body>
 

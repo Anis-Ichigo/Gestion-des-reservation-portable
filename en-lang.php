@@ -95,6 +95,7 @@ define('TXT_INFO_RESERVATION', 'Please note that you must provide the requested 
 define('MDP_COURT', 'Password is too short!');
 define('MDP_CHAMPS', 'Please complete all fields!');
 define('TXT_CHOIX_CRENEAU','Please select a time slot to gather the equipment');
+define('TXT_ERREUR_JOUR', 'Please, choose an other date than Saturday or Sunday');
 
 
 //Page_inscription.php
@@ -109,6 +110,8 @@ define('ALERTE_SUCCES_COMPTE', 'The account has been successfully created').
 define('VALIDER', 'Confirm');
 define('ALERTE_ERREUR_MDP', 'The passwords do not match. Please try again !');
 define('ERREUR_MDP_COURT', 'The password is too short !');
+define('TXT_MAIL_INCORRECT', 'Please enter your universitary mail');
+
 
 //FAQ.php
 
