@@ -42,6 +42,7 @@ define('TXT_RETOUR', 'Return');
 define('TXT_MODIFIER', 'Modify');
 define('TXT_ENVOYER', 'Send');
 define('TXT_SUPPRIMER', 'Delete');
+define('TXT_MENU', 'Menu');
 
 //suppression RDV
 define('TXT_CONFIRMATION_SUPPRESSION_RDV', 'Would you like to cancel the appointment?');
