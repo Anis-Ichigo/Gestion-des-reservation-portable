@@ -39,24 +39,24 @@
   margin-top: 1%">
       </div>
         <form method="post" action="connexion.php" name="index">
-            <div class="form-group" align="center">
-                <h2>Authentification</h2>
+            <div class="form-group" align="center" >
+                <h2 style="font-size: 1.8em;">Authentification</h2>
                 <hr color="#4E00A8">
                 <table>
                     <tr>
-                        <td>
+                        <td >
                             <label for="identifiant">IDENTIFIANT</label>
                         </td>
                         <td>
-                            <input type="email" class="form-control" id="identifiant" name="user" placeholder="xxx@ut-capitole.fr" pattern="^[a-zA-Z0-9_-\.]+@ut-capitole\.fr$">
+                            <input type="email" class="form-control" id="identifiant" name="user" placeholder=" xxx@ut-capitole.fr" pattern="^[a-zA-Z0-9_-\.]+@ut-capitole\.fr$" style="font-size: 1.15em;">
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="white-space: nowrap;">
                             <label for="password_login">MOT DE PASSE</label>
                         </td>
                         <td>
-                            <input type="password" class="form-control" id="password_login" name="psw" placeholder="******">
+                            <input type="password" class="form-control" id="password_login" name="psw" placeholder=" ******" style="font-size: 1.15em;">
                         </td>
 
                     </tr>
@@ -64,18 +64,19 @@
 
 
                 <input id="FR" type="radio" name="lang" value="fr" checked>
-                <label for="FR">
+                <label for="FR" style="font-size: 1.25em;">
                     &nbsp;&nbsp;
                     <span class="flag-icon flag-icon-fr"></span>
-                    Français
+                    Français 
                 </label>
-
-                <input id="EN" type="radio" name="lang" value="en">
-                <label for="EN">
+				&nbsp;
+                <input id="EN" type="radio" name="lang" value="en" >
+                <label for="EN" style="font-size: 1.25em;">
                     &nbsp;&nbsp;
                     <span class="flag-icon flag-icon-um"></span>
                     English
                 </label>
+				<br><br>
 
 
 
@@ -83,9 +84,9 @@
                 <!--<button type="submit" class="btn btn-primary">Se connecter</button>
                 <a class="button" type="submit" name="inscrire" href="page_inscription.php">S'inscrire</a>-->
 
-                <button type="submit" class="btn btn-primary" onClick="connecter()" value="se connecter">Se
+                <button type="submit" class="btn btn-primary mb-3" onClick="connecter()" value="se connecter" style="font-size: 1.25em;">Se
                     connecter</button>
-                <button type="submit" onClick="inscrire()" value="inscrire">S'inscrire</button>
+                <button type="submit" oclass="btn btn-primary mb-3" nClick="inscrire()" value="inscrire" style="font-size: 1.25em;">S'inscrire</button>
                 <br>
 
 

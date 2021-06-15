@@ -1,6 +1,6 @@
 img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 }
 
 table {
@@ -15,7 +15,7 @@ td {
 a:link {
     text-decoration: none;
     font-style: none;
-    color: rgba(123, 73, 221, 0.25);
+    color: #4E00A8;
 }
 
 a:hover {
@@ -26,11 +26,19 @@ a:hover {
 .main {
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 230px;
     height: 400px;
     padding: 20px;
     border-radius: 30px;
     box-shadow: 0 0 40px 5px rgba(123, 73, 221, 0.25);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 body {

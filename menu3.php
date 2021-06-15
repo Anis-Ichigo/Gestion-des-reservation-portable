@@ -19,8 +19,9 @@ require('decide-lang.php');
     
 
     <div class="main">
-        <div class="header">
-            <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%; margin-top: 1%">
+        <div class="header" style="width: 100%; height: 18%; margin-bottom: 4%">
+            <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="height: 120%;width: 100%">
+        </div>
             <Table>
                 <tr>
                     <td>
@@ -78,7 +79,6 @@ require('decide-lang.php');
                     </td>
                 </tr>
             </table>
-        </div>
     </div>
     
         <!-- partial -->
