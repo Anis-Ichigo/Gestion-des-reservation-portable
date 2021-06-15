@@ -424,7 +424,7 @@ mysqli_set_charset($session, "utf-8");
             ?>
                 <form action="profil.php" method="post">
                     <div style="display: block ;" class="form-group row">
-                        <input type="button" class="accordion" value="<?php echo TXT_RDV; ?>">
+                        <input type="button" class="accordion mb-3" value="<?php echo TXT_RDV; ?>">
                         <!--<h2><?php echo TXT_RDV; ?></h2> -->
 
                         <div class="panel">

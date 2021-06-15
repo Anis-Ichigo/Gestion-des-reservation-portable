@@ -59,11 +59,9 @@ mysqli_set_charset($session, "utf-8");
     </form>
     &nbsp;&nbsp;
     <div class="text-center">
-      <a href="menu3.php" class="btn btn-secondary"><?php echo TXT_MENU; ?></a>
-
-
-
+      <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_MENU; ?></a>
     </div>
+
   </div>
 </body>
 

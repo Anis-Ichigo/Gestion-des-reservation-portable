@@ -257,7 +257,7 @@ date_default_timezone_set('Europe/Paris');
         </button>
         -->
 
-        <input type="button" class="accordion" value="<?php
+        <input type="button" class="accordion mb-3" value="<?php
                                                         $premierJour = strftime("%d/%m/%Y", strtotime("friday"));
                                                         echo TXT_VENDREDI . " $premierJour";
                                                         ?>">
@@ -570,7 +570,7 @@ $('#alerte').modal('show');
 
 
             <div class="text-center">
-                <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_MENU; ?></a>
+                <a href="menu3.php" type="button" class="btn btn-secondary mb-3"><?php echo TXT_MENU; ?></a>
             </div>
 
 </body>
