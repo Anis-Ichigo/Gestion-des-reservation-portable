@@ -30,6 +30,7 @@ mysqli_set_charset($session, "utf-8");
       <p style="font-size: 1.5em"><?php echo CHOIX_LANGUE . ':'; ?></p>
 
       <div class="form-group" align="center" style="font-size: 1.25em">
+
         <input id="fr" type="radio" name="lang" value="fr" checked>
         <label for="fr">
           &nbsp;&nbsp;
@@ -43,6 +44,14 @@ mysqli_set_charset($session, "utf-8");
           <span class="flag-icon flag-icon-um"></span>
           English
         </label><br><br>
+
+        <input id="cn" type="radio" name="lang" value="cn">
+        <label for="cn">
+          &nbsp; &nbsp;
+          <span class="flag-icon flag-icon-cn"></span>
+          简体中文
+        </label><br><br>
+          
 
         <input type="submit" name="enregistrer_parametres" value="<?php echo ENREGISTRER; ?>">
 
