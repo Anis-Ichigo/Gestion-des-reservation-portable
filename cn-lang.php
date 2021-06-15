@@ -96,6 +96,7 @@ define('TXT_INFO_RESERVATION', "请注意， 您必须提供所需材料 （身�
 define('MDP_COURT', '密码太短了！');
 define('MDP_CHAMPS', '请填写所有信息！');
 define('TXT_CHOIX_CRENEAU','请选择领取时间：');
+define('TXT_ERREUR_JOUR', '请选择工作日时间');
 //Page_Inscription.php
 
 define('TXT_ACCUEIL_INSCRIPTION', '注册');
@@ -109,6 +110,7 @@ define('ALERTE_SUCCES_COMPTE', '恭喜您，账号已注册成功 !');
 define('VALIDER', '确认');
 define('ALERTE_ERREUR_MDP', '两次密码不一致，请重新输入。');
 define('ERREUR_MDP_COURT', '密码太短了！');
+define('TXT_MAIL_INCORRECT', '请输入学校邮箱');
 
 //FAQ.php
 
