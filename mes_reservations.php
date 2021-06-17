@@ -85,6 +85,7 @@ date_default_timezone_set('Europe/Paris');
                         WHERE emprunt.IdentifiantM = materiel.IdentifiantM
                         AND emprunt.IdentifiantPe = personne.IdentifiantPe
                         AND emprunt.Motif LIKE 'Acquisition'
+                        AND emprunt.Statut_RDV LIKE 'terminé'
                         AND emprunt.IdentifiantPe = '$identifiant'");
 
     $result_reservations = mysqli_query($session, $reservations);

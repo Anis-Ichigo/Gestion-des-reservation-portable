@@ -12,14 +12,14 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-	
-	
-		 
+
+
+
 
 <body>
-	
-	 
-  
+
+
+
     <script>
         function connecter() {
             document.index.action = "connexion.php";
@@ -33,30 +33,29 @@
     </script>
 
     <!-- partial:index.partial.html -->
-    <div class="main">
- <div class="header">
-          <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%;
-  margin-top: 1%">
-      </div>
+    <div class="main" style="width: 350px; position: fixed;">
+        <div class="header">
+            <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%; margin-top: 1%">
+        </div>
         <form method="post" action="connexion.php" name="index">
-            <div class="form-group" align="center" >
+            <div class="form-group" align="center">
                 <h2 style="font-size: 1.8em;">Authentification</h2>
                 <hr color="#4E00A8">
                 <table>
                     <tr>
-                        <td >
+                        <td>
                             <label for="identifiant">IDENTIFIANT</label>
                         </td>
                         <td>
-                            <input type="email" class="form-control" id="identifiant" name="user" placeholder=" xxx@ut-capitole.fr" pattern="^[a-zA-Z0-9_-\.]+@ut-capitole\.fr$" style="font-size: 1.15em;">
+                            <input type="email" class="form-control" id="identifiant" name="user" placeholder=" xxx@ut-capitole.fr" pattern="^[a-zA-Z0-9_-\.]+@ut-capitole\.fr$">
                         </td>
                     </tr>
                     <tr>
-                        <td style="white-space: nowrap;">
+                        <td>
                             <label for="password_login">MOT DE PASSE</label>
                         </td>
                         <td>
-                            <input type="password" class="form-control" id="password_login" name="psw" placeholder=" ******" style="font-size: 1.15em;">
+                            <input type="password" class="form-control" id="password_login" name="psw" placeholder=" ******">
                         </td>
 
                     </tr>
@@ -67,16 +66,22 @@
                 <label for="FR" style="font-size: 1.25em;">
                     &nbsp;&nbsp;
                     <span class="flag-icon flag-icon-fr"></span>
-                    Français 
-                </label>
-				&nbsp;
-                <input id="EN" type="radio" name="lang" value="en" >
+                    Français
+                </label> &nbsp;
+                <input id="EN" type="radio" name="lang" value="en">
                 <label for="EN" style="font-size: 1.25em;">
                     &nbsp;&nbsp;
                     <span class="flag-icon flag-icon-um"></span>
                     English
                 </label>
-				<br><br>
+                <br><br>
+                <input id="CN" type="radio" name="lang" value="cn">
+                <label for="CN">
+                    &nbsp;&nbsp;
+                    <span class="flag-icon flag-icon-cn"></span>
+                    简体中文
+                </label>
+                <br><br>
 
 
 
@@ -86,7 +91,7 @@
 
                 <button type="submit" class="btn btn-primary mb-3" onClick="connecter()" value="se connecter" style="font-size: 1.25em;">Se
                     connecter</button>
-                <button type="submit" oclass="btn btn-primary mb-3" nClick="inscrire()" value="inscrire" style="font-size: 1.25em;">S'inscrire</button>
+                <button type="submit" oclass="btn btn-primary mb-3" onClick="inscrire()" value="inscrire" style="font-size: 1.25em;">S'inscrire</button>
                 <br>
 
 

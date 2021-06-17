@@ -67,11 +67,11 @@ require('decide-lang.php');
 
     </div>
 
-    <!--
-    <footer style="text-align: center; font-size: 1.5em; bottom:0; position:absolute; width:100%; background-color: #ffc0cb;">
+    
+    <footer style="text-align: center; font-size: 1em; bottom:0; position:relative; width:100%; background-color: #ffc0cb;">
         Site réalisé par Marine CABIROL - Haoyang YU - Lisa DE SMET - Anis MANA - Antoine LAVIGNE
     </footer>
-    -->
+    
 </body>
 
 
