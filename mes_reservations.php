@@ -84,13 +84,16 @@ date_default_timezone_set('Europe/Paris');
                         FROM emprunt, materiel, personne
                         WHERE emprunt.IdentifiantM = materiel.IdentifiantM
                         AND emprunt.IdentifiantPe = personne.IdentifiantPe
-                        AND emprunt.Motif LIKE 'Acquisition'
+                        AND emprunt.Motif LIKE 'Prêt'
                         AND emprunt.Statut_RDV LIKE 'terminé'
                         AND emprunt.IdentifiantPe = '$identifiant'");
 
     $result_reservations = mysqli_query($session, $reservations);
+    $nb_lignes = mysqli_num_rows($result_reservations);
 
-    foreach ($result_reservations as $row) {
+    if($nb_lignes == 0){
+      echo ("<p style='text-align: center; font-size: 20px'>Il n'y a aucun emprunt en cours</p>");
+    }else foreach ($result_reservations as $row) {
 
     ?>
         <form action="" method="POST">
