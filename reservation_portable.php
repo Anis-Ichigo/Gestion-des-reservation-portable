@@ -257,7 +257,7 @@ date_default_timezone_set('Europe/Paris');
         </button>
         -->
 
-        <input type="button" class="accordion mb-3" value="<?php
+        <input type="button" class="accordion " value="<?php
                                                         $premierJour = strftime("%d/%m/%Y", strtotime("friday"));
                                                         echo TXT_VENDREDI . " $premierJour";
                                                         ?>">
@@ -568,8 +568,105 @@ $('#alerte').modal('show');
             }
             ?>
 
+        <div class="box">
+            <a class="button" href="#popup1">Une urgence ?</a>
+        </div>
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <p>
+                    <h2>Une urgence ?</h2>
+                    <a class="close" href="#"> &times;</a>
+                </p>
+                <div class="content" style="text-align: justify; font-size: 14px">
+                    Pour une urgence voir directement avec la responsable Mme BALLABRIGA Lydie bureau XXX
+                </div>
+            </div>
+        </div>
 
-            <div class="text-center">
+        <style>
+
+            .box {
+                width: 40%;
+                margin: 0 auto;
+                background: rgba(255,255,255,0.2);
+                padding: 30px;
+                border: 2px solid #fff;
+                border-radius: 20px/50px;
+                background-clip: padding-box;
+                text-align: center;
+            }
+
+            .button {
+                font-size: 1em;
+                padding: 10px;
+                border-radius: 20px/30px;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.3s ease-out;
+            }
+            .button:hover {
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.7);
+                transition: opacity 500ms;
+                visibility: hidden;
+                opacity: 0;
+            }
+            .overlay:target {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .popup {
+                margin: 70px auto;
+                padding: 20px;
+                background: #fff;
+                border-radius: 5px;
+                width: 30%;
+                position: relative;
+                transition: all 5s ease-in-out;
+            }
+
+            .popup h2 {
+                margin-top: 0;
+                color: #333;
+                font-family: Tahoma, Arial, sans-serif;
+            }
+            .popup .close {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                transition: all 200ms;
+                font-size: 30px;
+                font-weight: bold;
+                text-decoration: none;
+                color: #333;
+            }
+            .popup .close:hover {
+                color: #33a6cc;
+            }
+            .popup .content {
+                max-height: 30%;
+                overflow: auto;
+            }
+
+            @media screen and (max-width: 700px){
+                .box{
+                    width: 70%;
+                }
+                .popup{
+                    width: 70%;
+                }
+            }
+        </style>
+
+    <div class="text-center">
                 <a href="menu3.php" type="button" class="btn btn-secondary mb-3"><?php echo TXT_MENU; ?></a>
             </div>
 
