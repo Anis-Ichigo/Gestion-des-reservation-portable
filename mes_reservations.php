@@ -91,9 +91,9 @@ date_default_timezone_set('Europe/Paris');
     $result_reservations = mysqli_query($session, $reservations);
     $nb_lignes = mysqli_num_rows($result_reservations);
 
-    if($nb_lignes == 0){
-      echo ("<p style='text-align: center; font-size: 20px'>Il n'y a aucun emprunt en cours</p>");
-    }else foreach ($result_reservations as $row) {
+    if ($nb_lignes == 0) {
+        echo ("<p style='text-align: center; font-size: 20px'>Il n'y a aucun emprunt en cours</p>");
+    } else foreach ($result_reservations as $row) {
 
     ?>
         <form action="" method="POST">
@@ -224,104 +224,25 @@ date_default_timezone_set('Europe/Paris');
         <?php
 
         if (isset($_POST['confirmer_prolongation'])) {
-          $jour_p = $_POST['DateProlongation'];
-        if(strftime('%A', strtotime($jour_p)) == "Saturday" || strftime('%A', strtotime($jour_p)) == "Sunday" ){
-          ?>
-          <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                      <div class="modal-body">
-                          <div class="alert alert-danger d-flex align-items-center" role="alert">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
-                            </svg>
-
-                              <div>
-                                  <?php echo TXT_ERREUR_DATE; ?>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="modal-footer">
-                          <div class="col text-center">
-                              <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <?php
-          echo "<script>
-              $(window).load(function() {
-                $('#alerte').modal('show');
-                });
-                </script>";
-        }else{
-
-
-
-
-            $identifiantE = $_POST['IdentifiantE'];
-            $identifiantM = $_POST['IdentifiantM'];
-            $dateProlongation = $_POST['DateProlongation'];
-            $dateDuJour = strftime('%Y-%m-%d');
-
-            if ($dateProlongation >= $dateDuJour) {
-                $query_demander_prolongation = "UPDATE emprunt SET DateProlongation = '$dateProlongation' WHERE IdentifiantE = '$identifiantE' ";
-                $result_demande_prolongation = mysqli_query($session, $query_demander_prolongation);
-                $query_en_attente = "UPDATE materiel SET EtatM = 'En attente' WHERE IdentifiantM = '$identifiantM'";
-                $result_en_attente = mysqli_query($session, $query_en_attente);
+            $jour_p = $_POST['DateProlongation'];
+            if (strftime('%A', strtotime($jour_p)) == "Saturday" || strftime('%A', strtotime($jour_p)) == "Sunday") {
         ?>
-
                 <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="alert alert-success d-flex align-items-center" role="alert">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                                    </svg>
-
-                                    <div>
-                                        <?php echo TXT_ALERTE_SUCCES_PROLONGATION; ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="modal-footer">
-                                <div class="col text-center">
-                                    <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            <?php
-                echo "<script>
-        $(window).load(function() {
-            $('#alerte').modal('show');
-        });
-    </script>";
-            } else {
-
-            ?>
-
-                <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
-
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-body">
                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
                                     </svg>
+
                                     <div>
                                         <?php echo TXT_ERREUR_DATE; ?>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="modal-footer">
                                 <div class="col text-center">
                                     <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
@@ -330,15 +251,94 @@ date_default_timezone_set('Europe/Paris');
                         </div>
                     </div>
                 </div>
-        <?php
+                <?php
                 echo "<script>
+              $(window).load(function() {
+                $('#alerte').modal('show');
+                });
+                </script>";
+            } else {
+
+
+
+
+                $identifiantE = $_POST['IdentifiantE'];
+                $identifiantM = $_POST['IdentifiantM'];
+                $dateProlongation = $_POST['DateProlongation'];
+                $dateDuJour = strftime('%Y-%m-%d');
+
+                if ($dateProlongation >= $dateDuJour) {
+                    $query_demander_prolongation = "UPDATE emprunt SET DateProlongation = '$dateProlongation' WHERE IdentifiantE = '$identifiantE' ";
+                    $result_demande_prolongation = mysqli_query($session, $query_demander_prolongation);
+                    $query_en_attente = "UPDATE materiel SET EtatM = 'En attente' WHERE IdentifiantM = '$identifiantM'";
+                    $result_en_attente = mysqli_query($session, $query_en_attente);
+                ?>
+
+                    <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                        </svg>
+
+                                        <div>
+                                            <?php echo TXT_ALERTE_SUCCES_PROLONGATION; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <div class="col text-center">
+                                        <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php
+                    echo "<script>
         $(window).load(function() {
             $('#alerte').modal('show');
         });
     </script>";
+                } else {
+
+                ?>
+
+                    <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                        </svg>
+                                        <div>
+                                            <?php echo TXT_ERREUR_DATE; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="col text-center">
+                                        <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        <?php
+                    echo "<script>
+        $(window).load(function() {
+            $('#alerte').modal('show');
+        });
+    </script>";
+                }
             }
         }
-    }
         ?>
 
         <?php
@@ -436,7 +436,7 @@ date_default_timezone_set('Europe/Paris');
 
 
 
-                <FORM method="POST" action="profil.php">
+                <FORM method="POST" action="">
 
                     <input type="hidden" name="IdentifiantE" value="<?php echo $_POST['IdentifiantE']; ?>">
                     <input type="hidden" name="IdentifiantM" value="<?php echo $_POST['IdentifiantM']; ?>">
@@ -812,7 +812,7 @@ date_default_timezone_set('Europe/Paris');
                                 </div>
                                 <div class="modal-footer">
                                     <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_RETOUR; ?>">
-                                    <input type="submit" class="btn btn-primary" name="confirmer_modif_rdv" value="<?php echo TXT_CONFIRMER; ?>">
+                                    <input type="submit" class="btn btn-primary" name="confirmer_restitution" value="<?php echo TXT_CONFIRMER; ?>">
                                 </div>
                             </div>
                         </div>
@@ -828,7 +828,7 @@ date_default_timezone_set('Europe/Paris');
                 </form>
 
                 <?php
-                if (isset($_POST['confirmer_modif_rdv'])) {
+                if (isset($_POST['confirmer_restitution'])) {
                     $dateRetour = $_POST['DateRetour'];
 
                     $horaire = $_POST['horaire'];
@@ -844,19 +844,21 @@ date_default_timezone_set('Europe/Paris');
                     $identifiantPe = $identifiant;
 
 
-                    $emprunt = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-                    $result_emprunt = mysqli_query($session, $emprunt);
-
+                    $restitution = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+                    $result_restitution = mysqli_query($session, $restitution);
 
                     $creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
                     $result_creneau = mysqli_query($session, $creneau);
+
                     foreach ($result_creneau as $row) {
                         $IdentifiantCal = $row['IdentifiantCal'];
                     }
 
-                    $modifier_rdv = ("UPDATE `emprunt` SET DateEmprunt = '$dateEmprunt' , IdentifiantCal= '$IdentifiantCal' WHERE IdentifiantPe = '$identifiant' AND IdentifiantM = '$identifiantM'");
-                    $result_insert_rdv = mysqli_query($session, $modifier_rdv);
 
+                    $insert_rdv = ("INSERT INTO `emprunt`(`DateEmprunt`, `DateRetour`, `DateProlongation`, `Motif`, `IdentifiantM`, `IdentifiantPe`, `IdentifiantCal`)
+                    VALUES ('$dateEmprunt', '$dateRetour', NULL, 'Retour', '$identifiantM', '$identifiantPe', '$IdentifiantCal')");
+
+                    $result_insert_rdv = mysqli_query($session, $insert_rdv);
 
                 ?>
 
