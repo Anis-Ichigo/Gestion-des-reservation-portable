@@ -60,7 +60,7 @@ define('TXT_CONFIRMER_MODIFIER', 'Confirmer modification RDV');
 define('TXT_ALERTE_SUCCES_MODIFIER', 'Votre créneau a bien été modifié');
 //mes_reservations.php
 
-define('TXT_ACCUEIL_RESERVATION', 'Mes Réservations');
+define('TXT_ACCUEIL_RESERVATION', 'Mes emprunts');
 define('TXT_RETRAIT', 'Date de retrait');
 define('TXT_DATER', 'Date de retour');
 define('TXT_PROLONGER', 'Prolonger');

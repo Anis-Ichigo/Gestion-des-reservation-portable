@@ -56,7 +56,7 @@ define('TXT_ALERTE_SUCCES_MODIFIER', 'Your slot has been modified');
 
 //my reservations
 
-define('TXT_ACCUEIL_RESERVATION', 'My reservations');
+define('TXT_ACCUEIL_RESERVATION', 'My loans');
 define('TXT_RETRAIT', 'Date of withdrawal');
 define('TXT_DATER', 'Return date');
 define('TXT_PROLONGER', 'Extend');
@@ -68,7 +68,7 @@ define('TXT_CONFIRMER', 'Confirm');
 define('TXT_ANNULER', 'Cancel');
 define('TXT_ALERTE_SUCCES_PROLONGATION', 'Your extension request has been sent');
 define('TXT_OK', 'OK');
-define('TXT_ERREUR_DATE', 'Please enter a valid date');
+define('TXT_ERREUR_DATE', 'Please enter a valid return date');
 define('TXT_TITRE', 'Title');
 define('TXT_DESCRIPTION', 'Description');
 define('TXT_ALERTE_SUCCES_DEMANDE', 'Your request has been sent');
