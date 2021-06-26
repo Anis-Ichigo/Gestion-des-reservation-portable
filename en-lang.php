@@ -96,7 +96,8 @@ define('MDP_COURT', 'Password is too short!');
 define('MDP_CHAMPS', 'Please complete all fields!');
 define('TXT_CHOIX_CRENEAU','Please select a time slot to gather the equipment');
 define('TXT_ERREUR_JOUR', 'Please, choose an other date than Saturday or Sunday');
-
+define('TXT_BTN_URG', 'An emergency ?');
+define('TXT_RES_URG',"For an emergency, please take the first slot available and see directly with the person in charge Mrs BALLABRIGA Lydie office XXXX.");
 
 //Page_inscription.php
 define('TXT_ACCUEIL_INSCRIPTION', 'Sign in');

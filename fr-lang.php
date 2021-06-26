@@ -97,6 +97,8 @@ define('MDP_COURT', 'Le mot de passe est trop court !');
 define('MDP_CHAMPS', 'Veuillez saisir tous les champs !');
 define('TXT_CHOIX_CRENEAU','Veuillez choisir un créneau pour récuperer le matériel');
 define('TXT_ERREUR_JOUR', 'Veuillez choisir une date autre que le samedi ou le dimanche');
+define('TXT_BTN_URG', 'Une urgence ?');
+define('TXT_RES_URG',"Pour une urgence merci de prendre le premier créneau disponible et de voir directement avec la responsable Mme BALLABRIGA Lydie bureau XXXX.");
 
 //Page_Inscription.php
 

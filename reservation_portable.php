@@ -262,25 +262,25 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
 
                 if ($premierJour == Date("d/m/Y")) {
                     $HeureActuelle = date('H:i:s', time());
-                    $sql = "SELECT * 
-            FROM calendrier 
-            WHERE calendrier.JourCal='Lundi' 
+                    $sql = "SELECT *
+            FROM calendrier
+            WHERE calendrier.JourCal='Lundi'
             AND calendrier.EtatCal = 'Disponible'
-            AND HoraireCal >= '$HeureActuelle' 
-            AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                FROM emprunt, calendrier 
+            AND HoraireCal >= '$HeureActuelle'
+            AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                FROM emprunt, calendrier
                                                 WHERE calendrier.JourCal = 'Lundi'
                                                 AND emprunt.DateEmprunt = '$date_lundi'
                                                 AND emprunt.Statut_RDV LIKE 'à venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
-                    $sql = "SELECT * 
-            FROM calendrier 
-            WHERE calendrier.JourCal='Lundi' 
+                    $sql = "SELECT *
+            FROM calendrier
+            WHERE calendrier.JourCal='Lundi'
             AND calendrier.EtatCal = 'Disponible'
-            AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                FROM emprunt, calendrier 
+            AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                FROM emprunt, calendrier
                                                 WHERE calendrier.JourCal = 'Lundi'
                                                 AND emprunt.DateEmprunt = '$date_lundi'
                                                 AND emprunt.Statut_RDV LIKE 'à venir');";
@@ -386,25 +386,25 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
 
                 if ($premierJour == Date("d/m/Y")) {
                     $HeureActuelle = date('H:i:s', time());
-                    $sql = "SELECT * 
-                    FROM calendrier 
-                    WHERE calendrier.JourCal='Mardi' 
+                    $sql = "SELECT *
+                    FROM calendrier
+                    WHERE calendrier.JourCal='Mardi'
                     AND calendrier.EtatCal = 'Disponible'
-                    AND HoraireCal >= '$HeureActuelle' 
-                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                        FROM emprunt, calendrier 
+                    AND HoraireCal >= '$HeureActuelle'
+                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                        FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mardi'
                                                         AND emprunt.DateEmprunt = '$date_mardi'
                                                         AND emprunt.Statut_RDV LIKE 'à venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
-                    $sql = "SELECT * 
-                    FROM calendrier 
-                    WHERE calendrier.JourCal='Mardi' 
+                    $sql = "SELECT *
+                    FROM calendrier
+                    WHERE calendrier.JourCal='Mardi'
                     AND calendrier.EtatCal = 'Disponible'
-                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                        FROM emprunt, calendrier 
+                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                        FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mardi'
                                                         AND emprunt.DateEmprunt = '$date_mardi'
                                                         AND emprunt.Statut_RDV LIKE 'à venir');";
@@ -494,25 +494,25 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
 
                 if ($premierJour == Date("d/m/Y")) {
                     $HeureActuelle = date('H:i:s', time());
-                    $sql = "SELECT * 
-                    FROM calendrier 
-                    WHERE calendrier.JourCal='Mercredi' 
+                    $sql = "SELECT *
+                    FROM calendrier
+                    WHERE calendrier.JourCal='Mercredi'
                     AND calendrier.EtatCal = 'Disponible'
-                    AND HoraireCal >= '$HeureActuelle' 
-                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                        FROM emprunt, calendrier 
+                    AND HoraireCal >= '$HeureActuelle'
+                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                        FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mercredi'
                                                         AND emprunt.DateEmprunt = '$date_mercredi'
                                                         AND emprunt.Statut_RDV LIKE 'à venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
-                    $sql = "SELECT * 
-                    FROM calendrier 
-                    WHERE calendrier.JourCal='Mercredi' 
+                    $sql = "SELECT *
+                    FROM calendrier
+                    WHERE calendrier.JourCal='Mercredi'
                     AND calendrier.EtatCal = 'Disponible'
-                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                        FROM emprunt, calendrier 
+                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                        FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mercredi'
                                                         AND emprunt.DateEmprunt = '$date_mercredi'
                                                         AND emprunt.Statut_RDV LIKE 'à venir');";
@@ -601,25 +601,25 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                 <?php
                 if ($premierJour == Date("d/m/Y")) {
                     $HeureActuelle = date('H:i:s', time());
-                    $sql = "SELECT * 
-                    FROM calendrier 
-                    WHERE calendrier.JourCal='Jeudi' 
+                    $sql = "SELECT *
+                    FROM calendrier
+                    WHERE calendrier.JourCal='Jeudi'
                     AND calendrier.EtatCal = 'Disponible'
-                    AND HoraireCal >= '$HeureActuelle' 
-                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                        FROM emprunt, calendrier 
+                    AND HoraireCal >= '$HeureActuelle'
+                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                        FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Jeudi'
                                                         AND emprunt.DateEmprunt = '$date_jeudi'
                                                         AND emprunt.Statut_RDV LIKE 'à venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
-                    $sql = "SELECT * 
-                    FROM calendrier 
-                    WHERE calendrier.JourCal='Jeudi' 
+                    $sql = "SELECT *
+                    FROM calendrier
+                    WHERE calendrier.JourCal='Jeudi'
                     AND calendrier.EtatCal = 'Disponible'
-                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                        FROM emprunt, calendrier 
+                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                        FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Jeudi'
                                                         AND emprunt.DateEmprunt = '$date_jeudi'
                                                         AND emprunt.Statut_RDV LIKE 'à venir');";
@@ -720,25 +720,25 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
 
                 if ($premierJour == Date("d/m/Y")) {
                     $HeureActuelle = date('H:i:s', time());
-                    $sql = "SELECT * 
-                    FROM calendrier 
-                    WHERE calendrier.JourCal='Vendredi' 
+                    $sql = "SELECT *
+                    FROM calendrier
+                    WHERE calendrier.JourCal='Vendredi'
                     AND calendrier.EtatCal = 'Disponible'
-                    AND HoraireCal >= '$HeureActuelle' 
-                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                        FROM emprunt, calendrier 
+                    AND HoraireCal >= '$HeureActuelle'
+                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                        FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Vendredi'
                                                         AND emprunt.DateEmprunt = '$date_vendredi'
                                                         AND emprunt.Statut_RDV LIKE 'à venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
-                    $sql = "SELECT * 
-                    FROM calendrier 
-                    WHERE calendrier.JourCal='Vendredi' 
+                    $sql = "SELECT *
+                    FROM calendrier
+                    WHERE calendrier.JourCal='Vendredi'
                     AND calendrier.EtatCal = 'Disponible'
-                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal 
-                                                        FROM emprunt, calendrier 
+                    AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
+                                                        FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Vendredi'
                                                         AND emprunt.DateEmprunt = '$date_vendredi'
                                                         AND emprunt.Statut_RDV LIKE 'à venir');";
@@ -1039,16 +1039,16 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
     ?>
 
         <div class="box">
-            <a class="button" href="#popup1">Une urgence ?</a>
+            <a class="button" href="#popup1"><?php echo TXT_BTN_URG;?></a>
         </div>
         <div id="popup1" class="overlay">
             <div class="popup">
                 <p>
-                    <h2>Une urgence ?</h2>
+                    <h2><?php echo TXT_BTN_URG;?></h2>
                     <a class="close" href="#"> &times;</a>
                 </p>
                 <div class="content" style="text-align: justify; font-size: 14px">
-                    Pour une urgence voir directement avec la responsable Mme BALLABRIGA Lydie bureau XXX
+                  <?php echo TXT_RES_URG;?>
                 </div>
             </div>
         </div>
