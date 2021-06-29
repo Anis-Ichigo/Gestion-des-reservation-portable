@@ -9,7 +9,7 @@ define('TXT_PRENOM', 'Prénom');
 define('TXT_NOM', 'Nom');
 define('TXT_EMAIL', 'Email');
 define('TXT_ADRESSE', 'Adresse');
-define('TXT_TEL', 'Numéro de téléphone');
+define('TXT_TEL', 'N° de téléphone');
 define('TXT_IDENTITE', 'Vous êtes');
 define('TXT_FORMATION', 'Formation');
 define('TXT_MODIFP', 'Modifier le profil');
@@ -36,10 +36,11 @@ define('MDP_INCOMPLET', 'Veuillez remplir tous les champs !');
 //Mes rendez-Vous
 
 define('TXT_RDV', 'Mes rendez-vous');
-define('TXT_NUMERO', 'Numéro de matériel');
+define('TXT_NUMERO', 'N° de matériel');
 define('TXT_TYPE', 'Type de matériel');
 define('TXT_DATE', 'Date');
 define('TXT_HEURE', 'Heure');
+define('TXT_MOTIF_RDV', 'Motif RDV');
 
 //Bouton
 define('TXT_RETOUR', 'Retour');
@@ -72,7 +73,7 @@ define('TXT_RESTITUER', 'Restituer le matériel');
 define('TXT_DATERA', 'Date de retour actuelle');
 define('TXT_DATERS', 'Nouvelle date de retour souhaitée');
 define('TXT_ALERTE_SUCCES_PROLONGATION', 'Votre demande de prolongation a bien été transmise');
-define('TXT_ERREUR_DATE', 'Veuillez saisir une date valide');
+define('TXT_ERREUR_DATE', 'Veuillez saisir une date de retour valide');
 define('TXT_TITRE', 'Titre');
 define('TXT_DESCRIPTION', 'Description');
 define('TXT_ALERTE_SUCCES_DEMANDE', 'Votre demande a bien été envoyée');
@@ -342,5 +343,6 @@ define('ENREGISTRER', 'Enregistrer');
 
 define('DECONNEXION', 'Déconnexion');
 define('FAQ', 'FAQ');
+define('PROFIL', 'Profil');
 
  ?>

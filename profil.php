@@ -48,11 +48,11 @@ mysqli_set_charset($session, "utf-8");
         $Description = addslashes($_POST['Description']);
         $CategorieM = $_POST['CategorieM'];
         $categorie = ("SELECT *
-                               FROM emprunt, materiel, personne
-                               WHERE emprunt.IdentifiantM = materiel.IdentifiantM
-                               AND emprunt.identifiantPe = personne.IdentifiantPe
-                               AND materiel.CategorieM = '$CategorieM'
-                               AND personne.IdentifiantPe = '$identifiant'");
+                           FROM emprunt, materiel, personne
+                           WHERE emprunt.IdentifiantM = materiel.IdentifiantM
+                           AND emprunt.identifiantPe = personne.IdentifiantPe
+                           AND materiel.CategorieM = '$CategorieM'
+                           AND personne.IdentifiantPe = '$identifiant'");
 
         $result_categorie = mysqli_query($session, $categorie);
 
@@ -61,7 +61,7 @@ mysqli_set_charset($session, "utf-8");
         }
 
         $probleme = ("INSERT INTO `probleme`(`NomP`, `DateProbleme`, `DateResolution`, `Resolution`, `Description`, `IdentifiantPe`, `IdentifiantM`)
-                VALUES ('$NomP', '$DateProbleme', NULL, 'Non résolu', '$Description', '$identifiant', '$IdentifiantM')");
+            VALUES ('$NomP', '$DateProbleme', NULL, 'Non résolu', '$Description', '$identifiant', '$IdentifiantM')");
 
         $result_probleme = mysqli_query($session, $probleme);
         $etat_non_dispo = "UPDATE materiel SET EtatM = 'Non Dispo' WHERE IdentifiantM = '$IdentifiantM'";
@@ -80,8 +80,40 @@ mysqli_set_charset($session, "utf-8");
 
         $modif_profil = ("UPDATE personne SET PrenomPe = '$modif_PrenomPe', NomPe = '$modif_NomPe', EmailPe = '$modif_EmailPe', AdressePe = '$modif_AdressePe', TelPe = '$modif_TelPe', Statut = '$modif_Statut', Formation = '$modif_Formation' WHERE IdentifiantPe = '$identifiant'");
         $result_modif_profil = mysqli_query($session, $modif_profil);
-    }
+    ?>
+    <div class="modal fade" id="succes_info" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                        </svg>
 
+                        <div>
+                            <?php echo TXT_SUCCES_INFO; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col text-center">
+                        <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(window).load(function() {
+            $('#succes_info').modal('show');
+        });
+    </script>
+    <?php
+    }
+    ?>
+
+    <?php
     $emprunteur = ("SELECT * FROM personne where IdentifiantPe = '$identifiant'");
     $result_emprunteur = mysqli_query($session, $emprunteur);
     foreach ($result_emprunteur as $row) {
@@ -100,10 +132,10 @@ mysqli_set_charset($session, "utf-8");
                             <!-- <H2><?php echo TXT_INFORMATION; ?></H2> -->
 
                             <div class="panel" style=" text-align: center">
-                                <TABLE NOBOARDER style="display:inline; text-align: center">
+                                <TABLE NOBOARDER style="display:inline; text-align: center ;margin-left: 2%; margin-right: 2%">
                                     <TR>
 
-                                        <TD style="text-align : left">
+                                        <TD style="text-align : left" width="50%">
                                             <?php echo TXT_PRENOM; ?>:
                                         </TD>
                                         <TD style="text-align : left">
@@ -111,7 +143,7 @@ mysqli_set_charset($session, "utf-8");
                                         </TD>
                                     </TR>
                                     <TR>
-                                        <TD style="text-align : left">
+                                        <TD style="text-align : left" width="50%">
                                             <?php echo TXT_NOM; ?>:
                                         </TD>
                                         <TD>
@@ -119,7 +151,7 @@ mysqli_set_charset($session, "utf-8");
                                         </TD>
                                     </TR>
                                     <TR>
-                                        <TD style="text-align : left">
+                                        <TD style="text-align : left"width="50%">
                                             <?php echo TXT_EMAIL; ?>:
                                         </TD>
                                         <TD>
@@ -127,7 +159,7 @@ mysqli_set_charset($session, "utf-8");
                                         </TD>
                                     </TR>
                                     <TR>
-                                        <TD style="text-align : left">
+                                        <TD style="text-align : left" width="50%">
                                             <?php echo TXT_ADRESSE; ?> :
                                         </TD>
                                         <TD>
@@ -136,7 +168,7 @@ mysqli_set_charset($session, "utf-8");
                                     </TR>
 
                                     <TR>
-                                        <TD style="text-align : left">
+                                        <TD style="text-align : left" width="50%">
                                             <?php echo TXT_TEL; ?>:
                                         </TD>
                                         <TD>
@@ -145,7 +177,7 @@ mysqli_set_charset($session, "utf-8");
                                     </TR>
 
                                     <TR>
-                                        <TD style="text-align : left">
+                                        <TD style="text-align : left" width="50%">
                                             <?php echo TXT_IDENTITE; ?>:
                                         </TD>
                                         <TD>
@@ -154,7 +186,7 @@ mysqli_set_charset($session, "utf-8");
                                     </TR>
 
                                     <TR>
-                                        <TD style="text-align : left">
+                                        <TD style="text-align : left" width="50%">
                                             <?php echo TXT_FORMATION; ?>:
                                         </TD>
                                         <TD>
@@ -411,11 +443,11 @@ mysqli_set_charset($session, "utf-8");
             <?php
 
             $reservations = ("SELECT *
-                                FROM emprunt, personne, materiel, calendrier
-                                WHERE emprunt.IdentifiantM = materiel.IdentifiantM
-                                AND emprunt.IdentifiantPe = personne.IdentifiantPe
-                                AND emprunt.IdentifiantCal = calendrier.IdentifiantCal
-                                AND personne.IdentifiantPe = '$identifiant'");
+                            FROM emprunt, personne, materiel, calendrier, parametres
+                            WHERE emprunt.IdentifiantM = materiel.IdentifiantM
+                            AND emprunt.IdentifiantPe = personne.IdentifiantPe
+                            AND emprunt.IdentifiantCal = calendrier.IdentifiantCal
+                            AND personne.IdentifiantPe = '$identifiant'");
 
             $result_reservations = mysqli_query($session, $reservations);
             $nb_lignes = mysqli_num_rows($result_reservations);
@@ -440,15 +472,24 @@ mysqli_set_charset($session, "utf-8");
                                 <div class="card">
                                     <div class="card-body">
                                         <input type="hidden" name="CategorieM" value="<?php echo $row['CategorieM']; ?>">
-                                        <h5 class="card-title"><?php echo $row['CategorieM'] ?></h5>
+                                        <h5 class="card-title"><b><?php echo $row['CategorieM'] ?></b></h5>
                                         <input type="hidden" name="IdentifiantE" value="<?php echo $row['IdentifiantE']; ?>">
                                         <input type="hidden" name="cal" value="<?php echo $row['IdentifiantCal']; ?>">
                                         <input type="hidden" name="DateRetour" value="<?php echo $row['DateRetour']; ?>">
                                         <p class="card-text">
                                         <table>
                                             <tr>
+                                                <td width="62%">
+                                                    <?php echo TXT_MOTIF_RDV.':'; ?>
+                                                </td>
                                                 <td>
-                                                    <?php echo TXT_DATE; ?>
+                                                    <?php echo "  " . $row['Motif'] ?>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td  width="62%">
+                                                    <?php echo TXT_DATE.':'; ?>
                                                 </td>
                                                 <td>
                                                     <input type="hidden" name="DateEmprunt" value="<?php echo $row['DateEmprunt']; ?>">
@@ -460,8 +501,8 @@ mysqli_set_charset($session, "utf-8");
                                             </tr>
 
                                             <tr>
-                                                <td>
-                                                    <?php echo  TXT_HEURE; ?>
+                                                <td  width="62%">
+                                                    <?php echo  TXT_HEURE.':'; ?>
                                                 </td>
                                                 <td>
                                                     <input type="hidden" name="horaire" value="<?php echo $row['HoraireCal']; ?>">
@@ -470,8 +511,8 @@ mysqli_set_charset($session, "utf-8");
                                             </tr>
 
                                             <tr>
-                                                <td style=" width: 60%">
-                                                    <?php echo TXT_NUMERO; ?>
+                                                <td  width="62%">
+                                                    <?php echo TXT_NUMERO.':'; ?>
                                                 </td>
                                                 <td>
                                                     <input type="hidden" name="IdentifiantM" value="<?php echo $row['IdentifiantM'] . "  "; ?>">
@@ -480,18 +521,24 @@ mysqli_set_charset($session, "utf-8");
                                             </tr>
 
                                             <tr>
-                                                <td>
-                                                    <?php echo  TXT_BUREAU; ?>
+                                                <td  width="62%">
+                                                    <?php echo  TXT_BUREAU.':'; ?>
                                                 </td>
                                                 <td>
-
+                                                    <input type="hidden" value="<?php echo $row['Bureau'] ?>" name="bureau">
+                                                    <?php echo "  " . $row['Bureau'] ?>
                                                 </td>
                                             </tr>
 
                                         </table>
-                                        </p>
-                                        <input type='submit' class='btn btn-primary' name='supprimer_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_SUPPRIMER; ?>'>
-                                        <input type='submit' class='btn btn-primary' name='modifier_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_MODIFIER ?>' style="float:right;">
+
+                                        <?php if ($row['Statut_RDV'] != "termine") { ?>
+                                            <input type='submit' class='btn btn-primary' name='supprimer_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_SUPPRIMER; ?>'style="float: left">
+                                            <input type='submit' class='btn btn-primary' name='modifier_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_MODIFIER ?>' style="float: right">
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
                                     </div>
                                 </div>
                                 <br>
@@ -531,7 +578,7 @@ mysqli_set_charset($session, "utf-8");
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_EmailPe" value="<?php echo $_POST['EmailPe']; ?>" pattern="^[a-zA-Z0-9_-\.]+@ut-capitole\.fr$" required>
+                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_EmailPe" value="<?php echo $_POST['EmailPe']; ?>" pattern="^[a-zA-Z0-9_-\.]+@ut-capitole\.fr$" readonly>
                                         <label for="floatingInput"><?php echo TXT_EMAIL; ?></label>
                                     </div>
 
@@ -541,17 +588,69 @@ mysqli_set_charset($session, "utf-8");
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_TelPe" value="<?php echo $_POST['TelPe']; ?>" required>
+                                        <input type="tel" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_TelPe" value="<?php echo $_POST['TelPe']; ?>" pattern="^[0-9]{10}$" required>
                                         <label for="floatingInput"><?php echo TXT_TEL; ?></label>
                                     </div>
-
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_Statut" value="<?php echo $_POST['Statut']; ?>" required>
+                                        <!--<input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_Statut" value="<?php echo $_POST['Statut']; ?>" required> -->
+                                        <SELECT id="floatingInput" name="modif_Statut" class="form-select">
+                                            <OPTION <?php
+                                            if ($_POST['Statut'] == 'Etudiant') {
+                                                echo "selected";
+                                            } ?>>Etudiant</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Statut'] == 'Enseignant') {
+                                                echo "selected";
+                                            } ?>>Enseignant</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Statut'] == 'Personnel Administratif') {
+                                                echo "selected";
+                                            } ?>>Personnel Administratif</OPTION>
+                                        </SELECT>
                                         <label for="floatingInput"><?php echo TXT_IDENTITE; ?></label>
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_Formation" value="<?php echo $_POST['Formation']; ?>" required>
+                                        <!--<input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_Formation" value="<?php echo $_POST['Formation']; ?>" required>-->
+                                        <SELECT id="floatingInput" name="modif_Formation" class="form-select">
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'L3 MIASHS TI') {
+                                                echo "selected";
+                                            } ?>>L3 MIASHS TI</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'LICENCE PRO RTAI') {
+                                                echo "selected";
+                                            } ?>>LICENCE PRO RTAI</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'M1 MIAGE IM') {
+                                                echo "selected";
+                                            } ?>>M1 MIAGE IM</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'M1 MIAGE 2IS') {
+                                                echo "selected";
+                                            } ?>>M1 MIAGE 2IS</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'M1 MIAGE IDA') {
+                                                echo "selected";
+                                            } ?>>M1 MIAGE IDA</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'M2 MIAGE IPM') {
+                                                echo "selected";
+                                            } ?>>M2 MIAGE IPM</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'M2 MIAGE ISIAD') {
+                                                echo "selected";
+                                            } ?>>M2 MIAGE ISIAD</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'M2 MIAGE 2IS') {
+                                                echo "selected";
+                                            } ?>>M2 MIAGE 2IS</OPTION>
+                                            <OPTION <?php
+                                            if ($_POST['Formation'] == 'M2 MIAGE IDA') {
+                                                echo "selected";
+                                            } ?>>M2 MIAGE IDA</OPTION>
+                                            <OPTION>AUTRE</OPTION>
+                                        </SELECT>
                                         <label for="floatingInput"><?php echo TXT_FORMATION; ?></label>
                                     </div>
 
@@ -646,7 +745,7 @@ mysqli_set_charset($session, "utf-8");
                                     <div class="form-group row">
                                         <label for="staticEmail" class="col col-form-label"><?php echo TXT_BUREAU; ?> : </label>
                                         <div class="col">
-                                            <input type="text" class="form-control-plaintext" name="bureau" value="" readonly>
+                                            <input type="text" class="form-control-plaintext" name="bureau" value="<?php echo $_POST['bureau']; ?>" readonly>
                                         </div>
                                     </div>
 
@@ -1211,10 +1310,157 @@ mysqli_set_charset($session, "utf-8");
     </script>";
                     }
                     ?>
-
-
-
         </main>
+
+    <?php
+    if (isset($_POST['valider_contrat'])) {
+
+
+
+        $informations = "SELECT MAX(emprunt.IdentifiantE) AS 'DernierContrat', materiel.IdentifiantM AS 'IdentifiantM', materiel.CategorieM AS 'CategorieM', emprunt.DateRetour AS 'DateRetour', modele.IdentifiantMo AS 'IdentifiantMo', modele.Marque AS 'Marque', emprunt.DateEmprunt AS 'DateEmprunt', emprunt.IdentifiantE AS 'IdentifiantE', personne.PrenomPe AS 'PrenomPe', personne.NomPe AS 'NomPe'
+                                        FROM personne, materiel, emprunt, modele
+                                        WHERE emprunt.IdentifiantM = materiel.IdentifiantM
+                                        AND emprunt.IdentifiantPe = personne.IdentifiantPe
+                                        AND materiel.IdentifiantMo = modele.IdentifiantMo
+                                        AND emprunt.Contrat LIKE 'a signer'";
+        $result = mysqli_query($session, $informations);
+
+        $IdentifiantE = $_POST['IdentifiantE'];
+        $validation = "UPDATE emprunt SET Contrat = 'signe' WHERE emprunt.IdentifiantE = '$IdentifiantE'";
+        $result_validation = mysqli_query($session, $validation);
+
+        foreach ($result as $row) {
+            $IdentifiantM = $row['IdentifiantM'];
+            $CategorieM = $row['CategorieM'];
+            $date_retour = strftime('%d/%m/%Y', strtotime($row['DateRetour']));;
+            $modele = $row['IdentifiantMo'];
+            $marque = $row['Marque'];
+            $date_emprunt = strftime('%d/%m/%Y', strtotime($row['DateEmprunt']));
+            $IdentifiantE = $row['IdentifiantE'];
+            $prenom = $row['PrenomPe'];
+            $nom = $row['NomPe'];
+        }
+
+
+        if ($CategorieM == 'Ordinateur') {
+            $var = "un";
+        } else {
+            $var = "une";
+        }
+
+        class PDF extends FPDF
+        {
+            protected $B = 0;
+            protected $I = 0;
+            protected $U = 0;
+            protected $HREF = '';
+
+            function WriteHTML($html)
+            {
+                // HTML parser
+                $html = str_replace("\n", ' ', $html);
+                $a = preg_split('/<(.*)>/U', $html, -1, PREG_SPLIT_DELIM_CAPTURE);
+                foreach ($a as $i => $e) {
+                    if ($i % 2 == 0) {
+                        // Text
+                        if ($this->HREF)
+                            $this->PutLink($this->HREF, $e);
+                        else
+                            $this->Write(10, $e);
+                    } else {
+                        // Tag
+                        if ($e[0] == '/')
+                            $this->CloseTag(strtoupper(substr($e, 1)));
+                        else {
+                            // Extract attributes
+                            $a2 = explode(' ', $e);
+                            $tag = strtoupper(array_shift($a2));
+                            $attr = array();
+                            foreach ($a2 as $v) {
+                                if (preg_match('/([^=]*)=["\']?([^"\']*)/', $v, $a3))
+                                    $attr[strtoupper($a3[1])] = $a3[2];
+                            }
+                            $this->OpenTag($tag, $attr);
+                        }
+                    }
+                }
+            }
+
+            function OpenTag($tag, $attr)
+            {
+                // Opening tag
+                if ($tag == 'B' || $tag == 'I' || $tag == 'U')
+                    $this->SetStyle($tag, true);
+                if ($tag == 'A')
+                    $this->HREF = $attr['HREF'];
+                if ($tag == 'BR')
+                    $this->Ln(10);
+            }
+
+            function CloseTag($tag)
+            {
+                // Closing tag
+                if ($tag == 'B' || $tag == 'I' || $tag == 'U')
+                    $this->SetStyle($tag, false);
+                if ($tag == 'A')
+                    $this->HREF = '';
+            }
+
+            function SetStyle($tag, $enable)
+            {
+                // Modify style and select corresponding font
+                $this->$tag += ($enable ? 1 : -1);
+                $style = '';
+                foreach (array('B', 'I', 'U') as $s) {
+                    if ($this->$s > 0)
+                        $style .= $s;
+                }
+                $this->SetFont('', $style);
+            }
+
+            function PutLink($URL, $txt)
+            {
+                // Put a hyperlink
+                $this->SetTextColor(0, 0, 255);
+                $this->SetStyle('U', true);
+                $this->Write(5, $txt, $URL);
+                $this->SetStyle('U', false);
+                $this->SetTextColor(0);
+            }
+        }
+
+
+        $pdf = new PDF();
+        $pdf->SetLeftMargin(30);
+        $pdf->SetRightMargin(15);
+        $pdf->AddPage();
+        $pdf->Image('miage.jpg', 10, 6, 30);
+        $pdf->Ln(60);
+        $pdf->SetFont('Helvetica', '', 14);
+
+        $pdf->WriteHTML(iconv('UTF-8', 'windows-1252', "Je soussigné(e) <b>{$prenom} {$nom} </b>, déclare recevoir {$var} <b>{$CategorieM} N°{$IdentifiantM}.</b> Je m’engage à restituer le matériel à tout moment si le responsable de la formation en a besoin ou avant le <b>{$date_retour}</b> dans le pire des cas."));
+        $pdf->Ln(15);
+        $pdf->WriteHTML(iconv('UTF-8', 'windows-1252', "Le prêt comprend :<br>{$var} <b>{$CategorieM} {$modele}</b> de la marque <b>{$marque}</b> et une sacoche."));
+
+
+        $pdf->Ln(40);
+        $pdf->SetLeftMargin(145);
+        $pdf->MultiCell(0, 10, iconv('UTF-8', 'windows-1252', "Fait le {$date_emprunt}"));
+
+        $pdf->Ln(15);
+        $pdf->Image('box.png', 31, 133, 5, 0, '');
+        $pdf->SetLeftMargin(40);
+        $pdf->WriteHTML(iconv('UTF-8', 'windows-1252', "Je certifie sur l'honneur être d'accord avec le présent contrat."));
+        $pdf->Ln(15);
+        $pdf->Image('box.png', 31, 147, 5, 0, '');
+        $pdf->SetLeftMargin(40);
+        $pdf->WriteHTML(iconv('UTF-8', 'windows-1252', "En cochant cette case, je consent à l'utilisation de ma signature électronique, je certifie qu'elle est valide et a le même effet qu'une signature écrite sur une copie papier de ce document."));
+
+
+        $pdf->Output('', "contrats/{$nom}_{$prenom}_{$IdentifiantE}.pdf");
+    }
+
+    ?>
 
 </body>
 

@@ -40,6 +40,7 @@ define('TXT_NUMERO', '设备号码');
 define('TXT_TYPE', '设备类型');
 define('TXT_DATE', '日期');
 define('TXT_HEURE', '时间');
+define('TXT_MOTIF_RDV', '原因');
 
 //Bouton
 define('TXT_RETOUR', '返回');
