@@ -6,7 +6,7 @@ require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
 
 
-if (!isset($_POST['inscription'])) {
+if (isset($_POST['lang'])) {
   if ($_POST['lang'] == 'fr') {
     $_SESSION['lang'] = 'fr';
     include('fr-lang.php');
@@ -19,14 +19,14 @@ if (!isset($_POST['inscription'])) {
   }
 }
 
-if (isset($_POST['inscription'])) {
-  if ($_SESSION['lang'] == 'fr') {
-    include('fr-lang.php');
-  } else if ($_SESSION['lang'] == 'en') {
-    include('en-lang.php');
-  } else if ($_SESSION['lang'] == 'cn') {
-    include('cn-lang.php');
-  }
+if (isset($_SESSION['lang'])) {
+    if ($_SESSION['lang'] == 'fr') {
+        include('fr-lang.php');
+    } else if ($_SESSION['lang'] == 'en') {
+        include('en-lang.php');
+    } else if ($_SESSION['lang'] == 'cn') {
+        include('cn-lang.php');
+    }
 }
 
 //echo $_SESSION['lang'];

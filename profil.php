@@ -2,6 +2,9 @@
 require('decide-lang.php');
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
+require('fpdf183/fpdf.php');
+header( 'content-type: text/html; charset=utf-8' );
+date_default_timezone_set('Europe/Paris');
 ?>
 
 <!DOCTYPE html>
@@ -540,12 +543,13 @@ mysqli_set_charset($session, "utf-8");
                                         ?>
                                     </div>
                                     </div>
-                                </div>
                                 <br>
                             </form>
 
                     <?php
-                        }
+                        }?>
+                        </div>
+                    <?php
                     }
                     ?>
 
@@ -1315,14 +1319,13 @@ mysqli_set_charset($session, "utf-8");
     <?php
     if (isset($_POST['valider_contrat'])) {
 
-
-
         $informations = "SELECT MAX(emprunt.IdentifiantE) AS 'DernierContrat', materiel.IdentifiantM AS 'IdentifiantM', materiel.CategorieM AS 'CategorieM', emprunt.DateRetour AS 'DateRetour', modele.IdentifiantMo AS 'IdentifiantMo', modele.Marque AS 'Marque', emprunt.DateEmprunt AS 'DateEmprunt', emprunt.IdentifiantE AS 'IdentifiantE', personne.PrenomPe AS 'PrenomPe', personne.NomPe AS 'NomPe'
                                         FROM personne, materiel, emprunt, modele
                                         WHERE emprunt.IdentifiantM = materiel.IdentifiantM
                                         AND emprunt.IdentifiantPe = personne.IdentifiantPe
                                         AND materiel.IdentifiantMo = modele.IdentifiantMo
-                                        AND emprunt.Contrat LIKE 'a signer'";
+                                        AND emprunt.Contrat LIKE 'a signer'
+                                        GROUP BY emprunt.IdentifiantE, materiel.IdentifiantM, materiel.CategorieM, emprunt.DateRetour, modele.IdentifiantMo, modele.Marque, emprunt.DateEmprunt, emprunt.IdentifiantE, personne.PrenomPe, personne.NomPe" ;
         $result = mysqli_query($session, $informations);
 
         $IdentifiantE = $_POST['IdentifiantE'];
@@ -1447,6 +1450,8 @@ mysqli_set_charset($session, "utf-8");
         $pdf->SetLeftMargin(145);
         $pdf->MultiCell(0, 10, iconv('UTF-8', 'windows-1252', "Fait le {$date_emprunt}"));
 
+        $pdf->SetLeftMargin(30);
+        $pdf->SetRightMargin(15);
         $pdf->Ln(15);
         $pdf->Image('box.png', 31, 133, 5, 0, '');
         $pdf->SetLeftMargin(40);
@@ -1457,7 +1462,7 @@ mysqli_set_charset($session, "utf-8");
         $pdf->WriteHTML(iconv('UTF-8', 'windows-1252', "En cochant cette case, je consent à l'utilisation de ma signature électronique, je certifie qu'elle est valide et a le même effet qu'une signature écrite sur une copie papier de ce document."));
 
 
-        $pdf->Output('', "contrats/{$nom}_{$prenom}_{$IdentifiantE}.pdf");
+        $pdf->Output();
     }
 
     ?>

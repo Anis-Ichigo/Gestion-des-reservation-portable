@@ -40,6 +40,14 @@ mysqli_set_charset($session, "utf8");
             echo $goodpsw;
         }
 
+        $select_contrat = "SELECT * 
+                                        FROM emprunt, personne 
+                                        WHERE emprunt.IdentifiantPe = personne.IdentifiantPe 
+                                        AND personne.IdentifiantPe = '$identifiant'
+                                        AND emprunt.Contrat LIKE 'a signer'";
+        $result_select_contrat = mysqli_query($session, $select_contrat);
+        $nb_lignes = mysqli_num_rows($result_select_contrat);
+
         if($user!=$gooduser or $mdp_hash!=$goodpsw){
             $lange= $_POST['lang'];
             echo "<h2 style='font-size: 1.5em'>Mauvais login </h2><br>
@@ -61,7 +69,13 @@ mysqli_set_charset($session, "utf8");
             $_SESSION['statut']=$statut;
             $_SESSION['formation']=$formation;
 
-            header("Location: menu3.php");
+
+
+            if ($nb_lignes > 0) {
+                header("Location: contrat.php");
+            } else {
+                header("Location: menu3.php");
+            }
         }
 
 

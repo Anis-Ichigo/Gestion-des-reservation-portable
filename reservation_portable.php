@@ -1002,7 +1002,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
 
 
         $insert_rdv = ("INSERT INTO `emprunt`(`DateEmprunt`, `DateRetour`, `DateProlongation`, `Motif`, `IdentifiantM`, `IdentifiantPe`, `IdentifiantCal`)
-                    VALUES ('$dateEmprunt', '$dateRetour', NULL, 'Prêt', '$identifiantM', '$identifiantPe', '$identifiantCal')");
+                    VALUES ('$dateEmprunt', '$dateRetour', NULL, 'Pret', '$identifiantM', '$identifiantPe', '$identifiantCal')");
         $result_insert_rdv = mysqli_query($session, $insert_rdv);
 
         ?>
