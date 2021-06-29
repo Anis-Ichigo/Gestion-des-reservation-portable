@@ -196,7 +196,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
 
         <?php
 
-        if (($s == 0 && date('w') == 2) || ($s > 0 && date('w') > 2)) {
+        if (($s == 0 && date('w') == 1) || ($s > 0 && date('w') > 1)) {
             $date_lundi = strftime("%d/%m/%Y", strtotime("+{$s} monday"));
             ?>
             <input type="button" class="accordion" value="<?php
@@ -205,7 +205,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             ?>">
 
             <?php
-        } else if ($s == 0 && (date('w') < 2) || ($s > 0 && date('w') <= 2)) {
+        } else if ($s == 0 && (date('w') < 1) || ($s > 0 && date('w') <= 1)) {
             $date_lundi = strftime("%d/%m/%Y", strtotime("+{$s2} monday"));
             ?>
             <input type="button" class="accordion" value="<?php
@@ -214,7 +214,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             ?>">
 
             <?php
-        } else if ($s < 0 && (date('w') <= 2)) {
+        } else if ($s < 0 && (date('w') <= 1)) {
             $date_lundi = strftime("%d/%m/%Y", strtotime("$s monday"));
             ?>
             <input type="button" class="accordion" value="<?php
@@ -223,7 +223,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             ?>">
 
             <?php
-        } else if ($s < 0 && (date('w') > 2)) {
+        } else if ($s < 0 && (date('w') > 1)) {
             $date_lundi = strftime("%d/%m/%Y", strtotime("$s3 monday"));
             ?>
             <input type="button" class="accordion" value="<?php
