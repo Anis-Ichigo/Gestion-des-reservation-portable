@@ -45,13 +45,25 @@ date_default_timezone_set('Europe/Paris');
         <a type="button" class="btn btn-sm btn-secondary" href="deconnexion.php">Se déconnecter</a>
     </div>
     <br><br> -->
-    <div style="float: right; display:inline">
-        <div class="element-head">
+    <div style=" display:inline">
+        <div class="element-head" style="float: left">
+            <a href="menu3.php" type="button" class="btn btn-default">
+                <p style="text-transform:uppercase">
+                    <span class="fi-rr-arrow-left">&nbsp;&nbsp;&nbsp;<?php echo TXT_MENU; ?>&nbsp;</span>
+                </p>
+            </a>
+        </div>
+        <div class="element-head" style="float: right">
             <?php echo $_SESSION['nom']; ?>
             <a href="deconnexion.php" type="button" class="btn btn-default"><i class="fi-rr-sign-out"></i></a>
         </div>
     </div>
+    <br><br>
 
+
+    <!--<div class="text-left">
+        <a href="menu3.php" type="button" class="btn btn-secondary mb-3"><?php echo TXT_MENU; ?></a>
+    </div>-->
 
     <?php
     $semaine = mysqli_query($session, "SELECT * FROM personne WHERE IdentifiantPe = '$identifiant'");
@@ -271,7 +283,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                 FROM emprunt, calendrier
                                                 WHERE calendrier.JourCal = 'Lundi'
                                                 AND emprunt.DateEmprunt = '$date_lundi'
-                                                AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
@@ -283,7 +295,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                 FROM emprunt, calendrier
                                                 WHERE calendrier.JourCal = 'Lundi'
                                                 AND emprunt.DateEmprunt = '$date_lundi'
-                                                AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 }
@@ -395,7 +407,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mardi'
                                                         AND emprunt.DateEmprunt = '$date_mardi'
-                                                        AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                        AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
@@ -407,7 +419,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mardi'
                                                         AND emprunt.DateEmprunt = '$date_mardi'
-                                                        AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                        AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 }
@@ -503,7 +515,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mercredi'
                                                         AND emprunt.DateEmprunt = '$date_mercredi'
-                                                        AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                        AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
@@ -515,7 +527,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mercredi'
                                                         AND emprunt.DateEmprunt = '$date_mercredi'
-                                                        AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                        AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 }
@@ -610,7 +622,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Jeudi'
                                                         AND emprunt.DateEmprunt = '$date_jeudi'
-                                                        AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                        AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
@@ -622,7 +634,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Jeudi'
                                                         AND emprunt.DateEmprunt = '$date_jeudi'
-                                                        AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                        AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 }
@@ -729,7 +741,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Vendredi'
                                                         AND emprunt.DateEmprunt = '$date_vendredi'
-                                                        AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                        AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 } else {
@@ -741,7 +753,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Vendredi'
                                                         AND emprunt.DateEmprunt = '$date_vendredi'
-                                                        AND emprunt.Statut_RDV LIKE 'à venir');";
+                                                        AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
                 }
@@ -1136,9 +1148,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             }
         </style>
 
-    <div class="text-center">
-                <a href="menu3.php" type="button" class="btn btn-secondary mb-3"><?php echo TXT_MENU; ?></a>
-            </div>
+
 
 </body>
 

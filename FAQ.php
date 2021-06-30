@@ -22,6 +22,23 @@ require('decide-lang.php');
     <div class="header">
         <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%; margin-top: 1%;">
     </div>
+
+    <div style=" display:inline">
+        <div class="element-head" style="float: left">
+            <a href="menu3.php" type="button" class="btn btn-default">
+                <p style="text-transform:uppercase">
+                    <span class="fi-rr-arrow-left">&nbsp;&nbsp;&nbsp;<?php echo TXT_MENU; ?>&nbsp;</span>
+                </p>
+            </a>
+        </div>
+        <div class="element-head" style="float: right">
+            <?php echo $_SESSION['nom']; ?>
+            <a href="deconnexion.php" type="button" class="btn btn-default"><i class="fi-rr-sign-out"></i></a>
+        </div>
+    </div>
+    <br><br>
+
+
     <div class="contenu">
         <h2 class="text-center"> <?php echo TXT_ACCUEIL_FAQ; ?> </h2>
         <section class="faq">

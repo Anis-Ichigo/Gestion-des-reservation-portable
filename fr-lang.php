@@ -70,6 +70,7 @@ define('TXT_DATER', 'Date de retour');
 define('TXT_PROLONGER', 'Prolonger');
 define('TXT_PROBLEME', 'Déclarer un problème');
 define('TXT_RESTITUER', 'Restituer le matériel');
+define('TXT_VOIR_CONTRAT', 'Voir le contrat');
 define('TXT_DATERA', 'Date de retour actuelle');
 define('TXT_DATERS', 'Nouvelle date de retour souhaitée');
 define('TXT_ALERTE_SUCCES_PROLONGATION', 'Votre demande de prolongation a bien été transmise');

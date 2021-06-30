@@ -64,13 +64,20 @@ date_default_timezone_set('Europe/Paris');
     ?>
 
 
-    <div style="float: right; display:inline">
-        <div class="element-head">
-
+    <div style=" display:inline">
+        <div class="element-head" style="float: left">
+            <a href="menu3.php" type="button" class="btn btn-default">
+                <p style="text-transform:uppercase">
+                    <span class="fi-rr-arrow-left">&nbsp;&nbsp;&nbsp;<?php echo TXT_MENU; ?>&nbsp;</span>
+                </p>
+            </a>
+        </div>
+        <div class="element-head" style="float: right">
             <?php echo $_SESSION['nom']; ?>
             <a href="deconnexion.php" type="button" class="btn btn-default"><i class="fi-rr-sign-out"></i></a>
         </div>
     </div>
+    <br><br>
 
     <div class="text-center">
         <h2 style="display: inline;"><?php echo TXT_ACCUEIL_RESERVATION; ?></h2>
@@ -176,7 +183,7 @@ date_default_timezone_set('Europe/Paris');
 
                 <form action="pdf.php" method="post">
                     <input type="hidden" name="IdentifiantE" value="<?php echo $IdentifiantE; ?>">
-                    <button type="submit" name="valider_contrat">Voir le contrat</button>
+                    <button type="submit" name="valider_contrat"><?php echo TXT_VOIR_CONTRAT; ?></button>
                 </form>
             </div>
         </div>
@@ -1592,9 +1599,7 @@ date_default_timezone_set('Europe/Paris');
 
 -->
 
-                <div class="text-center">
-                    <a href="menu3.php" type="button" class="btn btn-secondary mb-2"><?php echo TXT_MENU; ?></a>
-                </div>
+
 
 </body>
 

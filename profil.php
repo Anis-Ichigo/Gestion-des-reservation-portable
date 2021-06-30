@@ -34,12 +34,20 @@ date_default_timezone_set('Europe/Paris');
         <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="width: 100%; margin-top: 1%">
     </div>
 
-    <div style="float: right; display:inline">
-        <div class="element-head">
+    <div style=" display:inline">
+        <div class="element-head" style="float: left">
+            <a href="menu3.php" type="button" class="btn btn-default">
+                <p style="text-transform:uppercase">
+                    <span class="fi-rr-arrow-left">&nbsp;&nbsp;&nbsp;<?php echo TXT_MENU; ?>&nbsp;</span>
+                </p>
+            </a>
+        </div>
+        <div class="element-head" style="float: right">
             <?php echo $_SESSION['nom']; ?>
             <a href="deconnexion.php" type="button" class="btn btn-default"><i class="fi-rr-sign-out"></i></a>
         </div>
     </div>
+    <br><br>
 
     <?php
     $identifiant = $_SESSION['identifiant'];
@@ -682,9 +690,6 @@ date_default_timezone_set('Europe/Paris');
             }
             ?>
 
-            <div class="text-center">
-                <a href="menu3.php" type="button" class="btn btn-secondary"><?php echo TXT_MENU; ?></a>
-            </div>
 
             <script>
                 var acc = document.getElementsByClassName("accordion");

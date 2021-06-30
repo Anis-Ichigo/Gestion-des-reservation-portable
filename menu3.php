@@ -22,14 +22,20 @@ require('decide-lang.php');
         <div class="header" style="width: 100%; height: 18%; margin-bottom: 4%">
             <img alt="Logo UT1" class="img_logo" src="Bandeau.png" style="height: 120%;width: 100%">
         </div>
-            <Table>
+            <table>
                 <tr>
                     <td>
 
                         <a href="reservation_portable.php">
                             <div> <img src="signe-plus-dans-un-cercle-noir.svg" />
                                 </br>
+                                <?php if($_SESSION['lang']=='cn'){ ?>
+                                <div style="float:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo TXT_ACCUEIL_NOUVELLER; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                <?php
+                                }else{?>
                                 <div style="float:left"><?php echo TXT_ACCUEIL_NOUVELLER; ?></div>
+                                <?php
+                                }?>
                             </div>
                         </a>
                     </td>

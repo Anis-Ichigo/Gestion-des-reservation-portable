@@ -70,6 +70,7 @@ define('TXT_DATER', '归还时间');
 define('TXT_PROLONGER', '延期');
 define('TXT_PROBLEME', '申报问题');
 define('TXT_RESTITUER', '归还设备');
+define('TXT_VOIR_CONTRAT', '查看合同');
 define('TXT_DATERA', '现归还时间');
 define('TXT_DATERS', '期望新归还时间');
 define('TXT_ALERTE_SUCCES_PROLONGATION', '您的延期申请已提交');

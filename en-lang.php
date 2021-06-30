@@ -66,6 +66,7 @@ define('TXT_DATER', 'Return date');
 define('TXT_PROLONGER', 'Extend');
 define('TXT_PROBLEME', 'Report a probleme');
 define('TXT_RESTITUER', 'Return equipment');
+define('TXT_VOIR_CONTRAT', 'View the contract');
 define('TXT_DATERA', 'Current return date');
 define('TXT_DATERS', 'New desired return date');
 define('TXT_CONFIRMER', 'Confirm');
