@@ -146,12 +146,10 @@ a {
     text-decoration: none;
 }
 
-pwd{
+#pwd{
 	text-decoration:underline;
 	background-color:  #F0EDFD;
-    color: black;
-    padding: 5px 6px;
-    margin: 5px 0 5px;
+    color: blue;
     border: none;
     cursor: pointer;
     width: 70%;

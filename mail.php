@@ -21,7 +21,7 @@ if(isset($_POST['envoyer'])){
     $user=$_POST["user"];
 
     $destinataire =$user ;
-    $objet = "confirmer";
+    $objet = "Votre nouveau mot de passe";
     $message = $code;
     $headers = "From: pret.responsable@ut-capitole.fr" . "\r\n" .
         "Reply-To: pret.responsable@ut-capitole.fr" . "\r\n" .
