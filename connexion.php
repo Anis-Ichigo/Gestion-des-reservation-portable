@@ -52,7 +52,7 @@ mysqli_set_charset($session, "utf8");
             $lange= $_POST['lang'];
             echo "<h2 style='font-size: 1.5em'>Mauvais login </h2><br>
                   <h4 style='font-size: 1.2em'>Vérifiez votre identifiant et votre mot de passe.</h4><br>
-                  <button><a href='index.html' style='font-size: 1.25em;'>Merci de recommencer.</a></button><br>";
+                  <button><a href='Index.html' style='font-size: 1.25em;'>Merci de recommencer.</a></button><br>";
             echo "<p style='font-size:1.3em'>Ou </p>
                      <form action='Page_Inscription.php' method='post' >
                         <input type='hidden' name='lang' value=$lange>
