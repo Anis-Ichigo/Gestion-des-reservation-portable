@@ -561,7 +561,9 @@ date_default_timezone_set('Europe/Paris');
                                 $date_lundi = strftime("%d/%m/%Y", mktime(0, 0, 0, $date_m, $date_d - $nb_jours_lundi, $date_Y));
 
                                 ?>
+                                <input type="hidden" name="dt_lundi" value="<?php echo $dt_lundi; ?>">
                                 <input type="button" name="date_lundi" class="accordion" value="<?php echo TXT_LUNDI . " $date_lundi"; ?>">
+
 
 
                                 <div class="panel">
@@ -644,7 +646,9 @@ date_default_timezone_set('Europe/Paris');
                                 $date_mardi = strftime("%d/%m/%Y", mktime(0, 0, 0, $date_m, $date_d - $nb_jours_mardi, $date_Y));
 
                                 ?>
+                                <input type="hidden" name="dt_mardi" value="<?php echo $dt_mardi; ?>">
                                 <input type="button" name="date_mardi" class="accordion" value="<?php echo TXT_MARDI . " $date_mardi"; ?>">
+
 
 
 
@@ -714,7 +718,9 @@ date_default_timezone_set('Europe/Paris');
                                 $date_mercredi = strftime("%d/%m/%Y", mktime(0, 0, 0, $date_m, $date_d - $nb_jours_mercredi, $date_Y));
 
                                 ?>
+                                <input type="hidden" name="dt_mercredi" value="<?php echo $dt_mercredi; ?>">
                                 <input type="button" name="date_mercredi" class="accordion" value="<?php echo TXT_MERCREDI . " $date_mercredi"; ?>">
+
 
                                 <div class="panel">
                                     <table class="table">
@@ -781,7 +787,9 @@ date_default_timezone_set('Europe/Paris');
                                 $date_jeudi = strftime("%d/%m/%Y", mktime(0, 0, 0, $date_m, $date_d - $nb_jours_jeudi, $date_Y));
 
                                 ?>
+                                <input type="hidden" name="dt_jeudi" value="<?php echo $dt_jeudi; ?>">
                                 <input type="button" name="date_jeudi" class="accordion" value="<?php echo TXT_JEUDI . " $date_jeudi"; ?>">
+
 
                                 <div class="panel">
                                     <table class="table">
@@ -854,7 +862,9 @@ date_default_timezone_set('Europe/Paris');
                                 $date_vendredi = strftime("%d/%m/%Y", mktime(0, 0, 0, $date_m, $date_d - $nb_jours_vendredi, $date_Y));
 
                                 ?>
+                                <input type="hidden" name="dt_vendredi" value="<?php echo $dt_vendredi; ?>">
                                 <input type="button" name="date_vendredi" class="accordion" value="<?php echo TXT_VENDREDI . " $date_vendredi"; ?>">
+
 
 
                                 <div class="panel">
@@ -963,26 +973,28 @@ date_default_timezone_set('Europe/Paris');
     if (isset($_POST['Lundi'])) {
         $jour = "Lundi";
         $horaire = $_POST['Lundi'];
-        $date_emprunt = strftime("%d/%m/%Y", strtotime("monday"));
+        $date_retour = $_POST['dt_lundi'];
     } else if (isset($_POST['Mardi'])) {
         $jour = "Mardi";
         $horaire = $_POST['Mardi'];
-        $date_emprunt = strftime("%d/%m/%Y", strtotime("tuesday"));
+        $date_retour = $_POST['dt_mardi'];
     } else if (isset($_POST['Mercredi'])) {
         $jour = "Mercredi";
         $horaire = $_POST['Mercredi'];
-        $date_emprunt = strftime("%d/%m/%Y", strtotime("wednesday"));
+        $date_retour = $_POST['dt_mercredi'];
     } else if (isset($_POST['Jeudi'])) {
         $jour = "Jeudi";
         $horaire = $_POST['Jeudi'];
-        $date_emprunt = strftime("%d/%m/%Y", strtotime("thursday"));
+        $date_retour = $_POST['dt_jeudi'];
     } else if (isset($_POST['Vendredi'])) {
         $jour = "Vendredi";
         $horaire = $_POST['Vendredi'];
-        $date_emprunt = strftime("%d/%m/%Y", strtotime("Friday"));
+        $date_retour = $_POST['dt_vendredi'];
     }
-    $date_retour = strftime("%d/%m/%Y", strtotime($_POST['DateRetour']));
+    //$date_emprunt = strftime("%d/%m/%Y", strtotime($_POST['DateEmprunt']));
+    $date_emprunt = $_POST['DateEmprunt'];
     $categorieM = $_POST['CategorieM'];
+
 
     /*$id_materiel = ("SELECT * FROM materiel WHERE EtatM LIKE 'Dispo' AND StatutM LIKE 'Existant' AND CategorieM = '$categorieM' LIMIT 1");
             $result_id_materiel = mysqli_query($session, $id_materiel);
@@ -1083,13 +1095,11 @@ date_default_timezone_set('Europe/Paris');
 
     <?php
     if (isset($_POST['confirmer_restitution'])) {
-        $dateRetour = $_POST['DateRetour'];
+        $date_Retour = $_POST['DateRetour'];
 
         $horaire = $_POST['horaire'];
         $jour = $_POST['jour'];
-        $date_Emprunt = $_POST['date_emprunt'];
-        $dt = DateTime::createFromFormat('d/m/Y', $date_Emprunt);
-        $dateEmprunt = $dt->format('Y-m-d');
+        $date_Emprunt = $_POST['DateEmprunt'];
 
         $categorie = $_POST['CategorieM'];
         $identifiantM = $_POST['IdentifiantM'];
@@ -1097,43 +1107,90 @@ date_default_timezone_set('Europe/Paris');
 
         $identifiantPe = $identifiant;
 
+        $rdv_retour=("
+                    SELECT *
+                    FROM emprunt
+                    WHERE IdentifiantPe='$identifiantPe'
+                    AND IdentifiantM='$identifiantM'
+                    AND Motif='Retour'
+                    AND EtatE='Non rendu'
+                    AND Statut_RDV='à venir'
+                    ");
 
-        $restitution = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-        $result_restitution = mysqli_query($session, $restitution);
-
-        $creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-        $result_creneau = mysqli_query($session, $creneau);
-
-        foreach ($result_creneau as $row) {
-            $IdentifiantCal = $row['IdentifiantCal'];
-        }
-
-
-        $insert_rdv = ("INSERT INTO `emprunt`(`DateEmprunt`, `DateRetour`, `DateProlongation`, `Motif`, `IdentifiantM`, `IdentifiantPe`, `IdentifiantCal`, `Contrat`)
-                    VALUES ('$dateEmprunt', '$dateRetour', NULL, 'Retour', '$identifiantM', '$identifiantPe', '$IdentifiantCal', 'signe')");
-
-        $result_insert_rdv = mysqli_query($session, $insert_rdv);
+        $result_rdv_retour = mysqli_query($session, $rdv_retour);
+        $nb_lignes = mysqli_num_rows($result_rdv_retour);
+        echo $nb_lignes;
 
 
+        if ($nb_lignes == 0) {
+            $restitution = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+            $result_restitution = mysqli_query($session, $restitution);
+
+            $creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+            $result_creneau = mysqli_query($session, $creneau);
+
+            foreach ($result_creneau as $row) {
+                $IdentifiantCal = $row['IdentifiantCal'];
+            }
+
+
+            $insert_rdv = ("INSERT INTO `emprunt`(`DateEmprunt`, `DateRetour`, `DateProlongation`, `Motif`, `IdentifiantM`, `IdentifiantPe`, `IdentifiantCal`, `Contrat`)
+                    VALUES ('$date_Emprunt', '$date_Retour', NULL, 'Retour', '$identifiantM', '$identifiantPe', '$IdentifiantCal', 'signe')");
+
+            $result_insert_rdv = mysqli_query($session, $insert_rdv);
+            ?>
+
+            <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                </svg>
+                                <div>
+
+                                    <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col text-center">
+                                <input type="button" class="btn btn-primary" onclick='document.location.href="profil.php"' value="<?php echo TXT_OK; ?> ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+                echo "<script>
+                $(window).load(function() {
+                    $('#alerte').modal('show');
+                });
+            </script>";
+
+            ?>
+
+        <?php
+        } else if ($nb_lignes > 0) {
         ?>
-
         <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <div class="alert alert-success d-flex align-items-center" role="alert">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
                             </svg>
                             <div>
-
-                                <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
+                                <?php echo 'Vous avez déjà pris le RDV de retour.'; ?>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <div class="col text-center">
-                            <input type="button" class="btn btn-primary" onclick='document.location.href="mes_reservations.php"' value="<?php echo TXT_OK; ?> ">
+                            <input type="button" class="btn btn-primary" onclick='document.location.href="profil.php"' value="<?php echo TXT_OK; ?> ">
                         </div>
                     </div>
                 </div>
@@ -1145,9 +1202,18 @@ date_default_timezone_set('Europe/Paris');
             $('#alerte').modal('show');
         });
     </script>";
+
+        }
     }
 
-    ?>
+
+
+
+
+        ?>
+
+
+
 
 
 
