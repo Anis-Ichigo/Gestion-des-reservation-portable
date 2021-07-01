@@ -272,7 +272,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             <table class="table">
                 <?php
 
-                if ($premierJour == Date("d/m/Y")) {
+                if ($premierJour == Date("Y-m-d")) {
                     $HeureActuelle = date('H:i:s', time());
                     $sql = "SELECT *
             FROM calendrier
@@ -282,7 +282,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                 FROM emprunt, calendrier
                                                 WHERE calendrier.JourCal = 'Lundi'
-                                                AND emprunt.DateEmprunt = '$date_lundi_bis'
+                                                AND (emprunt.DateEmprunt = '$date_lundi' 
+                                                    OR emprunt.DateRetour = '$date_lundi')
                                                 AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -294,7 +295,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                 FROM emprunt, calendrier
                                                 WHERE calendrier.JourCal = 'Lundi'
-                                                AND emprunt.DateEmprunt = '$date_lundi'
+                                                AND (emprunt.DateEmprunt = '$date_lundi' 
+                                                    OR emprunt.DateRetour = '$date_lundi')
                                                 AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -394,7 +396,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             <table class="table">
                 <?php
 
-                if ($premierJour == Date("d/m/Y")) {
+                if ($premierJour == Date("Y-m-d")) {
                     $HeureActuelle = date('H:i:s', time());
                     $sql = "SELECT *
                     FROM calendrier
@@ -404,7 +406,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mardi'
-                                                        AND emprunt.DateEmprunt = '$date_mardi'
+                                                        AND (emprunt.DateEmprunt = '$date_mardi' 
+                                                        OR emprunt.DateRetour = '$date_mardi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -416,7 +419,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mardi'
-                                                        AND emprunt.DateEmprunt = '$date_mardi'
+                                                        AND (emprunt.DateEmprunt = '$date_mardi' 
+                                                        OR emprunt.DateRetour = '$date_mardi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -500,7 +504,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
 
                 <?php
 
-                if ($premierJour == Date("d/m/Y")) {
+                if ($premierJour == Date("Y-m-d")) {
                     $HeureActuelle = date('H:i:s', time());
                     $sql = "SELECT *
                     FROM calendrier
@@ -510,7 +514,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mercredi'
-                                                        AND emprunt.DateEmprunt = '$date_mercredi'
+                                                        AND (emprunt.DateEmprunt = '$date_mercredi' 
+                                                        OR emprunt.DateRetour = '$date_mercredi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -522,7 +527,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mercredi'
-                                                        AND emprunt.DateEmprunt = '$date_mercredi'
+                                                        AND (emprunt.DateEmprunt = '$date_mercredi' 
+                                                        OR emprunt.DateRetour = '$date_mercredi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -605,7 +611,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             <table class="table">
 
                 <?php
-                if ($premierJour == Date("d/m/Y")) {
+                if ($premierJour == Date("Y-m-d")) {
                     $HeureActuelle = date('H:i:s', time());
                     $sql = "SELECT *
                     FROM calendrier
@@ -615,7 +621,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Jeudi'
-                                                        AND emprunt.DateEmprunt = '$date_jeudi'
+                                                        AND (emprunt.DateEmprunt = '$date_jeudi' 
+                                                        OR emprunt.DateRetour = '$date_jeudi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -627,7 +634,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Jeudi'
-                                                        AND emprunt.DateEmprunt = '$date_jeudi'
+                                                        AND (emprunt.DateEmprunt = '$date_jeudi' 
+                                                        OR emprunt.DateRetour = '$date_jeudi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -722,7 +730,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                 <?php
 
 
-                if ($premierJour == Date("d/m/Y")) {
+                if ($premierJour == Date("Y-m-d")) {
                     $HeureActuelle = date('H:i:s', time());
                     $sql = "SELECT *
                     FROM calendrier
@@ -732,7 +740,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Vendredi'
-                                                        AND emprunt.DateEmprunt = '$date_vendredi'
+                                                        AND (emprunt.DateEmprunt = '$date_vendredi' 
+                                                        OR emprunt.DateRetour = '$date_vendredi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
@@ -744,7 +753,8 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Vendredi'
-                                                        AND emprunt.DateEmprunt = '$date_vendredi'
+                                                        AND (emprunt.DateEmprunt = '$date_vendredi' 
+                                                        OR emprunt.DateRetour = '$date_vendredi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
                     $num = mysqli_num_rows($res);
