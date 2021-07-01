@@ -1123,8 +1123,8 @@ date_default_timezone_set('Europe/Paris');
 
 
         if ($nb_lignes == 0) {
-            $restitution = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-            $result_restitution = mysqli_query($session, $restitution);
+            /*$restitution = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+            $result_restitution = mysqli_query($session, $restitution);*/
 
             $creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
             $result_creneau = mysqli_query($session, $creneau);

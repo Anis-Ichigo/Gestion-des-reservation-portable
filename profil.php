@@ -843,8 +843,8 @@ date_default_timezone_set('Europe/Paris');
                     $identifiantM = $_POST["IdentifiantM"];
                     $identifiantE = $_POST['identiE'];
 
-                    $emprunter = ("UPDATE calendrier SET EtatCal = 'Disponible' WHERE IdentifiantCal = '$identifiantCal'");
-                    $result_emprunter = mysqli_query($session, $emprunter);
+                    /*$emprunter = ("UPDATE calendrier SET EtatCal = 'Disponible' WHERE IdentifiantCal = '$identifiantCal'");
+                    $result_emprunter = mysqli_query($session, $emprunter); */
 
                     $etat_materiel = ("UPDATE materiel SET EtatM = 'Dispo' WHERE IdentifiantM = '$identifiantM'");
                     $result_etat_materiel = mysqli_query($session, $etat_materiel);
