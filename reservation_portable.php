@@ -1071,7 +1071,10 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     <a class="close" href="#"> &times;</a>
                     </p>
                     <div class="content" style="text-align: justify; font-size: 14px">
-                        <?php echo TXT_RES_URG. $row_bureau['Bureau'] . "."; ?>
+                      <?php $Bureau = ("SELECT * FROM parametres");
+                        $result_Bureau = mysqli_query($session, $Bureau);
+                        $row_bureau = mysqli_fetch_array($result_Bureau);
+                        echo TXT_RES_URG. $row_bureau['Bureau'] . "."; ?>
                     </div>
                 </div>
             </div>
