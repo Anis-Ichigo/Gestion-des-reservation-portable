@@ -282,7 +282,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                 FROM emprunt, calendrier
                                                 WHERE calendrier.JourCal = 'Lundi'
-                                                AND (emprunt.DateEmprunt = '$date_lundi' 
+                                                AND (emprunt.DateEmprunt = '$date_lundi'
                                                     OR emprunt.DateRetour = '$date_lundi')
                                                 AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -295,7 +295,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
             AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                 FROM emprunt, calendrier
                                                 WHERE calendrier.JourCal = 'Lundi'
-                                                AND (emprunt.DateEmprunt = '$date_lundi' 
+                                                AND (emprunt.DateEmprunt = '$date_lundi'
                                                     OR emprunt.DateRetour = '$date_lundi')
                                                 AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -406,7 +406,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mardi'
-                                                        AND (emprunt.DateEmprunt = '$date_mardi' 
+                                                        AND (emprunt.DateEmprunt = '$date_mardi'
                                                         OR emprunt.DateRetour = '$date_mardi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -419,7 +419,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mardi'
-                                                        AND (emprunt.DateEmprunt = '$date_mardi' 
+                                                        AND (emprunt.DateEmprunt = '$date_mardi'
                                                         OR emprunt.DateRetour = '$date_mardi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -514,7 +514,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mercredi'
-                                                        AND (emprunt.DateEmprunt = '$date_mercredi' 
+                                                        AND (emprunt.DateEmprunt = '$date_mercredi'
                                                         OR emprunt.DateRetour = '$date_mercredi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -527,7 +527,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Mercredi'
-                                                        AND (emprunt.DateEmprunt = '$date_mercredi' 
+                                                        AND (emprunt.DateEmprunt = '$date_mercredi'
                                                         OR emprunt.DateRetour = '$date_mercredi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -621,7 +621,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Jeudi'
-                                                        AND (emprunt.DateEmprunt = '$date_jeudi' 
+                                                        AND (emprunt.DateEmprunt = '$date_jeudi'
                                                         OR emprunt.DateRetour = '$date_jeudi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -634,7 +634,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Jeudi'
-                                                        AND (emprunt.DateEmprunt = '$date_jeudi' 
+                                                        AND (emprunt.DateEmprunt = '$date_jeudi'
                                                         OR emprunt.DateRetour = '$date_jeudi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -740,7 +740,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Vendredi'
-                                                        AND (emprunt.DateEmprunt = '$date_vendredi' 
+                                                        AND (emprunt.DateEmprunt = '$date_vendredi'
                                                         OR emprunt.DateRetour = '$date_vendredi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -753,7 +753,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                                         FROM emprunt, calendrier
                                                         WHERE calendrier.JourCal = 'Vendredi'
-                                                        AND (emprunt.DateEmprunt = '$date_vendredi' 
+                                                        AND (emprunt.DateEmprunt = '$date_vendredi'
                                                         OR emprunt.DateRetour = '$date_vendredi')
                                                         AND emprunt.Statut_RDV LIKE 'a venir');";
                     $res = mysqli_query($session, $sql);
@@ -912,6 +912,10 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                 $IdentifiantCal = $creneau['IdentifiantCal'];
             }
 
+            $Bureau = ("SELECT * FROM parametres");
+            $result_Bureau = mysqli_query($session, $Bureau);
+            $row_bureau = mysqli_fetch_array($result_Bureau);
+
         ?>
             <!-- Modal -->
 
@@ -958,7 +962,12 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                                         <input type="text" class="form-control-plaintext" name="horaire" value="<?php echo $horaire; ?>" readonly>
                                     </div>
                                 </div>
-
+                                <div class="form-group row">
+                                      <label for="staticEmail" class="col col-form-label"><?php echo TXT_BUREAU; ?> : </label>
+                                              <div class="col">
+                                                      <input type="text" class="form-control-plaintext" name="bureau" value="<?php echo $row_bureau['Bureau']; ?>" readonly>
+                                                </div>
+                                  </div>
 
                                 <div class="alert alert-primary d-flex align-items-center" role="alert">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
@@ -1062,7 +1071,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                     <a class="close" href="#"> &times;</a>
                     </p>
                     <div class="content" style="text-align: justify; font-size: 14px">
-                        <?php echo TXT_RES_URG; ?>
+                        <?php echo TXT_RES_URG. $row_bureau['Bureau'] . "."; ?>
                     </div>
                 </div>
             </div>

@@ -87,6 +87,9 @@ define('TXT_CONFIRMATION_RDV', 'Souhaitez-vous confirmer le RDV ?');
 define('TXT_BUREAU', 'Bureau');
 define('TXT_CONFIRMER_RDV', 'Confirmer RDV');
 define('TXT_ALERTE_SUCCES_CRENEAU', 'Votre créneau a bien été réservé');
+define('NO_EMPRUNT',"Il n'y a aucun emprunt en cours");
+define('CONTRAT', 'Voir le contrat');
+define('RDV_RETOUR_EXISTANT', 'Vous avez déjà pris le RDV de retour.');
 
 //reservation_portable.php
 
@@ -104,6 +107,7 @@ define('TXT_CHOIX_CRENEAU','Veuillez choisir un créneau pour récuperer le mat�
 define('TXT_ERREUR_JOUR', 'Veuillez choisir une date autre que le samedi ou le dimanche');
 define('TXT_BTN_URG', 'Une urgence ?');
 define('TXT_RES_URG',"Pour une urgence merci de prendre le premier créneau disponible et de voir directement avec la responsable Mme BALLABRIGA Lydie bureau XXXX.");
+define('DATE_RETOUR', "La date de retour doit être supérieure à la date du RDV");
 
 //Page_Inscription.php
 
@@ -119,6 +123,8 @@ define('VALIDER', 'Valider');
 define('ALERTE_ERREUR_MDP', 'Les mots de passes ne correspondent pas. Veuillez recommencer !');
 define('ERREUR_MDP_COURT', 'Le mot de passe choisi est trop court !');
 define('TXT_MAIL_INCORRECT', 'Veuillez saisir votre adresse universitaire');
+define('PLUS_INFORMATION', "Plus d'informations");
+define('MAIL_EXISTE', 'Ce mail est déjà utilisé');
 
 
 //FAQ.php
@@ -144,7 +150,7 @@ define('TXT_REPONSE5_B', 'ici');
 define('TXT_QUESTION6', "Relire les conditions générales d'utilisation des données");
 define('TXT_REPONSE6', "Veuillez trouver les Conditions Générales d'Utilisation");
 define('TXT_QUESTION7', 'Vous avez une autre question?');
-define('TXT_REPONSE7', "En cas d'autres questions de votre part, ou en cas de souhait de plus de précisions sur un point, Nous nous tenons à votre disposition pour toute demande. Vous pouvez nous contacter via la page Mes Réservations que vous trouverez");
+define('TXT_REPONSE7', "En cas d'autres questions de votre part, ou en cas de souhait de plus de précisions sur un point, Nous nous tenons à votre disposition pour toute demande. Vous pouvez contacter Madame BALLABRIGA, la responsable de la gestion des prêts de matériel, ou en cas de problème technique vous pouvez déclarer un problème dans la page 'Mes emprunts', dans ce cas, une personne s'occupera de votre question.");
 
 //CGU.php
 
