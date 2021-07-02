@@ -3,7 +3,7 @@ require('decide-lang.php');
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
 require('fpdf183/fpdf.php');
-header( 'content-type: text/html; charset=utf-8' );
+header('content-type: text/html; charset=utf-8');
 date_default_timezone_set('Europe/Paris');
 ?>
 
@@ -92,34 +92,34 @@ date_default_timezone_set('Europe/Paris');
         $modif_profil = ("UPDATE personne SET PrenomPe = '$modif_PrenomPe', NomPe = '$modif_NomPe', EmailPe = '$modif_EmailPe', AdressePe = '$modif_AdressePe', TelPe = '$modif_TelPe', Statut = '$modif_Statut', Formation = '$modif_Formation' WHERE IdentifiantPe = '$identifiant'");
         $result_modif_profil = mysqli_query($session, $modif_profil);
     ?>
-    <div class="modal fade" id="succes_info" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="alert alert-success d-flex align-items-center" role="alert">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                        </svg>
+        <div class="modal fade" id="succes_info" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                            </svg>
 
-                        <div>
-                            <?php echo TXT_SUCCES_INFO; ?>
+                            <div>
+                                <?php echo TXT_SUCCES_INFO; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="modal-footer">
-                    <div class="col text-center">
-                        <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+                    <div class="modal-footer">
+                        <div class="col text-center">
+                            <input type="button" class="btn btn-primary" data-bs-dismiss="modal" value="<?php echo TXT_OK; ?>">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        $(window).load(function() {
-            $('#succes_info').modal('show');
-        });
-    </script>
+        <script>
+            $(window).load(function() {
+                $('#succes_info').modal('show');
+            });
+        </script>
     <?php
     }
     ?>
@@ -162,7 +162,7 @@ date_default_timezone_set('Europe/Paris');
                                         </TD>
                                     </TR>
                                     <TR>
-                                        <TD style="text-align : left"width="50%">
+                                        <TD style="text-align : left" width="50%">
                                             <?php echo TXT_EMAIL; ?>:
                                         </TD>
                                         <TD>
@@ -197,17 +197,17 @@ date_default_timezone_set('Europe/Paris');
                                     </TR>
                                     <?php if ($row['Statut'] == 'Etudiant') {
                                     ?>
-                                    <TR>
-                                        <TD style="text-align : left" width="50%">
-                                            <?php echo TXT_FORMATION; ?>:
-                                        </TD>
-                                        <TD>
-                                            <input type="text" readonly class="form-control-plaintext" name="Formation" value="<?php echo $row['Formation']; ?>">
-                                        </TD>
-                                    </TR>
+                                        <TR>
+                                            <TD style="text-align : left" width="50%">
+                                                <?php echo TXT_FORMATION; ?>:
+                                            </TD>
+                                            <TD>
+                                                <input type="text" readonly class="form-control-plaintext" name="Formation" value="<?php echo $row['Formation']; ?>">
+                                            </TD>
+                                        </TR>
                                     <?php
-                                                                  }
-                                                                  ?>
+                                    }
+                                    ?>
 
                                 </TABLE>
 
@@ -504,7 +504,7 @@ date_default_timezone_set('Europe/Paris');
                                             ?>
                                                 <tr>
                                                     <td width="62%">
-                                                        <?php echo TXT_MOTIF_RDV.':'; ?>
+                                                        <?php echo TXT_MOTIF_RDV . ':'; ?>
                                                     </td>
                                                     <td>
                                                         <?php echo "  " . $row['Motif'] ?>
@@ -515,40 +515,40 @@ date_default_timezone_set('Europe/Paris');
                                             ?>
 
                                             <tr>
-                                                <td  width="62%">
-                                                    <?php echo TXT_DATE.':'; ?>
+                                                <td width="62%">
+                                                    <?php echo TXT_DATE . ':'; ?>
                                                 </td>
                                                 <td>
                                                     <?php
                                                     if ($row['Motif'] == 'Retour') {
-                                                        ?>
+                                                    ?>
                                                         <input type="hidden" name="DateEmprunt" value="<?php echo $row['DateEmprunt']; ?>">
                                                         <input type="hidden" name="DateRetour" value="<?php echo $row['DateRetour']; ?>">
                                                         <?php $dt = $row['DateRetour'];
                                                         $date = DateTime::createFromFormat('Y-m-d', $dt);
                                                         $dateAffichee = $date->format('d/m/Y');
                                                         echo $dateAffichee; ?>
-                                                        <?php
+                                                    <?php
                                                     } else {
-                                                        ?>
+                                                    ?>
                                                         <input type="hidden" name="DateRetour" value="<?php echo $row['DateRetour']; ?>">
                                                         <input type="hidden" name="DateEmprunt" value="<?php echo $row['DateEmprunt']; ?>">
                                                         <?php $dt = $row['DateEmprunt'];
                                                         $date = DateTime::createFromFormat('Y-m-d', $dt);
                                                         $dateAffichee = $date->format('d/m/Y');
                                                         echo $dateAffichee; ?>
-                                                        <?php
+                                                    <?php
                                                     } ?>
                                                 </td>
                                             </tr>
 
 
-                                                <?php
+                                            <?php
                                             if ($row['Horaire_modif'] != NULL) {
-                                                ?>
+                                            ?>
                                                 <tr>
-                                                    <td  width="62%">
-                                                        <?php echo  TXT_HEURE.':'; ?>
+                                                    <td width="62%">
+                                                        <?php echo  TXT_HEURE . ':'; ?>
                                                     </td>
                                                     <td>
                                                         <input type="hidden" name="horaire" value="<?php echo $row['Horaire_modif']; ?>">
@@ -556,65 +556,65 @@ date_default_timezone_set('Europe/Paris');
                                                     </td>
                                                 </tr>
 
-                                                <?php
+                                            <?php
                                             } else if ($row['Horaire_modif'] == NULL) {
-                                                ?>
+                                            ?>
                                                 <tr>
-                                                    <td  width="62%">
-                                                        <?php echo  TXT_HEURE.':'; ?>
+                                                    <td width="62%">
+                                                        <?php echo  TXT_HEURE . ':'; ?>
                                                     </td>
                                                     <td>
                                                         <input type="hidden" name="horaire" value="<?php echo $row['HoraireCal']; ?>">
                                                         <?php echo $row['HoraireCal'] ?>
                                                     </td>
                                                 </tr>
-                                                <?php
+                                            <?php
                                             }
-                                                ?>
+                                            ?>
 
 
-                                                <tr>
-                                                    <td  width="62%">
-                                                        <?php echo TXT_NUMERO.':'; ?>
-                                                    </td>
-                                                    <td>
-                                                        <input type="hidden" name="IdentifiantM" value="<?php echo $row['IdentifiantM'] . "  "; ?>">
-                                                        <?php echo "  " . $row['IdentifiantM'] ?>
-                                                    </td>
-                                                </tr>
+                                            <tr>
+                                                <td width="62%">
+                                                    <?php echo TXT_NUMERO . ':'; ?>
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" name="IdentifiantM" value="<?php echo $row['IdentifiantM'] . "  "; ?>">
+                                                    <?php echo "  " . $row['IdentifiantM'] ?>
+                                                </td>
+                                            </tr>
 
-                                                <tr>
-                                                    <td  width="62%">
-                                                        <?php echo  TXT_BUREAU.':'; ?>
-                                                    </td>
-                                                    <td>
-                                                        <input type="hidden" value="<?php echo $row['Bureau'] ?>" name="bureau">
-                                                        <?php echo "  " . $row['Bureau'] ?>
-                                                    </td>
-                                                </tr>
+                                            <tr>
+                                                <td width="62%">
+                                                    <?php echo  TXT_BUREAU . ':'; ?>
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" value="<?php echo $row['Bureau'] ?>" name="bureau">
+                                                    <?php echo "  " . $row['Bureau'] ?>
+                                                </td>
+                                            </tr>
 
                                         </table>
 
                                         <?php if (($row['Statut_RDV'] != "termine") && ($row['Motif'] != "annule")) { ?>
-                                            <input type='submit' class='btn btn-primary' name='supprimer_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_SUPPRIMER; ?>'style="float: left">
+                                            <input type='submit' class='btn btn-primary' name='supprimer_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_SUPPRIMER; ?>' style="float: left">
                                             <input type='submit' class='btn btn-primary' name='modifier_rdv' data-bs-toggle='modal' data-bs-target='#exampleModal' value='<?php echo TXT_MODIFIER ?>' style="float: right">
                                         <?php
                                         }
                                         ?>
                                     </div>
-                                    </div>
+                                </div>
                                 <br>
                             </form>
 
-                    <?php
-                        }?>
-                        </div>
-                    <?php
-                    }
-                    ?>
-
+                        <?php
+                        } ?>
                     </div>
+                <?php
+            }
+                ?>
+
                 </div>
+            </div>
 
 
             </div>
@@ -659,17 +659,17 @@ date_default_timezone_set('Europe/Paris');
                                         <!--<input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_Statut" value="<?php echo $_POST['Statut']; ?>" required> -->
                                         <SELECT id="floatingInput" name="modif_Statut" class="form-select">
                                             <OPTION <?php
-                                            if ($_POST['Statut'] == 'Etudiant') {
-                                                echo "selected";
-                                            } ?>>Etudiant</OPTION>
+                                                    if ($_POST['Statut'] == 'Etudiant') {
+                                                        echo "selected";
+                                                    } ?>>Etudiant</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Statut'] == 'Enseignant') {
-                                                echo "selected";
-                                            } ?>>Enseignant</OPTION>
+                                                    if ($_POST['Statut'] == 'Enseignant') {
+                                                        echo "selected";
+                                                    } ?>>Enseignant</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Statut'] == 'Personnel Administratif') {
-                                                echo "selected";
-                                            } ?>>Personnel Administratif</OPTION>
+                                                    if ($_POST['Statut'] == 'Personnel Administratif') {
+                                                        echo "selected";
+                                                    } ?>>Personnel Administratif</OPTION>
                                         </SELECT>
                                         <label for="floatingInput"><?php echo TXT_IDENTITE; ?></label>
                                     </div>
@@ -678,41 +678,41 @@ date_default_timezone_set('Europe/Paris');
                                         <!--<input type="text" class="form-control" id="floatingInput" placeholder=" " autocomplete="off" name="modif_Formation" value="<?php echo $_POST['Formation']; ?>" required>-->
                                         <SELECT id="floatingInput" name="modif_Formation" class="form-select">
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'L3 MIASHS TI') {
-                                                echo "selected";
-                                            } ?>>L3 MIASHS TI</OPTION>
+                                                    if ($_POST['Formation'] == 'L3 MIASHS TI') {
+                                                        echo "selected";
+                                                    } ?>>L3 MIASHS TI</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'LICENCE PRO RTAI') {
-                                                echo "selected";
-                                            } ?>>LICENCE PRO RTAI</OPTION>
+                                                    if ($_POST['Formation'] == 'LICENCE PRO RTAI') {
+                                                        echo "selected";
+                                                    } ?>>LICENCE PRO RTAI</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'M1 MIAGE IM') {
-                                                echo "selected";
-                                            } ?>>M1 MIAGE IM</OPTION>
+                                                    if ($_POST['Formation'] == 'M1 MIAGE IM') {
+                                                        echo "selected";
+                                                    } ?>>M1 MIAGE IM</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'M1 MIAGE 2IS') {
-                                                echo "selected";
-                                            } ?>>M1 MIAGE 2IS</OPTION>
+                                                    if ($_POST['Formation'] == 'M1 MIAGE 2IS') {
+                                                        echo "selected";
+                                                    } ?>>M1 MIAGE 2IS</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'M1 MIAGE IDA') {
-                                                echo "selected";
-                                            } ?>>M1 MIAGE IDA</OPTION>
+                                                    if ($_POST['Formation'] == 'M1 MIAGE IDA') {
+                                                        echo "selected";
+                                                    } ?>>M1 MIAGE IDA</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'M2 MIAGE IPM') {
-                                                echo "selected";
-                                            } ?>>M2 MIAGE IPM</OPTION>
+                                                    if ($_POST['Formation'] == 'M2 MIAGE IPM') {
+                                                        echo "selected";
+                                                    } ?>>M2 MIAGE IPM</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'M2 MIAGE ISIAD') {
-                                                echo "selected";
-                                            } ?>>M2 MIAGE ISIAD</OPTION>
+                                                    if ($_POST['Formation'] == 'M2 MIAGE ISIAD') {
+                                                        echo "selected";
+                                                    } ?>>M2 MIAGE ISIAD</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'M2 MIAGE 2IS') {
-                                                echo "selected";
-                                            } ?>>M2 MIAGE 2IS</OPTION>
+                                                    if ($_POST['Formation'] == 'M2 MIAGE 2IS') {
+                                                        echo "selected";
+                                                    } ?>>M2 MIAGE 2IS</OPTION>
                                             <OPTION <?php
-                                            if ($_POST['Formation'] == 'M2 MIAGE IDA') {
-                                                echo "selected";
-                                            } ?>>M2 MIAGE IDA</OPTION>
+                                                    if ($_POST['Formation'] == 'M2 MIAGE IDA') {
+                                                        echo "selected";
+                                                    } ?>>M2 MIAGE IDA</OPTION>
                                             <OPTION>AUTRE</OPTION>
                                         </SELECT>
                                         <label for="floatingInput"><?php echo TXT_FORMATION; ?></label>
@@ -948,26 +948,26 @@ date_default_timezone_set('Europe/Paris');
                             $param_date_r = mysqli_query($session, "UPDATE personne SET date_r = '$d' WHERE IdentifiantPe = '$identifiant'");
                             $param_categorie = mysqli_query($session, "UPDATE personne SET categorie = '$c' WHERE IdentifiantPe = '$identifiant'");
 
-                            ?>
+                        ?>
                             <script type="text/javascript">
                                 document.location.href = 'mes_reservations.php';
                             </script>
                         <?php
                         } else if (isset($_POST['suivant'])) {
-                        $s += 1;
-                        $suivant = mysqli_query($session, "UPDATE personne SET semaine = '$s' WHERE IdentifiantPe = '$identifiant'");
+                            $s += 1;
+                            $suivant = mysqli_query($session, "UPDATE personne SET semaine = '$s' WHERE IdentifiantPe = '$identifiant'");
 
-                        $d = $_POST['DateRetour'];
-                        $c = $_POST['categorie'];
+                            $d = $_POST['DateRetour'];
+                            $c = $_POST['categorie'];
 
-                        $param_date_r = mysqli_query($session, "UPDATE personne SET date_r = '$d' WHERE IdentifiantPe = '$identifiant'");
-                        $param_categorie = mysqli_query($session, "UPDATE personne SET categorie = '$c' WHERE IdentifiantPe = '$identifiant'");
+                            $param_date_r = mysqli_query($session, "UPDATE personne SET date_r = '$d' WHERE IdentifiantPe = '$identifiant'");
+                            $param_categorie = mysqli_query($session, "UPDATE personne SET categorie = '$c' WHERE IdentifiantPe = '$identifiant'");
 
                         ?>
                             <script type="text/javascript">
                                 document.location.href = 'mes_reservations.php';
                             </script>
-                            <?php
+                        <?php
 
                         }
 
@@ -1080,7 +1080,7 @@ date_default_timezone_set('Europe/Paris');
         <div class="panel">
             <p>
                <?php
-                                        /* un creneau dans chaque ligne
+                    /* un creneau dans chaque ligne
                                         $res = mysqli_query($session, "SELECT * FROM calendrier WHERE JourCal='Lundi' AND EtatCal = 'Disponible'");
                                         while ($tab = mysqli_fetch_assoc($res)) {
                                             $horaire = $tab["HoraireCal"];
@@ -1088,7 +1088,7 @@ date_default_timezone_set('Europe/Paris');
                                             echo "<Table class='table table-striped table-hover text-center'> <TR> <TD><input type='submit' class='btn btn-primary' name='horaire_lundi' value='$horaire'> </td></TR> </table>";
                                         }
                                 */
-                                        ?>
+                ?>
 
             </p>
         </div>
@@ -1374,9 +1374,9 @@ date_default_timezone_set('Europe/Paris');
                                         <!-- button avec icon
         <button class="accordion">
             <?php
-                                        $premierJour = strftime("%d/%m/%Y", strtotime("Friday"));
-                                        echo "Vendredi" . " $premierJour";
-                                        ?>
+                    $premierJour = strftime("%d/%m/%Y", strtotime("Friday"));
+                    echo "Vendredi" . " $premierJour";
+            ?>
         </button>
         -->
                                         <?php
@@ -1516,250 +1516,287 @@ date_default_timezone_set('Europe/Paris');
                         ?>
                     </form>
 
-                    <?php
+                <?php
                 }
                 ?>
 
 
-            <?php
-            if (isset($_POST['Lundi']) || isset($_POST['Mardi']) || isset($_POST['Mercredi']) || isset($_POST['Jeudi']) || isset($_POST['Vendredi'])) {
-            if($_POST['motif']=='Retour'){
-                if (isset($_POST['Lundi'])) {
-                    $jour = "Lundi";
-                    $horaire = $_POST['Lundi'];
-                    $date_emprunt = $_POST['DateEmprunt'];
-                    $date_retour = $_POST['dt_lundi'];
-                } else if (isset($_POST['Mardi'])) {
-                    $jour = "Mardi";
-                    $horaire = $_POST['Mardi'];
-                    $date_emprunt = $_POST['DateEmprunt'];
-                    $date_retour = $_POST['dt_mardi'];
-                } else if (isset($_POST['Mercredi'])) {
-                    $jour = "Mercredi";
-                    $horaire = $_POST['Mercredi'];
-                    $date_emprunt = $_POST['DateEmprunt'];
-                    $date_retour = $_POST['dt_mercredi'];
-                } else if (isset($_POST['Jeudi'])) {
-                    $jour = "Jeudi";
-                    $horaire = $_POST['Jeudi'];
-                    $date_emprunt = $_POST['DateEmprunt'];
-                    $date_retour = $_POST['dt_jeudi'];
-                } else if (isset($_POST['Vendredi'])) {
-                    $jour = "Vendredi";
-                    $horaire = $_POST['Vendredi'];
-                    $date_emprunt = $_POST['DateEmprunt'];
-                    $date_retour = $_POST['dt_vendredi'];
-                }
+                <?php
+                if (isset($_POST['Lundi']) || isset($_POST['Mardi']) || isset($_POST['Mercredi']) || isset($_POST['Jeudi']) || isset($_POST['Vendredi'])) {
+                    if ($_POST['motif'] == 'Retour') {
+                        if (isset($_POST['Lundi'])) {
+                            $jour = "Lundi";
+                            $horaire = $_POST['Lundi'];
+                            $date_emprunt = $_POST['DateEmprunt'];
+                            $date_retour = $_POST['dt_lundi'];
+                        } else if (isset($_POST['Mardi'])) {
+                            $jour = "Mardi";
+                            $horaire = $_POST['Mardi'];
+                            $date_emprunt = $_POST['DateEmprunt'];
+                            $date_retour = $_POST['dt_mardi'];
+                        } else if (isset($_POST['Mercredi'])) {
+                            $jour = "Mercredi";
+                            $horaire = $_POST['Mercredi'];
+                            $date_emprunt = $_POST['DateEmprunt'];
+                            $date_retour = $_POST['dt_mercredi'];
+                        } else if (isset($_POST['Jeudi'])) {
+                            $jour = "Jeudi";
+                            $horaire = $_POST['Jeudi'];
+                            $date_emprunt = $_POST['DateEmprunt'];
+                            $date_retour = $_POST['dt_jeudi'];
+                        } else if (isset($_POST['Vendredi'])) {
+                            $jour = "Vendredi";
+                            $horaire = $_POST['Vendredi'];
+                            $date_emprunt = $_POST['DateEmprunt'];
+                            $date_retour = $_POST['dt_vendredi'];
+                        }
+                    } elseif ($_POST['motif'] = 'Pret') {
+                        if (isset($_POST['Lundi'])) {
+                            $jour = "Lundi";
+                            $horaire = $_POST['Lundi'];
+                            $date_retour = $_POST['DateRetour'];
+                            $date_emprunt = $_POST['dt_lundi'];
+                        } else if (isset($_POST['Mardi'])) {
+                            $jour = "Mardi";
+                            $horaire = $_POST['Mardi'];
+                            $date_retour = $_POST['DateRetour'];
+                            $date_emprunt = $_POST['dt_mardi'];
+                        } else if (isset($_POST['Mercredi'])) {
+                            $jour = "Mercredi";
+                            $horaire = $_POST['Mercredi'];
+                            $date_retour = $_POST['DateRetour'];
+                            $date_emprunt = $_POST['dt_mercredi'];
+                        } else if (isset($_POST['Jeudi'])) {
+                            $jour = "Jeudi";
+                            $horaire = $_POST['Jeudi'];
+                            $date_retour = $_POST['DateRetour'];
+                            $date_emprunt = $_POST['dt_jeudi'];
+                        } else if (isset($_POST['Vendredi'])) {
+                            $jour = "Vendredi";
+                            $horaire = $_POST['Vendredi'];
+                            $date_retour = $_POST['DateRetour'];
+                            $date_emprunt = $_POST['dt_vendredi'];
+                        }
+                    }
 
-            }elseif ($_POST['motif']='Pret'){
-                if (isset($_POST['Lundi'])) {
-                    $jour = "Lundi";
-                    $horaire = $_POST['Lundi'];
-                    $date_retour = $_POST['DateRetour'];
-                    $date_emprunt = $_POST['dt_lundi'];
-                } else if (isset($_POST['Mardi'])) {
-                    $jour = "Mardi";
-                    $horaire = $_POST['Mardi'];
-                    $date_retour = $_POST['DateRetour'];
-                    $date_emprunt = $_POST['dt_mardi'];
-                } else if (isset($_POST['Mercredi'])) {
-                    $jour = "Mercredi";
-                    $horaire = $_POST['Mercredi'];
-                    $date_retour = $_POST['DateRetour'];
-                    $date_emprunt = $_POST['dt_mercredi'];
-                } else if (isset($_POST['Jeudi'])) {
-                    $jour = "Jeudi";
-                    $horaire = $_POST['Jeudi'];
-                    $date_retour = $_POST['DateRetour'];
-                    $date_emprunt = $_POST['dt_jeudi'];
-                } else if (isset($_POST['Vendredi'])) {
-                    $jour = "Vendredi";
-                    $horaire = $_POST['Vendredi'];
-                    $date_retour = $_POST['DateRetour'];
-                    $date_emprunt = $_POST['dt_vendredi'];
-                }
-            }
 
+                    $categorieM = $_POST['CategorieM'];
 
-            $categorieM = $_POST['CategorieM'];
-
-            /*$id_materiel = ("SELECT * FROM materiel WHERE EtatM LIKE 'Dispo' AND StatutM LIKE 'Existant' AND CategorieM = '$categorieM' LIMIT 1");
+                    /*$id_materiel = ("SELECT * FROM materiel WHERE EtatM LIKE 'Dispo' AND StatutM LIKE 'Existant' AND CategorieM = '$categorieM' LIMIT 1");
             $result_id_materiel = mysqli_query($session, $id_materiel);
             foreach ($result_id_materiel as $materiel) {
                 $IdentifiantM = $materiel['IdentifiantM'];
             }*/
 
-            $IdentifiantM = $_POST['IdentifiantM'];
+                    $IdentifiantM = $_POST['IdentifiantM'];
 
 
-            $id_creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-            $result_id_creneau = mysqli_query($session, $id_creneau);
-            foreach ($result_id_creneau as $creneau) {
-                $IdentifiantCal = $creneau['IdentifiantCal'];
-            }
+                    $id_creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+                    $result_id_creneau = mysqli_query($session, $id_creneau);
+                    foreach ($result_id_creneau as $creneau) {
+                        $IdentifiantCal = $creneau['IdentifiantCal'];
+                    }
 
-            ?>
-            <!-- Modal -->
+                ?>
+                    <!-- Modal -->
 
-            <form action="" method="POST">
+                    <form action="" method="POST">
 
-                <input type="hidden" name="IdentifiantE" value="<?php echo $_POST['IdentifiantE']; ?>">
-                <input type="hidden" name="IdentifiantM" value="<?php echo $_POST['IdentifiantM']; ?>">
-                <input type="hidden" name="DateEmprunt" value="<?php echo $_POST['DateEmprunt']; ?>">
-                <input type="hidden" name="DateRetour" value="<?php echo $_POST['DateRetour']; ?>">
-                <input type="hidden" name="CategorieM" value="<?php echo $_POST['CategorieM']; ?>">
-                <input type="hidden" name="motif" value="<?php echo $_POST['motif']; ?>">
-                <input type="hidden" name="horaire_modif" value="<?php echo $_POST['horaire_modif']; ?>">
+                        <input type="hidden" name="IdentifiantE" value="<?php echo $_POST['IdentifiantE']; ?>">
+                        <input type="hidden" name="IdentifiantM" value="<?php echo $_POST['IdentifiantM']; ?>">
+                        <input type="hidden" name="DateEmprunt" value="<?php echo $_POST['DateEmprunt']; ?>">
+                        <input type="hidden" name="DateRetour" value="<?php echo $_POST['DateRetour']; ?>">
+                        <input type="hidden" name="CategorieM" value="<?php echo $_POST['CategorieM']; ?>">
+                        <input type="hidden" name="motif" value="<?php echo $_POST['motif']; ?>">
+                        <input type="hidden" name="horaire_modif" value="<?php echo $_POST['horaire_modif']; ?>">
 
 
 
-                <div class="modal fade" id="alerte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"><?php echo TXT_CONFIRMATION_RDV; ?></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <input type="hidden" name="IdentifiantM" value="<?php echo $IdentifiantM; ?>">
-                                <input type="hidden" name="IdentifiantCal" value="<?php echo $IdentifiantCal; ?>">
+                        <div class="modal fade" id="alerte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"><?php echo TXT_CONFIRMATION_RDV; ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" name="IdentifiantM" value="<?php echo $IdentifiantM; ?>">
+                                        <input type="hidden" name="IdentifiantCal" value="<?php echo $IdentifiantCal; ?>">
 
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_MATERIEL; ?> : </label>
-                                    <div class="col">
-                                        <input type="text" class="form-control-plaintext" name="CategorieM" value="<?php echo $categorieM; ?>" readonly>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_MATERIEL; ?> : </label>
+                                            <div class="col">
+                                                <input type="text" class="form-control-plaintext" name="CategorieM" value="<?php echo $categorieM; ?>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_DATE; ?> : </label>
+                                            <div class="col">
+                                                <input type="text" class="form-control-plaintext" name="date_emprunt" value="<?php echo $date_emprunt; ?>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col col-form-label"><?php echo TXT_DATER; ?> : </label>
+                                            <div class="col">
+                                                <input type="text" class="form-control-plaintext" name="date_retour" value="<?php echo $date_retour; ?>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col col-form-label"><?php echo TXT_JOUR; ?> : </label>
+                                            <div class="col">
+                                                <input type="text" class="form-control-plaintext" name="jour" value="<?php echo $jour; ?>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col col-form-label"><?php echo TXT_CRENEAU; ?> : </label>
+                                            <div class="col">
+                                                <input type="text" class="form-control-plaintext" name="horaire" value="<?php echo $horaire; ?>" readonly>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                                            </svg>
+                                            <div>
+                                                <?php echo TXT_INFO_RESERVATION; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_RETOUR; ?>">
+                                        <input type="submit" class="btn btn-primary" name="confirmer_modif_rdv" value="<?php echo TXT_CONFIRMER; ?>">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_CHOIX_DATE; ?> : </label>
-                                    <div class="col">
-                                        <input type="text" class="form-control-plaintext" name="date_emprunt" value="<?php echo $date_emprunt; ?>" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_DATER; ?> : </label>
-                                    <div class="col">
-                                        <input type="text" class="form-control-plaintext" name="date_retour" value="<?php echo $date_retour; ?>" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_JOUR; ?> : </label>
-                                    <div class="col">
-                                        <input type="text" class="form-control-plaintext" name="jour" value="<?php echo $jour; ?>" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="staticEmail" class="col col-form-label"><?php echo TXT_CRENEAU; ?> : </label>
-                                    <div class="col">
-                                        <input type="text" class="form-control-plaintext" name="horaire" value="<?php echo $horaire; ?>" readonly>
-                                    </div>
-                                </div>
-
-
-                                <div class="alert alert-primary d-flex align-items-center" role="alert">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-                                    </svg>
-                                    <div>
-                                        <?php echo TXT_INFO_RESERVATION; ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="<?php echo TXT_RETOUR; ?>">
-                                <input type="submit" class="btn btn-primary" name="confirmer_modif_rdv" value="<?php echo TXT_CONFIRMER; ?>">
                             </div>
                         </div>
-                    </div>
-                </div>
-                <?php
-                echo "<script>
+                    <?php
+                    echo "<script>
     $(window).load(function() {
         $('#alerte').modal('show');
     });
 </script>";
                 }
-                ?>
-            </form>
+                    ?>
+                    </form>
 
-            <?php
-            if (isset($_POST['confirmer_modif_rdv'])) {
+                    <?php
+                    if (isset($_POST['confirmer_modif_rdv'])) {
 
-                $horaire = $_POST['horaire'];
-                $jour = $_POST['jour'];
-                $date_emprunt = $_POST['date_emprunt'];
-
-
-                $date_retour = $_POST['date_retour'];
-
-                $categorie = $_POST['CategorieM'];
-                $identifiantM = $_POST['IdentifiantM'];
-                $identifiantCal = $_POST['IdentifiantCal'];
-
-                $identifiantPe = $identifiant;
-
-                $motif = $_POST['motif'];
-                $horaire_modif = $_POST['horaire_modif'];
-
-                $emprunt = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-                $result_emprunt = mysqli_query($session, $emprunt);
+                        $horaire = $_POST['horaire'];
+                        $jour = $_POST['jour'];
+                        $date_emprunt = $_POST['date_emprunt'];
 
 
-                $creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
-                $result_creneau = mysqli_query($session, $creneau);
-                foreach ($result_creneau as $row) {
-                    $IdentifiantCal = $row['IdentifiantCal'];
-                }
+                        $date_retour = $_POST['date_retour'];
 
-                if ($motif == 'Pret') {
-                    $modifier_rdv = ("UPDATE `emprunt` SET DateEmprunt = '$date_emprunt' , IdentifiantCal= '$IdentifiantCal' WHERE IdentifiantPe = '$identifiant' AND IdentifiantM = '$identifiantM'AND Statut_RDV not like 'termine'");
-                    $result_insert_rdv = mysqli_query($session, $modifier_rdv);
-                } else if ($motif == 'Retour') {
-                    $modifier_rdv = ("UPDATE `emprunt` SET DateRetour = '$date_retour' , IdentifiantCal= '$IdentifiantCal' WHERE IdentifiantPe = '$identifiant' AND IdentifiantM = '$identifiantM'AND Statut_RDV not like 'termine'");
-                    $result_insert_rdv = mysqli_query($session, $modifier_rdv);
-                }
+                        $categorie = $_POST['CategorieM'];
+                        $identifiantM = $_POST['IdentifiantM'];
+                        $identifiantCal = $_POST['IdentifiantCal'];
 
-                if ($horaire_modif != NULL) {
-                    $modifier_heure_rdv = ("UPDATE `emprunt` SET Horaire_modif = '$horaire' WHERE IdentifiantPe = '$identifiant' AND IdentifiantM = '$identifiantM'");
-                    $result_modifier_heure_rdv = mysqli_query($session, $modifier_heure_rdv);
-                }
+                        $identifiantPe = $identifiant;
+
+                        $motif = $_POST['motif'];
+                        $horaire_modif = $_POST['horaire_modif'];
+
+                        $emprunt = ("UPDATE calendrier SET EtatCal = 'Indisponible' WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+                        $result_emprunt = mysqli_query($session, $emprunt);
 
 
-                ?>
+                        $creneau = ("SELECT * FROM calendrier WHERE calendrier.JourCal LIKE '$jour' AND calendrier.HoraireCal = '$horaire'");
+                        $result_creneau = mysqli_query($session, $creneau);
+                        foreach ($result_creneau as $row) {
+                            $IdentifiantCal = $row['IdentifiantCal'];
+                        }
 
-                <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="alert alert-success d-flex align-items-center" role="alert">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                                    </svg>
-                                    <div>
+                        if ($motif == 'Pret') {
+                            $modifier_rdv = ("UPDATE `emprunt` SET DateEmprunt = '$date_emprunt' , IdentifiantCal= '$IdentifiantCal' WHERE IdentifiantPe = '$identifiant' AND IdentifiantM = '$identifiantM'AND Statut_RDV not like 'termine'");
+                            $result_insert_rdv = mysqli_query($session, $modifier_rdv);
+                        } else if ($motif == 'Retour') {
+                            $modifier_rdv = ("UPDATE `emprunt` SET DateRetour = '$date_retour' , IdentifiantCal= '$IdentifiantCal' WHERE IdentifiantPe = '$identifiant' AND IdentifiantM = '$identifiantM'AND Statut_RDV not like 'termine'");
+                            $result_insert_rdv = mysqli_query($session, $modifier_rdv);
+                        }
 
-                                        <?php echo TXT_ALERTE_SUCCES_CRENEAU ; ?>
+                        if ($horaire_modif != NULL) {
+                            $modifier_heure_rdv = ("UPDATE `emprunt` SET Horaire_modif = '$horaire' WHERE IdentifiantPe = '$identifiant' AND IdentifiantM = '$identifiantM'");
+                            $result_modifier_heure_rdv = mysqli_query($session, $modifier_heure_rdv);
+                        }
+
+
+                    ?>
+
+                        <div class="modal fade" id="alerte" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                            </svg>
+                                            <div>
+
+                                                <?php echo TXT_ALERTE_SUCCES_CRENEAU; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="col text-center">
+                                            <input type="button" class="btn btn-primary" onclick='document.location.href="profil.php"' value="<?php echo TXT_OK; ?> ">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <div class="col text-center">
-                                    <input type="button" class="btn btn-primary" onclick='document.location.href="profil.php"' value="<?php echo TXT_OK; ?> ">
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                </div>
-                <?php
-                echo "<script>
+                    <?php
+                        echo "<script>
     $(window).load(function() {
         $('#alerte').modal('show');
     });
 </script>";
-            }
-            ?>
+                    }
+                    ?>
 
-            </div>
+                    </div>
 
+
+                    <?php
+
+                    if (isset($_POST['valider_contrat'])) {
+
+                        $informations = "SELECT MAX(emprunt.IdentifiantE) AS 'DernierContrat', materiel.IdentifiantM AS 'IdentifiantM', materiel.CategorieM AS 'CategorieM', emprunt.DateRetour AS 'DateRetour', modele.IdentifiantMo AS 'IdentifiantMo', modele.Marque AS 'Marque', emprunt.DateEmprunt AS 'DateEmprunt', emprunt.IdentifiantE AS 'IdentifiantE', personne.PrenomPe AS 'PrenomPe', personne.NomPe AS 'NomPe'
+            FROM personne, materiel, emprunt, modele
+            WHERE emprunt.IdentifiantM = materiel.IdentifiantM
+            AND emprunt.IdentifiantPe = personne.IdentifiantPe
+            AND materiel.IdentifiantMo = modele.IdentifiantMo
+            AND emprunt.Contrat LIKE 'a signer'
+            GROUP BY emprunt.IdentifiantE, materiel.IdentifiantM, materiel.CategorieM, emprunt.DateRetour, modele.IdentifiantMo, modele.Marque, emprunt.DateEmprunt, emprunt.IdentifiantE, personne.PrenomPe, personne.NomPe";
+                        $result = mysqli_query($session, $informations);
+
+                        $IdentifiantE = $_POST['IdentifiantE'];
+                        $validation = "UPDATE emprunt SET Contrat = 'signe' WHERE emprunt.IdentifiantE = '$IdentifiantE'";
+                        $result_validation = mysqli_query($session, $validation);
+
+                        foreach ($result as $row) {
+                            $IdentifiantM = $row['IdentifiantM'];
+                            $CategorieM = $row['CategorieM'];
+                            $date_retour = strftime('%d/%m/%Y', strtotime($row['DateRetour']));;
+                            $modele = $row['IdentifiantMo'];
+                            $marque = $row['Marque'];
+                            $date_emprunt = strftime('%d/%m/%Y', strtotime($row['DateEmprunt']));
+                            $IdentifiantE = $row['IdentifiantE'];
+                            $prenom = $row['PrenomPe'];
+                            $nom = $row['NomPe'];
+                        }
+
+
+                        if ($CategorieM == 'Ordinateur') {
+                            $var = "un";
+                        } else {
+                            $var = "une";
+                        }
+                    }
+                    ?>
 </body>
 
 </html>
