@@ -1006,8 +1006,10 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
                 $horaire = $_POST['horaire'];
                 $jour = $_POST['jour'];
                 $date_Emprunt = $_POST['date_emprunt'];
+                /*
                 $dt = DateTime::createFromFormat('d/m/Y', $date_Emprunt);
-                $dateEmprunt = $dt->format('Y-m-d');
+                $dateEmprunt = $dt->format('Y-m-d');*/
+
 
                 $categorie = $_POST['categorieM'];
                 $identifiantM = $_POST['IdentifiantM'];
@@ -1025,7 +1027,7 @@ AND calendrier.IdentifiantCal NOT IN (SELECT emprunt.IdentifiantCal
 
 
                 $insert_rdv = ("INSERT INTO `emprunt`(`DateEmprunt`, `DateRetour`, `DateProlongation`, `Motif`, `IdentifiantM`, `IdentifiantPe`, `IdentifiantCal`)
-                    VALUES ('$dateEmprunt', '$dateRetour', NULL, 'Pret', '$identifiantM', '$identifiantPe', '$identifiantCal')");
+                    VALUES ('$date_Emprunt', '$dateRetour', NULL, 'Pret', '$identifiantM', '$identifiantPe', '$identifiantCal')");
                 $result_insert_rdv = mysqli_query($session, $insert_rdv);
 
             ?>
