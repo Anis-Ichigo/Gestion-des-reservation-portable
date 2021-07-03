@@ -1,5 +1,16 @@
 <?php
 require('decide-lang.php');
+require('Connexion_BD.php');
+mysqli_set_charset($session, "utf-8");
+require('fpdf183/fpdf.php');
+header('content-type: text/html; charset=utf-8');
+date_default_timezone_set('Europe/Paris');
+
+$identifiant = $_SESSION['identifiant'];
+
+$param_date_r = mysqli_query($session, "UPDATE personne SET date_r = NULL WHERE IdentifiantPe = '$identifiant'");
+$param_categorie = mysqli_query($session, "UPDATE personne SET categorie = '' WHERE IdentifiantPe = '$identifiant'");
+$suivant = mysqli_query($session, "UPDATE personne SET semaine = 0 WHERE IdentifiantPe = '$identifiant'");
 ?>
 
 <!DOCTYPE html>
@@ -84,11 +95,11 @@ require('decide-lang.php');
 
     </div>
 
-    
+
     <footer style="text-align: center; font-size: 1em; bottom:0; position:relative; width:100%; background-color: #ffc0cb;">
         Site réalisé par Marine CABIROL - Haoyang YU - Lisa DE SMET - Anis MANA - Antoine LAVIGNE
     </footer>
-    
+
 </body>
 
 

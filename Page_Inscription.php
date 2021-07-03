@@ -5,18 +5,12 @@ session_start();
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
 
-
-if (isset($_POST['lang'])) {
-  if ($_POST['lang'] == 'fr') {
-    $_SESSION['lang'] = 'fr';
-    include('fr-lang.php');
-  } else if ($_POST['lang'] == 'en') {
-    $_SESSION['lang'] = 'en';
-    include('en-lang.php');
-  } else if ($_POST['lang'] == 'cn') {
-    $_SESSION['lang'] = 'cn';
-    include('cn-lang.php');
-  }
+if ($_POST['lang'] == 'fr') {
+  $_SESSION['lang'] = 'fr';
+} else if ($_POST['lang'] == 'en') {
+  $_SESSION['lang'] = 'en';
+} else if ($_POST['lang'] == 'cn') {
+  $_SESSION['lang'] = 'cn';
 }
 
 if (isset($_SESSION['lang'])) {
@@ -28,7 +22,6 @@ if (isset($_SESSION['lang'])) {
     include('cn-lang.php');
   }
 }
-
 //echo $_SESSION['lang'];
 ?>
 

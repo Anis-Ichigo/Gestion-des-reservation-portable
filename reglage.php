@@ -2,6 +2,12 @@
 require('decide-lang.php');
 require('Connexion_BD.php');
 mysqli_set_charset($session, "utf-8");
+
+$identifiant = $_SESSION['identifiant'];
+
+$param_date_r = mysqli_query($session, "UPDATE personne SET date_r = NULL WHERE IdentifiantPe = '$identifiant'");
+$param_categorie = mysqli_query($session, "UPDATE personne SET categorie = '' WHERE IdentifiantPe = '$identifiant'");
+$suivant = mysqli_query($session, "UPDATE personne SET semaine = 0 WHERE IdentifiantPe = '$identifiant'");
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +38,8 @@ mysqli_set_charset($session, "utf-8");
       <div class="form-group" align="center" style="font-size: 1.25em">
 
         <input id="fr" type="radio" name="lang" value="fr" <?php
-                                                            if($_SESSION['lang']=="fr"){
-                                                                echo "checked";
+                                                            if ($_SESSION['lang'] == "fr") {
+                                                              echo "checked";
                                                             }
                                                             ?>>
         <label for="fr">
@@ -43,8 +49,8 @@ mysqli_set_charset($session, "utf-8");
         </label>
         &nbsp;&nbsp;
         <input id="en" type="radio" name="lang" value="en" <?php
-                                                            if($_SESSION['lang']=="en"){
-                                                                echo "checked";
+                                                            if ($_SESSION['lang'] == "en") {
+                                                              echo "checked";
                                                             }
                                                             ?>>
         <label for="en">
@@ -53,9 +59,9 @@ mysqli_set_charset($session, "utf-8");
           English
         </label><br><br>
 
-        <input id="cn" type="radio" name="lang" value="cn"<?php
-                                                            if($_SESSION['lang']=="cn"){
-                                                                echo "checked";
+        <input id="cn" type="radio" name="lang" value="cn" <?php
+                                                            if ($_SESSION['lang'] == "cn") {
+                                                              echo "checked";
                                                             }
                                                             ?>>
         <label for="cn">
@@ -63,7 +69,7 @@ mysqli_set_charset($session, "utf-8");
           <span class="flag-icon flag-icon-cn"></span>
           简体中文
         </label><br><br>
-          
+
 
         <input type="submit" name="enregistrer_parametres" value="<?php echo ENREGISTRER; ?>">
 

@@ -52,6 +52,9 @@ date_default_timezone_set('Europe/Paris');
     <?php
     $identifiant = $_SESSION['identifiant'];
     //$identifiant = '22508753';
+    $param_date_r = mysqli_query($session, "UPDATE personne SET date_r = NULL WHERE IdentifiantPe = '$identifiant'");
+    $param_categorie = mysqli_query($session, "UPDATE personne SET categorie = '' WHERE IdentifiantPe = '$identifiant'");
+    $suivant = mysqli_query($session, "UPDATE personne SET semaine = 0 WHERE IdentifiantPe = '$identifiant'");
 
     if (isset($_POST['envoyer_probleme'])) {
         $NomP = addslashes($_POST['NomP']);
@@ -1764,6 +1767,8 @@ date_default_timezone_set('Europe/Paris');
 
                     if (isset($_POST['valider_contrat'])) {
 
+                        $identifiantPe = $_SESSION['identifiant'];
+
                         $informations = "SELECT MAX(emprunt.IdentifiantE) AS 'DernierContrat', materiel.IdentifiantM AS 'IdentifiantM', materiel.CategorieM AS 'CategorieM', emprunt.DateRetour AS 'DateRetour', modele.IdentifiantMo AS 'IdentifiantMo', modele.Marque AS 'Marque', emprunt.DateEmprunt AS 'DateEmprunt', emprunt.IdentifiantE AS 'IdentifiantE', personne.PrenomPe AS 'PrenomPe', personne.NomPe AS 'NomPe'
             FROM personne, materiel, emprunt, modele
             WHERE emprunt.IdentifiantM = materiel.IdentifiantM
@@ -1794,6 +1799,18 @@ date_default_timezone_set('Europe/Paris');
                             $var = "un";
                         } else {
                             $var = "une";
+                        }
+
+                        $nb_contrats = "SELECT * FROM emprunt WHERE IdentifiantPe = '$identifiantPe' AND Contrat = 'a signer'";
+                        $result_nb_contrats = mysqli_query($session, $nb_contrats);
+                        echo mysqli_num_rows($result_nb_contrats);
+
+                        if (mysqli_num_rows($result_nb_contrats) > 0) {
+                    ?>
+                            <script type="text/javascript">
+                                document.location.href = 'contrat.php';
+                            </script>
+                    <?php
                         }
                     }
                     ?>
