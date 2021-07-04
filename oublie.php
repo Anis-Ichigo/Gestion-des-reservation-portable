@@ -29,7 +29,7 @@ mysqli_set_charset($session, "utf8");
                             <label for="identifiant">IDENTIFIANT</label>
                         </td>
                         <td>
-                            <input type="email" class="form-control" id="identifiant" name="user" placeholder=" xxx@ut-capitole.fr" >
+                            <input type="email" class="form-control" id="identifiant" name="user" placeholder=" xxx@ut-capitole.fr" required >
                         </td>
                     </tr>
                 </table>
@@ -37,6 +37,9 @@ mysqli_set_charset($session, "utf8");
                 <button type="submit" class="btn btn-primary mb-3"  name="envoyer" style="font-size: 1.25em;">
                     Envoyer
                 </button>
+                <br>Ou<br>
+                <button><a href='Index.html' style='font-size: 1.25em;'>Connecter-vous</a></button>
+
             </form>
 
 

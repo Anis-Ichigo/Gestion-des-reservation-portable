@@ -68,7 +68,6 @@ mysqli_set_charset($session, "utf8");
                     $_SESSION['tel'] = $tel;
                     $_SESSION['statut'] = $statut;
                     $_SESSION['formation'] = $formation;
-                    $_SESSION['role'] = $role;
 
 
 

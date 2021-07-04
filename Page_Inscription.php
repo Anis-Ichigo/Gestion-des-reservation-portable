@@ -86,6 +86,12 @@ if (isset($_SESSION['lang'])) {
     <img alt="Logo UT1" class="img_logo" src="Bandeau.png">
   </div>
 
+  <div class="element-head" style="float: left">
+      <a href="Index.html" type="button" class="btn btn-default">
+              <span class="fi-rr-arrow-left">&nbsp;Connecter-vous</span>
+      </a>
+  </div>
+  <br><br>
 
 
   <FORM action='' method="post" style="width: 70%; margin-right:auto; margin-left:auto;">
@@ -217,7 +223,6 @@ if (isset($_SESSION['lang'])) {
         <input type="submit" name="inscription" value="<?php echo TXT_ACCUEIL_INSCRIPTION; ?>">
         <input type="reset" value="<?php echo TXT_REINITIALISER; ?>" for="checkbox_newletter"><br><br>
 
-        <a href="index.html" type="button" class="btn btn-secondary"><?php echo TXT_RETOUR; ?></a>
       </CENTER><br>
 
     </div>

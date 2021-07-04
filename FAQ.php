@@ -90,10 +90,6 @@ $suivant = mysqli_query($session, "UPDATE personne SET semaine = 0 WHERE Identif
     </div>
 
 
-    <div class="text-center">
-        <a href="menu3.php" type="button" class="btn btn-secondary mb-3" style="text-transform: uppercase;"><?php echo TXT_MENU; ?></a>
-
-    </div>
 
 
     <footer style="text-align: center; font-size: 1em; bottom:0; position:relative; width:100%; background-color: #ffc0cb;">
