@@ -352,4 +352,6 @@ define('DECONNEXION', 'Déconnexion');
 define('FAQ', 'FAQ');
 define('PROFIL', 'Profil');
 
+define('TXT_CONNECTER', 'Se connecter');
+
  ?>

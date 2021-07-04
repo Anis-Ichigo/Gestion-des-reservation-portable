@@ -345,4 +345,8 @@ define('DECONNEXION', '退出');
 define('FAQ', '常见问题');
 define('PROFIL', '个人信息');
 
+
+define('TXT_CONNECTER', '登錄');
+
+
  ?>

@@ -346,3 +346,5 @@ define('ENREGISTRER', 'Record');
 define('DECONNEXION', 'Logout');
 define('FAQ', 'FAQ');
 define('PROFIL', 'Profile');
+
+define('TXT_CONNECTER', 'Log in');

@@ -87,9 +87,9 @@ if (isset($_SESSION['lang'])) {
   </div>
 
   <div class="element-head" style="float: left">
-      <a href="Index.html" type="button" class="btn btn-default">
-              <span class="fi-rr-arrow-left">&nbsp;Connecter-vous</span>
-      </a>
+    <a href="Index.html" type="button" class="btn btn-default">
+      <span class="fi-rr-arrow-left">&nbsp;<?php echo TXT_CONNECTER ?></span>
+    </a>
   </div>
   <br><br>
 
